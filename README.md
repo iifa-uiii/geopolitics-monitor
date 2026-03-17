@@ -44,10 +44,6 @@ The dashboard is built as a single self-contained HTML file. It runs entirely in
 - Indonesia's power profile: GDP rank, population, Lowy Power Index score, military spend, naval capacity
 - Global defense expenditure chart (SIPRI 2024)
 
-### Export Tab
-- **JSON export** — full snapshot of all loaded data including exchange rates, AI summaries, conflict metadata, trade data, power indices, and alliance positions. Ready for `json.load()` in Python or `jsonlite::fromJSON()` in R.
-- **CSV export** — three separate sheets: Markets, Conflict Intelligence, and Structural Data. Opens directly in Excel or Google Sheets.
-- Data preview pane for quick sanity-check before use
 
 ---
 
