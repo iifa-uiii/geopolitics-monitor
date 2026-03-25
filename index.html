@@ -278,42 +278,6 @@ body{display:flex;flex-direction:column;min-height:100vh}
     <div id="chartNote" style="font-size:9px;color:var(--text2);margin-top:6px">Select asset and period above. Indicative historical approximation.</div>
   </div>
 
-  <div class="tlb">Indonesia Global Risk Matrix &mdash; 10 Core Indicators (IIFA Framework)</div>
-  <div class="card gap">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:12px">
-      <div style="font-size:11px;color:var(--text2);line-height:1.6;max-width:560px">
-        Weighted composite score across 4 channels. Enter current indicator values to compute signal. Green=0, Amber=50, Red=100 per indicator. Crisis: score &ge;65 OR &ge;3 red core indicators. Based on IIFA calibrated framework (revised 2025).
-      </div>
-      <div style="display:flex;gap:10px">
-        <div style="text-align:center;background:var(--bg);border-radius:var(--r);padding:10px 18px;border:0.5px solid var(--border)">
-          <div style="font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Composite Score</div>
-          <div style="font-size:30px;font-weight:800;color:var(--text)" id="rmScore">&mdash;</div>
-          <div style="font-size:9px;font-weight:700;margin-top:2px;color:var(--text2)" id="rmLevel">Enter values below</div>
-        </div>
-        <div style="text-align:center;background:var(--bg);border-radius:var(--r);padding:10px 18px;border:0.5px solid var(--border)">
-          <div style="font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">Red Alerts</div>
-          <div style="font-size:30px;font-weight:800;color:#E24B4A" id="rmReds">0</div>
-          <div style="font-size:9px;color:var(--text2);margin-top:2px">of 10 core</div>
-        </div>
-      </div>
-    </div>
-    <div style="display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap;font-size:10px">
-      <div style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:#3DBFB0;border-radius:2px;display:inline-block"></span>Green (0&ndash;35) Low risk</div>
-      <div style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:#EF9F27;border-radius:2px;display:inline-block"></span>Amber (35&ndash;65) Elevated</div>
-      <div style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:#E24B4A;border-radius:2px;display:inline-block"></span>Red (65&ndash;100) High risk</div>
-      <div style="color:var(--text2)">&ge;3 red = crisis escalation</div>
-    </div>
-    <div style="overflow-x:auto">
-      <table style="min-width:840px">
-        <thead><tr><th style="width:195px">Indicator</th><th style="width:55px">Weight</th><th style="width:105px">Channel</th><th style="width:105px">Current Value</th><th style="width:155px">Amber Threshold</th><th style="width:155px">Red Threshold</th><th style="width:75px">Signal</th><th style="width:55px;text-align:center">Score</th></tr></thead>
-        <tbody id="riskTbody"></tbody>
-      </table>
-    </div>
-    <div style="margin-top:12px;padding-top:10px;border-top:0.5px solid var(--border);font-size:9px;color:var(--text2)">
-      Sources: FRED, CBOE, Bank Indonesia / MoF, World Bank, NY Fed GSCPI, Caldara &amp; Iacoviello GPR Index. Thresholds: IIFA Global Risk Dashboard framework (revised calibration 2025).
-    </div>
-  </div>
-
   <div class="tlb">Key Commodities &mdash; Asia Pacific &amp; ASEAN</div>
   <div class="g2 gap">
     <div class="card">
