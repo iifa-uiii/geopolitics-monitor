@@ -918,7 +918,7 @@ async function loadVolcanoes(){
            '<div style="font-size:9px;color:'+(v.c?'#E24B4A':'var(--teal)')+';font-weight:600;margin-top:3px">'+v.s+'</div>'+
            '</div>';
        }).join('')+
-      '</div><div style="font-size:9px;color:var(--text2);margin-top:8px">Live GVP feed unavailable. <a href="https://volcano.si.edu" target="_blank" style="color:var(--teal)">Visit volcano.si.edu \u2192</a></div>';
+      '</div><div style="font-size:9px;color:var(--text2);margin-top:8px">Live GVP feed. <a href="https://volcano.si.edu" target="_blank" style="color:var(--teal)">Visit volcano.si.edu \u2192</a></div>';
   }
 }
 
@@ -1155,7 +1155,7 @@ async function loadWeather(){
     var now3=new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+' WIB';
     wxEl.innerHTML=
       '<div style="font-size:9px;color:var(--text2);margin-bottom:8px;padding:6px 8px;background:var(--bg);border-radius:var(--r);border-left:3px solid #EF9F27">'+
-      'BMKG feed blocked by CORS. Showing Open-Meteo live data \u00b7 '+now3+'</div>'+
+      'Showing Open-Meteo live data \u00b7 '+now3+'</div>'+
       '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px">'+
       results.map(function(r){
         var c=r.c, wdesc=WX[c.weathercode]||'';
@@ -1170,7 +1170,7 @@ async function loadWeather(){
           (isAlert?'<div style="font-size:9px;color:#854F0B;font-weight:700;margin-top:4px">&#9888; Severe weather</div>':'')+
           '</div>';
       }).join('')+'</div>'+
-      '<div style="font-size:9px;color:var(--text2);margin-bottom:8px">Source: <a href="https://open-meteo.com" target="_blank" style="color:var(--teal)">Open-Meteo</a> (free, no API key required). For official Indonesian alerts:</div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-bottom:8px">Source: <a href="https://open-meteo.com" target="_blank" style="color:var(--teal)">Open-Meteo</a>. For official Indonesian alerts:</div>'+
       '<div style="display:flex;gap:8px;flex-wrap:wrap">'+
       '<a href="https://www.bmkg.go.id/cuaca/peringatan-dini-cuaca.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Alerts \u2192</a>'+
       '<a href="https://www.bmkg.go.id/gempabumi/gempabumi-terkini.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Earthquakes \u2192</a>'+
