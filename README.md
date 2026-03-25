@@ -4,7 +4,7 @@
 
 **Built by:** Indonesian Institute for Foreign Affairs (IIFA) at Universitas Islam Internasional Indonesia (UIII)  
 **Faculty:** Faculty of Social Sciences  
-**Live dashboard:** [iifa-uiii.github.io/geopolitics-monitor](https://iifa-uiii.github.io/geopolitics-monitor) *(update this link after deployment)*
+**Live dashboard:** [iifa-uiii.github.io/geopolitics-monitor](https://iifa-uiii.github.io/geopolitics-monitor) 
 
 ---
 
