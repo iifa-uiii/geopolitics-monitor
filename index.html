@@ -260,7 +260,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
       <button data-asset="idr_eur" class="rbtn" id="aIDREUR" onclick="setAsset('idr_eur',this)">IDR/EUR</button>
       <button data-asset="idr_sgd" class="rbtn" id="aIDRSGD" onclick="setAsset('idr_sgd',this)">IDR/SGD</button>
       <button data-asset="idr_aud" class="rbtn" id="aIDRAUD" onclick="setAsset('idr_aud',this)">IDR/AUD</button>
-      <button data-asset="brent" class="rbtn" id="aBRENT" onclick="setAsset('brent',this)">Brent</button>
+      <button data-asset="brent" class="rbtn" id="aBRENT" onclick="setAsset('brent',this)">Oil</button>
       <button data-asset="gold" class="rbtn" id="aGOLD" onclick="setAsset('gold',this)">Gold</button>
       <button data-asset="coal" class="rbtn" id="aCOAL" onclick="setAsset('coal',this)">Coal</button>
       <button data-asset="palm" class="rbtn" id="aPALM" onclick="setAsset('palm',this)">Palm Oil</button>
@@ -291,7 +291,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
     </div>
     <div class="card">
       <div class="ct">Global benchmarks</div>
-      <div class="br-row"><div class="brl">Brent Crude</div><div class="brt"><div class="brf" style="width:60%;background:#854F0B"></div></div><div class="brv">~$78/bbl</div></div>
+      <div class="br-row"><div class="brl">Oil Crude</div><div class="brt"><div class="brf" style="width:60%;background:#854F0B"></div></div><div class="brv">~$78/bbl</div></div>
       <div class="br-row"><div class="brl">Gold</div><div class="brt"><div class="brf" style="width:85%;background:#EF9F27"></div></div><div class="brv">~$3,320/oz</div></div>
       <div class="br-row"><div class="brl">Wheat</div><div class="brt"><div class="brf" style="width:35%;background:#888780"></div></div><div class="brv">~$210/T</div></div>
       <div class="br-row"><div class="brl">Fertilizer</div><div class="brt"><div class="brf" style="width:40%;background:#888780"></div></div><div class="brv">~$380/T</div></div>
@@ -499,7 +499,7 @@ function buildTicker(u,c,j,sgd,eur){
     {n:'IDR/USD',v:'Rp '+u},{n:'IDR/CNY',v:'Rp '+c},{n:'IDR/100JPY',v:'Rp '+j},
     {n:'IDR/SGD',v:'Rp '+sgd},{n:'IDR/EUR',v:'Rp '+eur},
     {n:'Fed Rate',v:'4.25-4.5%'},{n:'BI Rate',v:'5.75%'},
-    {n:'Brent',v:'~$78/bbl'},{n:'Gold',v:'~$3,320/oz'},
+    {n:'Oil',v:'~$78/bbl'},{n:'Gold',v:'~$3,320/oz'},
     {n:'Palm Oil',v:'~MYR4,120'},{n:'Nickel',v:'~$16,850/T'},
     {n:'Coal',v:'~$132/T'},{n:'IDX PMI',v:'51.2'},{n:'US PMI',v:'49.0'}
   ];
@@ -583,7 +583,7 @@ var ASSETS={
     '3m':[10000,10080,10160,10220,10290,10350,10400,10450,10490,10530,10570,10590,10590],
     '6m':[9800,9950,10100,10250,10400,10520,10590],
     '1y':[9900,9950,10000,10080,10160,10280,10380,10340,10440,10520,10580,10580,10590]},
-  brent:{label:'Brent Crude (USD/bbl)',color:'#854F0B',unit:'$',
+  brent:{label:'Oil Crude (USD/bbl)',color:'#854F0B',unit:'$',
     '30d':[76,77,76.5,78,77.5,79,78.5,80,79.5,79,80,81,80.5,80,79.5,79,78.5,78,79,78.5,79,78.5,78,78.5,78,77.5,78,78.5,79,78],
     '3m':[74,75,76,77,77.5,78,78.5,79,78.5,78,79,78.5,78],
     '6m':[72,73,74,76,77,78,78],
@@ -1214,7 +1214,7 @@ var RISK_INDICATORS=[
    eval:function(v){return v<12?'red':v<16?'amber':'green';}},
   {id:'gpr',name:'GPR Geopolitical Risk Index',weight:9,ch:'Ch4: Composite',pl:'e.g. 155',an:'>150',rn:'>200 (revised)',
    eval:function(v){return v>200?'red':v>150?'amber':'green';}},
-  {id:'brent',name:'Brent Crude Oil (USD/bbl)',weight:8,ch:'Ch3: Balance Sheet',pl:'e.g. 78',an:'>$90/bbl',rn:'>$100/bbl',
+  {id:'brent',name:'Oil Crude Oil (USD/bbl)',weight:8,ch:'Ch3: Balance Sheet',pl:'e.g. 78',an:'>$90/bbl',rn:'>$100/bbl',
    eval:function(v){return v>100?'red':v>90?'amber':'green';}},
   {id:'gscpi',name:'NY Fed GSCPI',weight:8,ch:'Ch4: Composite',pl:'e.g. 0.3',an:'>1.0 sigma',rn:'>2.0 sigma',
    eval:function(v){return v>2.0?'red':v>1.0?'amber':'green';}}
