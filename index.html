@@ -171,7 +171,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
         <tr style="background:#FEF0F0"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#A32D2D;letter-spacing:0.6px;border-left:4px solid #E24B4A">&#9679; ACTIVE CONFLICTS &mdash; Ongoing, High Urgency</td></tr>
         <tr style="border-left:4px solid #E24B4A"><td><strong>Gaza &amp; Red Sea</strong></td><td><span class="badge br">Critical</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge br">High &mdash; freight, LNG</span></td><td><span class="badge br">High &mdash; OIC solidarity</span></td></tr>
         <tr style="border-left:4px solid #E24B4A"><td><strong>Russia&ndash;Ukraine</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; food &amp; fertilizer</span></td><td><span class="badge ba">Medium &mdash; UNSC</span></td></tr>
-        <tr style="border-left:4px solid #E24B4A"><td><strong>Pakistan / Afghanistan</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; energy routes</span></td><td><span class="badge br">High &mdash; Islamic solidarity</span></td></tr>
+        <tr style="border-left:4px solid #E24B4A"><td><strong>Pakistan — Afghanistan</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; energy routes</span></td><td><span class="badge br">High &mdash; Islamic solidarity</span></td></tr>
         <tr style="border-left:4px solid #E24B4A"><td><strong>Myanmar</strong></td><td><span class="badge ba">High</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low</span></td><td><span class="badge br">High &mdash; ASEAN credibility</span></td></tr>
         <tr style="border-left:4px solid #E24B4A"><td><strong>Hormuz &amp; Iran</strong></td><td><span class="badge br">Critical</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge br">High &mdash; LNG &amp; oil transit</span></td><td><span class="badge ba">Medium</span></td></tr>
         <tr style="border-left:4px solid #E24B4A"><td><strong>Thailand &mdash; Cambodia</strong></td><td><span class="badge ba">Elevated</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; ASEAN trade</span></td><td><span class="badge ba">Medium &mdash; ASEAN unity</span></td></tr>
@@ -754,7 +754,7 @@ var ZONES=[
    fb:['Myanmar resistance controls majority of Shan State as junta loses ground||Al Jazeera||Mar 2026',
        'Philippines ASEAN chair convenes talks on Myanmar humanitarian corridor||Reuters||Mar 2026',
        'UNHCR: Myanmar displacement crisis reaches record levels||UN OCHA||Mar 2026']},
-  {id:'pakaf',t:'Pakistan & Afghanistan',s:'high',sl:'HIGH',imp:'Islamic solidarity, regional stability',
+  {id:'pakaf',t:'Pakistan — Afghanistan',s:'high',sl:'HIGH',imp:'Islamic solidarity, regional stability',
    kw:['pakistan','afghanistan','taliban','islamabad','ttp'],
    fb:['Pakistan army offensive against TTP displaces thousands in Khyber||Reuters||Mar 2026',
        'Taliban enforces new NGO restrictions drawing international condemnation||BBC||Mar 2026',
@@ -779,7 +779,7 @@ var ZONES=[
    fb:['Philippines opens ASEAN 2026 chairmanship with SCS COC as top priority||Reuters||Mar 2026',
        'ASEAN-China COC negotiations continue with key enforcement gaps||Nikkei Asia||Mar 2026',
        'Mekong water levels critical as upstream dam operations scrutinized||Al Jazeera||Mar 2026']},
-  {id:'pacific',t:'Pacific - AU, NZ & Islands',s:'med',sl:'MONITOR',imp:'Strategic alignment, maritime',
+  {id:'pacific',t:'Pacific',s:'med',sl:'MONITOR',imp:'Strategic alignment, maritime',
    kw:['australia china','new zealand','pacific islands','aukus','solomon'],
    fb:['AUKUS nuclear submarine technology transfer enters procurement phase||Reuters||Mar 2026',
        'Pacific Islands Forum debates competing Chinese and US infrastructure models||RNZ||Mar 2026',
@@ -877,9 +877,9 @@ function renderCards(hls){
   var wZ=ZONES.filter(function(z){return WATCH_IDS.indexOf(z.id)>=0;});
   var rZ=ZONES.filter(function(z){return REGIONAL_IDS.indexOf(z.id)>=0;});
   grid.innerHTML=
-    sLabel('#FEF0F0','#E24B4A','#A32D2D','● Active Conflicts — Ongoing, High Urgency')+
+    sLabel('#FEF0F0','#E24B4A','#A32D2D','● Active Conflicts')+
     aZ.map(function(z){return makeZoneCard(z,hls);}).join('')+
-    sLabel('#FFF8F0','#EF9F27','#854F0B','▶ Escalation Watch — Elevated tensions, no open daily conflict')+
+    sLabel('#FFF8F0','#EF9F27','#854F0B','▶ Escalation Watch')+
     wZ.map(function(z){return makeZoneCard(z,hls);}).join('')+
     sLabel('#F0FAFA','#3DBFB0','#0f6e66','■ Regional Monitoring')+
     rZ.map(function(z){return makeZoneCard(z,hls);}).join('');
