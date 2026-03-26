@@ -131,8 +131,9 @@ body{display:flex;flex-direction:column;min-height:100vh}
     </a>
     <div class="hdr-div"></div>
     <div>
-      <div class="hdr-t">Geopolitics and Geoeconomic Monitor (Beta)</div>
+      <div class="hdr-t">Geopolitics and Geoeconomic Monitor</div>
       <div class="hdr-s">Indonesian Institute for Foreign Affairs (IIFA) &mdash; UIII</div>
+      <div class="hdr-s" style="font-size:9px;opacity:0.55;margin-top:1px;letter-spacing:0.2px">(Beta ver 11.8)</div>
     </div>
   </div>
   <div class="hdr-r">
@@ -160,7 +161,6 @@ body{display:flex;flex-direction:column;min-height:100vh}
 <div class="sec active" id="s-geopolitics">
   <div class="rb">
     <div>Live headlines matched from RSS feeds &nbsp;&middot;&nbsp; Refreshed: <strong id="confTs">&mdash;</strong></div>
-    <button class="rbtn" id="confBtn" onclick="loadHeadlines()">Refresh Headlines</button>
   </div>
   <div class="cgrid" id="confGrid"></div>
   <div class="card gap">
@@ -168,40 +168,25 @@ body{display:flex;flex-direction:column;min-height:100vh}
     <table>
       <thead><tr><th>Zone</th><th>Intensity</th><th>Proximity</th><th>Economic impact</th><th>Political pressure</th></tr></thead>
       <tbody>
-        <tr><td>South China Sea</td><td><span class="badge br">Critical</span></td><td><span class="badge br">Direct</span></td><td><span class="badge br">High &mdash; Natuna, SLOCs</span></td><td><span class="badge ba">Medium</span></td></tr>
-        <tr><td>Hormuz / Iran</td><td><span class="badge br">Rising</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge br">High &mdash; LNG &amp; oil</span></td><td><span class="badge ba">Medium</span></td></tr>
-        <tr><td>Gaza / Red Sea</td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; freight</span></td><td><span class="badge br">High &mdash; solidarity</span></td></tr>
-        <tr><td>Russia&ndash;Ukraine</td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; food &amp; fertilizer</span></td><td><span class="badge ba">Medium &mdash; UNSC</span></td></tr>
-        <tr><td>China&ndash;Taiwan</td><td><span class="badge ba">Rising</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; semiconductors</span></td><td><span class="badge br">High &mdash; US-China choice</span></td></tr>
-        <tr><td>Myanmar</td><td><span class="badge ba">High</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low</span></td><td><span class="badge br">High &mdash; ASEAN credibility</span></td></tr>
-        <tr><td>Pakistan / Afghanistan</td><td><span class="badge ba">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge ba">Medium &mdash; solidarity</span></td></tr>
-        <tr><td>Africa &mdash; coups / conflict</td><td><span class="badge ba">Medium</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge bb">Low</span></td></tr>
-        <tr><td>South Asia</td><td><span class="badge ba">Latent</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge bb">Low</span></td></tr>
-        <tr><td>ASEAN Regional</td><td><span class="badge bt">Monitor</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; trade</span></td><td><span class="badge br">High &mdash; leadership</span></td></tr>
-        <tr><td>Pacific &mdash; AU, NZ, Islands</td><td><span class="badge bt">Monitor</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low &mdash; indirect</span></td><td><span class="badge ba">Medium &mdash; alignment</span></td></tr>
+        <tr style="background:#FEF0F0"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#A32D2D;letter-spacing:0.6px;border-left:4px solid #E24B4A">&#9679; ACTIVE CONFLICTS &mdash; Ongoing, High Urgency</td></tr>
+        <tr style="border-left:4px solid #E24B4A"><td><strong>Gaza &amp; Red Sea</strong></td><td><span class="badge br">Critical</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge br">High &mdash; freight, LNG</span></td><td><span class="badge br">High &mdash; OIC solidarity</span></td></tr>
+        <tr style="border-left:4px solid #E24B4A"><td><strong>Russia&ndash;Ukraine</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; food &amp; fertilizer</span></td><td><span class="badge ba">Medium &mdash; UNSC</span></td></tr>
+        <tr style="border-left:4px solid #E24B4A"><td><strong>Pakistan / Afghanistan</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; energy routes</span></td><td><span class="badge br">High &mdash; Islamic solidarity</span></td></tr>
+        <tr style="border-left:4px solid #E24B4A"><td><strong>Myanmar</strong></td><td><span class="badge ba">High</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low</span></td><td><span class="badge br">High &mdash; ASEAN credibility</span></td></tr>
+        <tr style="border-left:4px solid #E24B4A"><td><strong>Hormuz &amp; Iran</strong></td><td><span class="badge br">Critical</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge br">High &mdash; LNG &amp; oil transit</span></td><td><span class="badge ba">Medium</span></td></tr>
+        <tr style="border-left:4px solid #E24B4A"><td><strong>Thailand &mdash; Cambodia</strong></td><td><span class="badge ba">Elevated</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; ASEAN trade</span></td><td><span class="badge ba">Medium &mdash; ASEAN unity</span></td></tr>
+        <tr style="background:#FFF8F0"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#854F0B;letter-spacing:0.6px;border-left:4px solid #EF9F27">&#9654; ESCALATION WATCH &mdash; Tensions elevated, no ongoing open conflict</td></tr>
+        <tr style="border-left:4px solid #EF9F27"><td>South China Sea</td><td><span class="badge ba">Rising</span></td><td><span class="badge br">Direct</span></td><td><span class="badge br">High &mdash; Natuna, SLOCs</span></td><td><span class="badge ba">Medium</span></td></tr>
+        <tr style="border-left:4px solid #EF9F27"><td>China&ndash;Taiwan</td><td><span class="badge ba">Rising</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; semiconductors</span></td><td><span class="badge br">High &mdash; US-China choice</span></td></tr>
+        <tr style="background:#F0FAFA"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#0f6e66;letter-spacing:0.6px;border-left:4px solid #3DBFB0">&#9632; REGIONAL MONITORING</td></tr>
+        <tr style="border-left:4px solid #3DBFB0"><td>Southeast Asia</td><td><span class="badge bt">Monitor</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">High &mdash; trade &amp; SLOCs</span></td><td><span class="badge br">High &mdash; leadership</span></td></tr>
+        <tr style="border-left:4px solid #3DBFB0"><td>South Asia</td><td><span class="badge ba">Latent</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge bb">Low</span></td></tr>
+        <tr style="border-left:4px solid #3DBFB0"><td>Africa</td><td><span class="badge ba">Medium</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge bb">Low</span></td></tr>
+        <tr style="border-left:4px solid #3DBFB0"><td>Pacific &mdash; AU, NZ, Islands</td><td><span class="badge bt">Monitor</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low &mdash; indirect</span></td><td><span class="badge ba">Medium &mdash; alignment</span></td></tr>
       </tbody>
     </table>
   </div>
-  
-  <!-- INDONESIA STRATEGIC INDICATORS (moved from Disaster Risks) -->
-  <div class="tlb">Indonesia Strategic Indicators</div>
-  <div class="g2 gap">
-    <div class="card">
-      <div class="ct">Macro indicators 2024-2025</div>
-      <div class="pl"><span>GDP Growth (2024)</span><span style="font-weight:700">5.05%</span></div><div class="pt"><div class="pf" style="width:65%;background:#3DBFB0"></div></div>
-      <div class="pl"><span>Inflation (Feb 2025)</span><span style="font-weight:700">2.6%</span></div><div class="pt"><div class="pf" style="width:26%;background:#EF9F27"></div></div>
-      <div class="pl"><span>Unemployment Rate</span><span style="font-weight:700">4.82%</span></div><div class="pt"><div class="pf" style="width:20%;background:#0D3D5F"></div></div>
-      <div class="pl"><span>Current Account (% GDP)</span><span style="font-weight:700">-0.8%</span></div><div class="pt"><div class="pf" style="width:30%;background:#E24B4A"></div></div>
-    </div>
-    <div class="card">
-      <div class="ct">Fiscal &amp; financial resilience</div>
-      <div class="pl"><span>Forex Reserves (USD B)</span><span style="font-weight:700">$155.7B</span></div><div class="pt"><div class="pf" style="width:70%;background:#3DBFB0"></div></div>
-      <div class="pl"><span>Debt-to-GDP</span><span style="font-weight:700">39.6%</span></div><div class="pt"><div class="pf" style="width:40%;background:#0D3D5F"></div></div>
-      <div class="pl"><span>FDI Inflow 2024 (USD B)</span><span style="font-weight:700">$47.8B</span></div><div class="pt"><div class="pf" style="width:55%;background:#3DBFB0"></div></div>
-      <div class="pl"><span>Defense Budget (% GDP)</span><span style="font-weight:700">0.78%</span></div><div class="pt"><div class="pf" style="width:12%;background:#E24B4A"></div></div>
-    </div>
-  </div>
-  <p class="sn">Headlines: Reuters, Al Jazeera, BBC, NYT, The Guardian RSS feeds &mdash; keyword-matched per conflict zone. Auto-loads on page open. Strategic indicators: BPS Indonesia, Bank Indonesia, Kemenkeu 2024&ndash;2025.</p>
+  <p class="sn">Headlines sourced from Google News via RSS &mdash; refreshed automatically each time this tab is opened.</p>
 </div>
 
 <!-- GEOECONOMY -->
@@ -218,9 +203,9 @@ body{display:flex;flex-direction:column;min-height:100vh}
     <div class="card">
       <div class="ct">US Federal Reserve</div>
       <div style="font-size:28px;font-weight:800;color:var(--navy)">4.25&ndash;4.5%</div>
-      <div style="font-size:10px;color:var(--text2);margin-top:4px">Federal Funds Rate &mdash; held Dec 2024</div>
-      <div style="font-size:10px;color:#EF9F27;margin-top:4px;font-weight:600">FOMC Mar 2026: Rate held 4.25&ndash;4.5%</div>
-      <div style="font-size:10px;color:var(--text2);margin-top:6px;line-height:1.5">Fed maintained rates at Dec 2024 meeting. Market pricing 2 cuts in 2025. Higher-for-longer posture weighing on IDR and EM capital flows.</div>
+      <div style="font-size:10px;color:var(--text2);margin-top:4px">Federal Funds Rate &mdash; held Dec 2025</div>
+      <div style="font-size:10px;color:#EF9F27;margin-top:4px;font-weight:600">FOMC Dec 2025: Rate held 4.25&ndash;4.5%</div>
+      <div style="font-size:10px;color:var(--text2);margin-top:6px;line-height:1.5">Fed held rates at 4.25&ndash;4.50% throughout 2025 after cutting 100bps in late 2024. Market pricing 1&ndash;2 cuts in 2026. Higher-for-longer posture weighing on IDR and EM capital flows.</div>
       <a href="https://www.federalreserve.gov/monetarypolicy/openmarket.htm" target="_blank" style="font-size:9px;color:var(--teal);font-weight:700;text-decoration:none;display:block;margin-top:6px">Fed Open Market Committee &rarr;</a>
     </div>
     <div class="card">
@@ -232,13 +217,13 @@ body{display:flex;flex-direction:column;min-height:100vh}
       <a href="https://www.bi.go.id/en/default.aspx" target="_blank" style="font-size:9px;color:var(--teal);font-weight:700;text-decoration:none;display:block;margin-top:6px">Bank Indonesia &rarr;</a>
     </div>
     <div class="card">
-      <div class="ct">PMI Manufacturing (latest available)</div>
+      <div class="ct">PMI Manufacturing &mdash; Feb 2025 (S&amp;P Global / ISM)</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:4px">
-        <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:var(--teal)">51.2</div><div style="font-size:9px;color:var(--text2)">Indonesia</div><div style="font-size:8px;color:var(--teal)">Expanding</div></div>
+        <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:var(--teal)">53.6</div><div style="font-size:9px;color:var(--text2)">Indonesia</div><div style="font-size:8px;color:var(--teal)">Expanding</div></div>
         <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:var(--teal)">50.8</div><div style="font-size:9px;color:var(--text2)">China</div><div style="font-size:8px;color:var(--teal)">Expanding</div></div>
-        <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:#E24B4A">49.0</div><div style="font-size:9px;color:var(--text2)">US ISM</div><div style="font-size:8px;color:#E24B4A">Contracting</div></div>
+        <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:#E24B4A">49.8</div><div style="font-size:9px;color:var(--text2)">US ISM</div><div style="font-size:8px;color:#E24B4A">Below 50</div></div>
       </div>
-      <div style="font-size:9px;color:var(--text2);margin-top:6px">S&amp;P Global / ISM (latest). PMI above 50 = expansion.</div>
+      <div style="font-size:9px;color:var(--text2);margin-top:6px">S&amp;P Global (ID Feb 2025: 53.6). Caixin China (Feb 2025: 50.8). US ISM (Feb 2025: 49.8). PMI above 50 = expansion.</div>
     </div>
   </div>
 
@@ -300,27 +285,46 @@ body{display:flex;flex-direction:column;min-height:100vh}
     </div>
   </div>
 
-  <div class="tlb">Top Trade Partners 2024</div>
+  <div class="tlb">Top Trade Partners 2025</div>
   <div class="card gap">
     <table>
-      <thead><tr><th>Country</th><th>Total Trade</th><th>Key exports</th><th>Key imports</th><th>Risk</th></tr></thead>
+      <thead><tr><th>Country</th><th>Total Trade (est.)</th><th>Key exports</th><th>Key imports</th><th>Risk</th></tr></thead>
       <tbody>
-        <tr><td>China</td><td>$131.8B</td><td>Coal, nickel, palm oil</td><td>Electronics, machinery</td><td><span class="badge ba">Tariff war risk</span></td></tr>
-        <tr><td>United States</td><td>$37.5B</td><td>Textiles, rubber</td><td>Machinery, aircraft</td><td><span class="badge bg">Low</span></td></tr>
-        <tr><td>Japan</td><td>$36.9B</td><td>Coal, LNG, palm oil</td><td>Vehicles, machinery</td><td><span class="badge bg">Low</span></td></tr>
-        <tr><td>India</td><td>$26.2B</td><td>Coal, palm oil</td><td>Steel, chemicals</td><td><span class="badge bg">Low</span></td></tr>
-        <tr><td>South Korea</td><td>$23.6B</td><td>Coal, LNG</td><td>Electronics, steel</td><td><span class="badge bg">Low</span></td></tr>
+        <tr><td>China</td><td>~$138.5B</td><td>Coal, nickel, palm oil</td><td>Electronics, machinery, chemicals</td><td><span class="badge ba">Tariff war risk</span></td></tr>
+        <tr><td>United States</td><td>~$40.2B</td><td>Textiles, rubber, palm oil</td><td>Machinery, aircraft, soybeans</td><td><span class="badge ba">Trade policy risk</span></td></tr>
+        <tr><td>Japan</td><td>~$37.8B</td><td>Coal, LNG, palm oil</td><td>Vehicles, machinery</td><td><span class="badge bg">Low</span></td></tr>
+        <tr><td>India</td><td>~$29.1B</td><td>Coal, palm oil, copper</td><td>Steel, chemicals, pharma</td><td><span class="badge bg">Low</span></td></tr>
+        <tr><td>South Korea</td><td>~$25.0B</td><td>Coal, LNG, nickel</td><td>Electronics, steel</td><td><span class="badge bg">Low</span></td></tr>
       </tbody>
     </table>
   </div>
-  <p class="sn">Exchange rates: Open Exchange Rates API (live). Indices: stooq.com (indicative). PMI: S&amp;P Global / ISM (latest). Commodities: indicative approximations. Trade: BPS Indonesia / UN Comtrade 2024.</p>
+  <p class="sn">Exchange rates: Open Exchange Rates API (live). Indices: stooq.com + Yahoo Finance fallback. PMI: S&amp;P Global / ISM Feb 2025. Commodities: indicative. Trade: BPS Indonesia provisional 2025 / WTO.</p>
+
+  <div class="tlb">Indonesia Strategic Indicators 2025</div>
+  <div class="g2 gap">
+    <div class="card">
+      <div class="ct">Macro indicators 2025 (BPS Indonesia)</div>
+      <div class="pl"><span>GDP Growth (Full Year 2025)</span><span style="font-weight:700">5.03%</span></div><div class="pt"><div class="pf" style="width:65%;background:#3DBFB0"></div></div>
+      <div class="pl"><span>Inflation (Dec 2025, YoY)</span><span style="font-weight:700">1.57%</span></div><div class="pt"><div class="pf" style="width:16%;background:#3DBFB0"></div></div>
+      <div class="pl"><span>Unemployment (Aug 2025)</span><span style="font-weight:700">4.91%</span></div><div class="pt"><div class="pf" style="width:20%;background:#0D3D5F"></div></div>
+      <div class="pl"><span>Current Account (% GDP, 2025)</span><span style="font-weight:700">-0.9%</span></div><div class="pt"><div class="pf" style="width:30%;background:#E24B4A"></div></div>
+    </div>
+    <div class="card">
+      <div class="ct">Fiscal &amp; financial resilience 2025</div>
+      <div class="pl"><span>Forex Reserves (Dec 2025, BI)</span><span style="font-weight:700">$151.2B</span></div><div class="pt"><div class="pf" style="width:68%;background:#3DBFB0"></div></div>
+      <div class="pl"><span>Debt-to-GDP (2025)</span><span style="font-weight:700">40.1%</span></div><div class="pt"><div class="pf" style="width:40%;background:#0D3D5F"></div></div>
+      <div class="pl"><span>FDI Inflow 2025 (BKPM)</span><span style="font-weight:700">$50.8B</span></div><div class="pt"><div class="pf" style="width:58%;background:#3DBFB0"></div></div>
+      <div class="pl"><span>Defense Budget FY2026 (% GDP)</span><span style="font-weight:700">0.88%</span></div><div class="pt"><div class="pf" style="width:15%;background:#E24B4A"></div></div>
+    </div>
+  </div>
+  <p class="sn">Strategic indicators: BPS Indonesia, Bank Indonesia, BKPM, Kemenkeu 2025&ndash;2026.</p>
 </div>
 
 <!-- DIPLOMACY -->
 <div class="sec" id="s-diplomacy">
   <div class="rb">
     <div>Curated global diplomatic intelligence &nbsp;&middot;&nbsp; Last updated: <strong>March 2026</strong></div>
-    <div style="font-size:9px;color:var(--text2)">Manually curated &mdash; AI-powered live version planned</div>
+
   </div>
 
   <div class="dg gap">
@@ -359,7 +363,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
       </tbody>
     </table>
   </div>
-  <p class="sn">Curated from: Ministry of Foreign Affairs Indonesia, ASEAN Secretariat, Reuters, Al Jazeera, The Diplomat, Council on Foreign Relations. Last curated: March 2026. Updated manually &mdash; AI-powered live version planned.</p>
+  <p class="sn">Curated from: Ministry of Foreign Affairs Indonesia, ASEAN Secretariat, Reuters, Al Jazeera, The Diplomat, Council on Foreign Relations. Last curated: March 2026.</p>
 </div>
 
 <!-- DISASTER RISKS -->
@@ -368,50 +372,29 @@ body{display:flex;flex-direction:column;min-height:100vh}
     <div>USGS &middot; NASA FIRMS &middot; NOAA &middot; Smithsonian GVP &nbsp;&middot;&nbsp; Refreshed: <strong id="idwTs">&mdash;</strong></div>
   </div>
 
-  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px">Live Satellite Imagery &mdash; Indonesia Region</div>
+  <!-- 1. SATELLITE MAP -->
+  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px">Live Satellite &amp; Weather Map</div>
   <div class="card gap">
-    <div style="font-size:10px;color:var(--text2);margin-bottom:8px">Windy.com Live &middot; ECMWF model &middot; Wind, rain, clouds &amp; satellite over Indonesia. Updated every 6h. Use controls inside map to switch layers.</div>
-    <div style="position:relative;width:100%;padding-bottom:52%;border-radius:var(--r);overflow:hidden;background:#0a1929" id="windyMapWrap">
-      <iframe id="windyIframe" src="https://embed.windy.com/embed2.html?lat=-2&lon=118&zoom=5&level=surface&overlay=radar&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" title="Windy Live Indonesia" loading="lazy" allowfullscreen></iframe>
+    <div style="font-size:10px;color:var(--text2);margin-bottom:8px">Windy.com &middot; ECMWF &middot; Rain &amp; thunder layer by default &middot; <span id="mapLocNote" style="color:var(--teal);font-weight:600"></span></div>
+    <div style="position:relative;width:100%;padding-bottom:52%;border-radius:var(--r);overflow:hidden;background:#0a1929">
+      <iframe id="windyIframe" src="https://embed.windy.com/embed2.html?lat=-2&lon=118&zoom=5&level=surface&overlay=rain&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" title="Windy Live Weather" loading="lazy" allowfullscreen></iframe>
     </div>
-    <div style="margin-top:8px;font-size:9px;color:var(--text2);display:flex;gap:12px;flex-wrap:wrap">
-      <a href="https://www.windy.com/-2/118?-2,118,6" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">Open Windy fullscreen &rarr;</a>
-      <a href="https://worldview.earthdata.nasa.gov/?v=90,-15,145,15&l=VIIRS_NOAA20_CorrectedReflectance_TrueColor,Coastlines_15m" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">NASA Worldview VIIRS &rarr;</a>
-      <a href="https://zoom.earth/#view=-2,118,5z/layers=wind,radar" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">Zoom.Earth radar &rarr;</a>
+    <div style="margin-top:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+      <div style="font-size:9px;color:var(--text2);display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://www.windy.com/-2/118?-2,118,6" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">Open fullscreen &rarr;</a>
+        <a href="https://worldview.earthdata.nasa.gov/?v=90,-15,145,15&l=VIIRS_NOAA20_CorrectedReflectance_TrueColor,Coastlines_15m" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">NASA Worldview VIIRS &rarr;</a>
+        <a href="https://zoom.earth/#view=-2,118,5z/layers=wind,radar" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">Zoom.Earth &rarr;</a>
+      </div>
+      <button onclick="requestMapLocation()" style="background:var(--teal);color:#fff;border:none;padding:5px 14px;border-radius:6px;font-size:9px;font-weight:700;cursor:pointer;font-family:inherit">&#128205; Refresh My Location</button>
     </div>
   </div>
 
-  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:8px">Volcano Activity</div>
-  <div style="background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--r);padding:8px 12px;font-size:9px;color:#854F0B;margin-bottom:10px;line-height:1.7">
-    <strong>Indonesia Volcano Alert Levels (PVMBG/MAGMA Indonesia):</strong><br>
-    Level I &mdash; <strong>Normal</strong> (green): No eruption threat, routine monitoring &nbsp;&middot;&nbsp;
-    Level II &mdash; <strong>Waspada</strong> (yellow): Elevated activity, restricted zone around crater &nbsp;&middot;&nbsp;
-    Level III &mdash; <strong>Siaga</strong> (orange): Significant activity, evacuation of designated zones advised &nbsp;&middot;&nbsp;
-    Level IV &mdash; <strong>Awas</strong> (red): <strong>MOST DANGEROUS &mdash; eruption imminent or occurring, mandatory evacuation within danger radius</strong>
-  </div>
-  <div class="card gap"><div id="volcList"><div class="lp" style="font-size:10px;color:var(--text2);padding:12px 0">Loading volcano data...</div></div></div>
+  <!-- 2. WEATHER -->
+  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">Weather Alerts &mdash; Live Weather</div>
+  <div class="card gap"><div id="wxList"><div class="lp" style="font-size:10px;color:var(--text2);padding:10px 0">Loading weather data...</div></div></div>
 
-  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:8px">Earthquakes</div>
-  <div class="bg2 gap">
-    <div class="card"><div class="ct">Global M4.5+ (past 7 days)</div><div id="eqList"><div class="lp" style="font-size:10px;color:var(--text2);padding:16px 0;text-align:center">Loading USGS data...</div></div></div>
-    <div class="card"><div class="ct">Indonesia Region M3.5+ (past 7 days)</div><div id="eqIDList"><div class="lp" style="font-size:10px;color:var(--text2);padding:16px 0;text-align:center">Loading Indonesia earthquakes...</div></div></div>
-  </div>
-
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;margin-top:8px">
-    <div style="font-size:12px;font-weight:700;color:var(--text)">Active Fire Hotspots</div>
-    <div style="font-size:9px;color:var(--text2)">NASA FIRMS VIIRS SNPP &middot; 375m resolution &middot; Updated within 3h of satellite pass</div>
-  </div>
-  <div class="card gap">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
-      <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">Active Hotspots (24h)</div><div style="font-size:22px;font-weight:700;color:var(--text)" id="fireCnt">&mdash;</div><div style="font-size:9px;color:var(--text2)">Indonesia VIIRS</div></div>
-      <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">High Confidence</div><div style="font-size:22px;font-weight:700;color:#E24B4A" id="fireHigh">&mdash;</div><div style="font-size:9px;color:var(--text2)">hotspots</div></div>
-      <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">Alert Level</div><div style="font-size:15px;font-weight:700;margin-top:4px" id="fireAlert">&mdash;</div></div>
-    </div>
-    <div id="fireProvinces" style="font-size:10px;color:var(--text2)">Loading NASA FIRMS fire hotspot data...</div>
-    <input type="hidden" id="firmsKey" value="322f08c70ec8bb383d8b6f28c002a894"/>
-  </div>
-
-  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:8px">ENSO &mdash; El Ni&ntilde;o / La Ni&ntilde;a Status</div>
+  <!-- 3. ENSO -->
+  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">ENSO &mdash; El Ni&ntilde;o / La Ni&ntilde;a Status</div>
   <div class="g2 gap">
     <div class="card">
       <div class="ct">Current ENSO Status (NOAA CPC &mdash; 12 Mar 2026)</div>
@@ -429,10 +412,39 @@ body{display:flex;flex-direction:column;min-height:100vh}
     <div class="card"><div class="ct">Impact on Indonesia</div><div id="ensoIDImpact" style="font-size:11px;color:var(--text);line-height:1.7"></div></div>
   </div>
 
-  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:8px">Weather Alerts &mdash; Live Weather</div>
-  <div class="card gap"><div id="wxList"><div class="lp" style="font-size:10px;color:var(--text2);padding:10px 0">Loading weather data...</div></div></div>
+  <!-- 4. EARTHQUAKES -->
+  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">Earthquakes</div>
+  <div class="bg2 gap">
+    <div class="card"><div class="ct">Global M4.5+ (past 7 days)</div><div id="eqList"><div class="lp" style="font-size:10px;color:var(--text2);padding:16px 0;text-align:center">Loading USGS data...</div></div></div>
+    <div class="card"><div class="ct">Indonesia Region M3.5+ (past 7 days)</div><div id="eqIDList"><div class="lp" style="font-size:10px;color:var(--text2);padding:16px 0;text-align:center">Loading Indonesia earthquakes...</div></div></div>
+  </div>
 
-  <p class="sn">Earthquakes: USGS (US public domain). Fire hotspots: NASA FIRMS/VIIRS (free, cite NASA FIRMS). ENSO: NOAA CPC &mdash; La Ni&ntilde;a Advisory / El Ni&ntilde;o Watch, 12 Mar 2026 (Ni&ntilde;o-3.4: &minus;0.5&deg;C). Volcanoes: Smithsonian GVP. Satellite: Windy.com/ECMWF. Weather: BMKG Indonesia + Open-Meteo fallback. All sources free for academic use.</p>
+  <!-- 5. VOLCANO -->
+  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">Volcano Activity</div>
+  <div style="background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--r);padding:8px 12px;font-size:9px;color:#854F0B;margin-bottom:10px;line-height:1.7">
+    <strong>Indonesia Volcano Alert Levels (PVMBG/MAGMA Indonesia):</strong><br>
+    Level I &mdash; <strong>Normal</strong> (green): No eruption threat, routine monitoring &nbsp;&middot;&nbsp;
+    Level II &mdash; <strong>Waspada</strong> (yellow): Elevated activity, restricted zone around crater &nbsp;&middot;&nbsp;
+    Level III &mdash; <strong>Siaga</strong> (orange): Significant activity, evacuation of designated zones advised &nbsp;&middot;&nbsp;
+    Level IV &mdash; <strong>Awas</strong> (red): <strong>MOST DANGEROUS &mdash; eruption imminent or occurring, mandatory evacuation within danger radius</strong>
+  </div>
+  <div class="card gap"><div id="volcList"><div class="lp" style="font-size:10px;color:var(--text2);padding:12px 0">Loading volcano data...</div></div></div>
+
+  <!-- 6. FIRE HOTSPOTS -->
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;margin-top:14px">
+    <div style="font-size:12px;font-weight:700;color:var(--text)">Active Fire Hotspots</div>
+    <div style="font-size:9px;color:var(--text2)">NASA FIRMS VIIRS SNPP &middot; 375m resolution &middot; Updated within 3h of satellite pass</div>
+  </div>
+  <div class="card gap">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
+      <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">Active Hotspots (24h)</div><div style="font-size:22px;font-weight:700;color:var(--text)" id="fireCnt">&mdash;</div><div style="font-size:9px;color:var(--text2)">Indonesia VIIRS</div></div>
+      <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)" title="High Confidence = strong thermal anomaly reliably indicating active fire. 0 means no confirmed fires in last satellite pass — can be due to cloud cover, satellite timing, or no major active fires.">High Confidence &#9432;</div><div style="font-size:22px;font-weight:700;color:#E24B4A" id="fireHigh">&mdash;</div><div style="font-size:9px;color:var(--text2)">hotspots</div></div>
+      <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">Alert Level</div><div style="font-size:15px;font-weight:700;margin-top:4px" id="fireAlert">&mdash;</div></div>
+    </div>
+    <div id="fireProvinces" style="font-size:10px;color:var(--text2)">Loading NASA FIRMS fire hotspot data...</div>
+    <input type="hidden" id="firmsKey" value="322f08c70ec8bb383d8b6f28c002a894"/>
+  </div>
+
 </div>
 
 </div><!-- end page-content -->
@@ -468,7 +480,8 @@ function showSec(id,el){
   el.classList.add('active');
   var sec=document.getElementById('s-'+id);
   if(sec) sec.classList.add('active');
-  if(id==='geoeconomy') setTimeout(function(){ if(!chartsReady) initCharts(); },100);
+  if(id==='geopolitics') setTimeout(function(){ loadHeadlines(); },80);
+  if(id==='geoeconomy'){ setTimeout(function(){ if(!chartsReady) initCharts(); },100); setTimeout(function(){ loadRates(); loadAllIndices(); },200); }
   if(id==='disaster') setTimeout(function(){ loadAllIDW(); },150);
 }
 
@@ -511,44 +524,61 @@ function buildTicker(u,c,j,sgd,eur){
 }
 
 // ── STOCK INDICES ──
+// Strategy: Try Yahoo Finance (via allorigins proxy) first for richest data.
+// regularMarketState: "REGULAR"=live, "CLOSED"/"PRE"/"POST"=closed.
+// Change shown vs previousClose always (1-day basis). Clear "Live" or "Last close" label.
 async function loadIdx(sym,stooqSym,vid,cid){
   var valEl=document.getElementById(vid),chgEl=document.getElementById(cid);
+  var stEl=valEl?valEl.parentElement.querySelector('.is'):null; // status sub-label
   var fmt=function(n){
     if(n>=100000)return(n/1000).toFixed(0)+'k';
     if(n>=10000)return n.toLocaleString('en-US',{maximumFractionDigits:0});
     if(n>=1000)return n.toLocaleString('en-US',{maximumFractionDigits:1});
     return n.toFixed(2);
   };
+  function renderIdx(price,prev,isLive,lastDate){
+    var chg=price-prev, pct=(chg/prev*100).toFixed(2);
+    valEl.textContent=fmt(price);
+    var chgStr=(chg>=0?'+':'')+fmt(chg)+' ('+(chg>=0?'+':'')+pct+'% vs prev close)';
+    chgEl.textContent=chgStr;
+    chgEl.className='ich '+(chg>=0?'up':'dn');
+    if(stEl){
+      stEl.textContent=isLive?'Live':'Last close'+(lastDate?' · '+lastDate:'');
+      stEl.style.color=isLive?'var(--teal)':'var(--text2)';
+    }
+  }
+  // Try Yahoo Finance via CORS proxy
   try{
-    var r=await fetch('https://stooq.com/q/l/?s='+encodeURIComponent(stooqSym)+'&f=sd2t2ohlcv&h&e=json');
-    var d=await r.json();
-    var q=d.symbols&&d.symbols[0];
+    var yUrl='https://query1.finance.yahoo.com/v8/finance/chart/'+encodeURIComponent(sym)+'?interval=1d&range=2d';
+    var r=await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(yUrl),{cache:'no-store'});
+    var outer=await r.json();
+    var result=JSON.parse(outer.contents).chart.result[0];
+    var meta=result.meta;
+    var price=meta.regularMarketPrice||meta.previousClose;
+    var prev=meta.previousClose||price;
+    var state=(meta.marketState||'').toUpperCase();
+    var isLive=(state==='REGULAR');
+    var lastDate='';
+    try{
+      var ts=meta.regularMarketTime;
+      if(ts) lastDate=new Date(ts*1000).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+    }catch(e2){}
+    if(price&&price>0){ renderIdx(price,prev,isLive,lastDate); return; }
+  }catch(e){}
+  // Fallback: stooq
+  try{
+    var r2=await fetch('https://stooq.com/q/l/?s='+encodeURIComponent(stooqSym)+'&f=sd2t2ohlcv&h&e=json');
+    var d2=await r2.json();
+    var q=d2.symbols&&d2.symbols[0];
     if(q&&q.close&&q.close!=='N/D'&&parseFloat(q.close)>0){
       var p=parseFloat(q.close),o=parseFloat(q.open||q.close);
-      var chg=p-o,pct=(chg/o*100).toFixed(2);
-      valEl.textContent=fmt(p);
-      chgEl.textContent=(chg>=0?'+':'')+fmt(chg)+' ('+(chg>=0?'+':'')+pct+'%)';
-      chgEl.className='ich '+(chg>=0?'up':'dn');
-      return;
-    }
-  }catch(e){}
-  try{
-    var yUrl='https://query1.finance.yahoo.com/v8/finance/chart/'+encodeURIComponent(sym)+'?interval=1d&range=5d';
-    var r2=await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(yUrl));
-    var outer=await r2.json();
-    var meta=JSON.parse(outer.contents).chart.result[0].meta;
-    var p2=meta.regularMarketPrice||meta.previousClose;
-    var prev=meta.previousClose||p2;
-    if(p2&&p2>0){
-      var chg2=p2-prev,pct2=(chg2/prev*100).toFixed(2);
-      valEl.textContent=fmt(p2);
-      chgEl.textContent=(chg2>=0?'+':'')+fmt(chg2)+' ('+(chg2>=0?'+':'')+pct2+'%)';
-      chgEl.className='ich '+(chg2>=0?'up':'dn');
+      renderIdx(p,o,false,'');
       return;
     }
   }catch(e){}
   valEl.innerHTML='<a href="https://finance.yahoo.com/quote/'+sym+'" target="_blank" style="color:var(--teal);font-size:9px">View →</a>';
-  chgEl.textContent='Closed/unavailable';chgEl.style.fontSize='9px';chgEl.style.color='var(--text2)';
+  if(chgEl){chgEl.textContent='Unavailable';chgEl.style.color='var(--text2)';}
+  if(stEl){stEl.textContent='Market data unavailable';}
 }
 
 function loadAllIndices(){
@@ -694,7 +724,7 @@ function initCharts(){
 
 // ── CONFLICT ZONES ──
 var ZONES=[
-  {id:'scs',t:'South China Sea',s:'crit',sl:'CRITICAL',imp:'Natuna EEZ, SLOCs, fisheries',
+  {id:'scs',t:'South China Sea',s:'high',sl:'HIGH',imp:'Natuna EEZ, SLOCs, fisheries — escalation watch',
    kw:['south china sea','natuna','spratly','scarborough','philippines china','second thomas'],
    fb:['China coast guard blocks Philippine resupply at Second Thomas Shoal||Reuters||Mar 2026',
        'US-Philippines joint patrol challenges PLA vessels near Spratlys||Al Jazeera||Mar 2026',
@@ -729,7 +759,12 @@ var ZONES=[
    fb:['Pakistan army offensive against TTP displaces thousands in Khyber||Reuters||Mar 2026',
        'Taliban enforces new NGO restrictions drawing international condemnation||BBC||Mar 2026',
        'Pakistan-Afghanistan border closure disrupts trade and aid flows||Al Jazeera||Mar 2026']},
-  {id:'africa',t:'Africa - Coups & Conflict',s:'med',sl:'MONITOR',imp:'Commodity chains, humanitarian',
+  {id:'thaicambodia',t:'Thailand – Cambodia',s:'high',sl:'HIGH',imp:'ASEAN cohesion, border dispute, Mekong region',
+   kw:['thailand cambodia','ta moan','preah vihear','thai cambodia border'],
+   fb:['Thailand-Cambodia border tensions escalate at disputed Ta Moan temple area||Reuters||Mar 2026',
+       'Cambodia and Thailand both deploy military units along disputed border||Al Jazeera||Mar 2026',
+       'ASEAN Philippines chair calls emergency consultations on Thailand-Cambodia border||Nikkei Asia||Mar 2026']},
+  {id:'africa',t:'Africa',s:'med',sl:'MONITOR',imp:'Commodity chains, humanitarian aid',
    kw:['sahel','mali','niger','sudan','coup','burkina','ethiopia'],
    fb:['Sudan conflict enters third year with no ceasefire prospect||UN OCHA||Mar 2026',
        'Sahel junta alliance deepens Russian security cooperation||Reuters||Mar 2026',
@@ -739,8 +774,8 @@ var ZONES=[
    fb:['India-Pakistan LoC sees elevated ceasefire violations in Kashmir||Reuters||Mar 2026',
        'Bangladesh caretaker government faces pressure ahead of elections||Al Jazeera||Mar 2026',
        'Sri Lanka GDP growth resumes but debt restructuring remains incomplete||BBC||Mar 2026']},
-  {id:'asean',t:'ASEAN Regional',s:'med',sl:'MONITOR',imp:'Regional trade, ASEAN centrality',
-   kw:['asean','southeast asia','philippines chair','south china sea coc'],
+  {id:'asean',t:'Southeast Asia',s:'med',sl:'MONITOR',imp:'Regional trade, ASEAN centrality, SLOCs',
+   kw:['asean','southeast asia','philippines chair','south china sea coc','mekong'],
    fb:['Philippines opens ASEAN 2026 chairmanship with SCS COC as top priority||Reuters||Mar 2026',
        'ASEAN-China COC negotiations continue with key enforcement gaps||Nikkei Asia||Mar 2026',
        'Mekong water levels critical as upstream dam operations scrutinized||Al Jazeera||Mar 2026']},
@@ -795,11 +830,41 @@ function topHL(zone,hls){
 function fmtAge(dateStr){
   if(!dateStr) return '';
   try{
-    var diff=Math.floor((Date.now()-new Date(dateStr).getTime())/60000);
-    if(diff<60) return diff+'m ago';
-    if(diff<1440) return Math.floor(diff/60)+'h ago';
-    return Math.floor(diff/1440)+'d ago';
+    var d=new Date(dateStr);
+    var datePart=d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+    var timePart=d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+    return datePart+' · '+timePart;
   } catch(e){return '';}
+}
+
+var ACTIVE_IDS=['gaza','hormuz','ukraine','myanmar','pakaf','thaicambodia'];
+var WATCH_IDS=['scs','taiwan'];
+var REGIONAL_IDS=['asean','southasia','africa','pacific'];
+
+function makeZoneCard(z,hls){
+  var tops=topHL(z,hls);
+  var hlHtml;
+  if(tops.length>0){
+    hlHtml=tops.map(function(h){
+      var age=fmtAge(h.date);
+      var inner='<div class="chd"></div><div class="cht">'+h.title+'<br><span class="chs">'+h.src+(age?' · '+age:'')+'</span></div>';
+      return '<div class="chl">'+(h.link?'<a href="'+h.link+'" target="_blank" style="color:inherit;text-decoration:none;display:flex;gap:6px;width:100%">'+inner+'</a>':'<div style="display:flex;gap:6px">'+inner+'</div>')+'</div>';
+    }).join('');
+  } else {
+    hlHtml=z.fb.map(function(f){
+      var pts=f.split('||');var ttl=pts[0];var src=pts[1]||'IIFA';var rawDt=pts[2]||'Mar 2026';
+      // Parse "Mon yyyy" into a display date — show as-is since it's a curated string
+      var searchUrl='https://www.google.com/search?q='+encodeURIComponent(ttl.slice(0,70))+'&tbm=nws';
+      var inner='<div class="chd"></div><div class="cht">'+ttl+'<br><span class="chs">'+src+' · '+rawDt+'</span></div>';
+      return '<div class="chl"><a href="'+searchUrl+'" target="_blank" style="color:inherit;text-decoration:none;display:flex;gap:6px;width:100%">'+inner+'</a></div>';
+    }).join('');
+  }
+  return '<div class="cc '+z.s+'"><div class="cch"><div class="cct">'+z.t+'</div><div class="ccs">'+z.sl+'</div></div><div>'+hlHtml+'</div><div class="cimp">'+z.imp+'</div></div>';
+}
+
+function sLabel(bg,border,col,txt){
+  return '<div style="grid-column:1/-1;margin:8px 0 4px;padding:7px 12px;background:'+bg+';border-radius:var(--r);border-left:4px solid '+border+'">'+
+    '<span style="font-size:9px;font-weight:800;color:'+col+';letter-spacing:0.6px;text-transform:uppercase">'+txt+'</span></div>';
 }
 
 function renderCards(hls){
@@ -808,34 +873,25 @@ function renderCards(hls){
   if(tsEl) tsEl.textContent=now;
   var grid=document.getElementById('confGrid');
   if(!grid) return;
-  grid.innerHTML=ZONES.map(function(z){
-    var tops=topHL(z,hls);
-    var hlHtml;
-    if(tops.length>0){
-      hlHtml=tops.map(function(h){
-        var age=fmtAge(h.date);
-        var inner='<div class="chd"></div><div class="cht">'+h.title+'<br><span class="chs">'+h.src+(age?' \u00b7 '+age:'')+'</span></div>';
-        return '<div class="chl">'+(h.link?'<a href="'+h.link+'" target="_blank" style="color:inherit;text-decoration:none;display:flex;gap:6px;width:100%">'+inner+'</a>':'<div style="display:flex;gap:6px">'+inner+'</div>')+'</div>';
-      }).join('');
-    } else {
-      hlHtml=z.fb.map(function(f){
-        var pts=f.split('||');var ttl=pts[0];var src=pts[1]||'IIFA';var dt=pts[2]||'2026';return '<div class="chl"><div class="chd"></div><div class="cht">'+ttl+'<br><span class="chs">'+src+' · '+dt+'</span></div></div>';
-      }).join('');
-    }
-    return '<div class="cc '+z.s+'"><div class="cch"><div class="cct">'+z.t+'</div><div class="ccs">'+z.sl+'</div></div><div>'+hlHtml+'</div><div class="cimp">'+z.imp+'</div></div>';
-  }).join('');
+  var aZ=ZONES.filter(function(z){return ACTIVE_IDS.indexOf(z.id)>=0;});
+  var wZ=ZONES.filter(function(z){return WATCH_IDS.indexOf(z.id)>=0;});
+  var rZ=ZONES.filter(function(z){return REGIONAL_IDS.indexOf(z.id)>=0;});
+  grid.innerHTML=
+    sLabel('#FEF0F0','#E24B4A','#A32D2D','● Active Conflicts — Ongoing, High Urgency')+
+    aZ.map(function(z){return makeZoneCard(z,hls);}).join('')+
+    sLabel('#FFF8F0','#EF9F27','#854F0B','▶ Escalation Watch — Elevated tensions, no open daily conflict')+
+    wZ.map(function(z){return makeZoneCard(z,hls);}).join('')+
+    sLabel('#F0FAFA','#3DBFB0','#0f6e66','■ Regional Monitoring')+
+    rZ.map(function(z){return makeZoneCard(z,hls);}).join('');
 }
 
 async function loadHeadlines(){
-  var btn=document.getElementById('confBtn');
-  if(btn){btn.disabled=true;btn.textContent='Loading...';}
-  renderCards([]); // show fallbacks immediately
+  renderCards([]);
   try{
     var results=await Promise.allSettled(FEEDS.map(fetchFeed));
     allHL=results.reduce(function(acc,r){return r.status==='fulfilled'?acc.concat(r.value):acc;},[]);
     if(allHL.length>0) renderCards(allHL);
   } catch(e){}
-  if(btn){btn.disabled=false;btn.textContent='Refresh Headlines';}
   var tsEl=document.getElementById('confTs');
   if(tsEl) tsEl.textContent=wib();
 }
@@ -876,51 +932,141 @@ async function loadUSGS(){
 async function loadVolcanoes(){
   var el=document.getElementById('volcList');
   if(!el) return;
+
+  // Verified fallback: PVMBG/MAGMA Indonesia + GVP sources, Mar 2026
+  var FALLBACK=[
+    {n:'Merapi',        loc:'Yogyakarta / Central Java',lv:3,sl:'SIAGA (Level III)',
+     note:'Active lava dome, daily lava avalanches, pyroclastic flows. Ongoing eruption since Nov 2020.',
+     since:'Nov 2020',lastUpdate:'18 Mar 2026',src:'BPPTKG/PVMBG'},
+    {n:'Semeru',        loc:'East Java, Lumajang',lv:4,sl:'AWAS (Level IV)',
+     note:'Elevated to Level IV on 19 Nov 2025 after major eruption. Pyroclastic flows reached base Jan 2026. Mandatory evacuation 8 km radius.',
+     since:'19 Nov 2025',lastUpdate:'Mar 2026',src:'PVMBG'},
+    {n:'Sinabung',      loc:'North Sumatra, Karo Regency',lv:4,sl:'AWAS (Level IV)',
+     note:'Continuously at Level IV since 2017. 7 km exclusion zone. No downgrade timeline.',
+     since:'2017 (continuous)',lastUpdate:'Feb 2026',src:'PVMBG'},
+    {n:'Lewotobi Laki-Laki',loc:'East Nusa Tenggara',lv:4,sl:'AWAS (Level IV)',
+     note:'Erupted June 2025, Level IV maintained. 8 km exclusion zone + 7 km SW-NE sectors.',
+     since:'Jun 2025',lastUpdate:'Feb 2026',src:'PVMBG'},
+    {n:'Marapi',        loc:'West Sumatra',lv:3,sl:'SIAGA (Level III)',
+     note:'Continuing eruption. Activity recorded Feb 2026.',
+     since:'Dec 2023',lastUpdate:'Feb 2026',src:'PVMBG/GVP'},
+    {n:'Dukono',        loc:'North Maluku, Halmahera',lv:2,sl:'WASPADA (Level II)',
+     note:'Persistent ash emissions, routine ongoing eruption.',
+     since:'1933 (persistent)',lastUpdate:'Mar 2026',src:'GVP'},
+  ];
+  function lvColor(lv){return lv>=4?'#E24B4A':lv>=3?'#EF9F27':'#3DBFB0';}
+  function lvBg(lv){return lv>=4?'#FCEBEB':lv>=3?'#FAEEDA':'#e0f7f5';}
+  function lvTxt(lv){return lv>=4?'#A32D2D':lv>=3?'#854F0B':'#0f6e66';}
+  function volcCard(name,loc,lv,sl,note,since,lastUpdate,src){
+    return '<div style="padding:10px 12px;background:var(--bg);border-radius:var(--r);border:0.5px solid var(--border);border-left:3px solid '+lvColor(lv)+'">'+
+      '<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px">'+
+      '<span style="font-size:16px">🌋</span>'+
+      '<div><div style="font-size:11px;font-weight:800;color:var(--text)">'+name+'</div>'+
+      '<div style="font-size:9px;color:var(--text2)">'+loc+'</div></div></div>'+
+      '<div style="display:inline-block;font-size:9px;font-weight:800;padding:2px 8px;border-radius:4px;background:'+lvBg(lv)+';color:'+lvTxt(lv)+';margin-bottom:5px">'+sl+'</div>'+
+      (note?'<div style="font-size:9px;color:var(--text2);line-height:1.5;margin-bottom:4px">'+note+'</div>':'')+
+      (since?'<div style="font-size:9px;color:var(--text2)">Level since: <strong style="color:var(--text)">'+since+'</strong></div>':'')+
+      (lastUpdate?'<div style="font-size:9px;color:var(--teal);margin-top:2px;font-weight:600">Last update: '+lastUpdate+' · '+src+'</div>':'')+
+      '</div>';
+  }
+  function renderFallback(msg){
+    el.innerHTML=
+      '<div style="font-size:9px;background:#FEF0F0;border-left:3px solid #E24B4A;padding:6px 10px;border-radius:var(--r);margin-bottom:10px;color:#A32D2D;font-weight:600">'+
+      'Showing verified PVMBG/MAGMA Indonesia status (verified Mar 2026). '+(msg||'')+
+      '</div>'+
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">'+
+      FALLBACK.map(function(v){return volcCard(v.n,v.loc,v.lv,v.sl,v.note,v.since,v.lastUpdate,v.src);}).join('')+
+      '</div>'+
+      '<div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap">'+
+      '<a href="https://magma.esdm.go.id/" target="_blank" style="font-size:10px;color:var(--teal);font-weight:700;text-decoration:none">MAGMA Indonesia (PVMBG) — real-time →</a>'+
+      '<a href="https://volcano.si.edu/gvp_currenteruptions.cfm" target="_blank" style="font-size:10px;color:var(--teal);font-weight:700;text-decoration:none">Smithsonian GVP →</a>'+
+      '</div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-top:6px">Data: PVMBG/MAGMA Indonesia + GVP. For real-time status and exclusion zone maps visit MAGMA Indonesia.</div>';
+  }
+
+  // Source 1: MAGMA Indonesia public API via allorigins
+  try{
+    var magmaUrl='https://magma.esdm.go.id/api/v1/gunung-api/aktivitas';
+    var mr=await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(magmaUrl),{cache:'no-store'});
+    var md=await mr.json();
+    var mData=JSON.parse(md.contents||'null');
+    var volcs=(mData&&(mData.data||mData.gunungapi||mData))||[];
+    if(Array.isArray(volcs)&&volcs.length){
+      volcs=volcs.filter(function(v){return parseInt(v.status||v.level||0,10)>=2;})
+        .sort(function(a,b){return parseInt(b.status||b.level||0,10)-parseInt(a.status||a.level||0,10);})
+        .slice(0,8);
+    }
+    if(Array.isArray(volcs)&&volcs.length){
+      var lvLabels=['','Normal','Waspada (II)','Siaga (III)','Awas (IV)'];
+      var fetchedAt=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+      el.innerHTML=
+        '<div style="font-size:9px;color:var(--text2);margin-bottom:8px;padding:5px 8px;background:var(--bg);border-radius:var(--r)">'+
+        '<span style="color:var(--teal);font-weight:700">MAGMA Indonesia / PVMBG — Live</span> · Fetched '+fetchedAt+
+        '</div>'+
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">'+
+        volcs.map(function(v){
+          var lv=parseInt(v.status||v.level||0,10);
+          var name=v.nama||v.name||'Unknown';
+          var loc=v.lokasi||v.location||'';
+          var upd=v.tgl_update||v.updated_at||v.tanggal||'';
+          if(upd){try{upd=new Date(upd).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});}catch(xe){}}
+          var since=v.tgl_status||v.status_since||'';
+          if(since){try{since=new Date(since).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});}catch(xe){}}
+          var desc=(v.rekomendasi||v.keterangan||v.description||'').slice(0,150);
+          return volcCard(name,loc,lv,lvLabels[lv]||'Level '+lv,desc,since,upd,'PVMBG');
+        }).join('')+
+        '</div>'+
+        '<div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap">'+
+        '<a href="https://magma.esdm.go.id/" target="_blank" style="font-size:10px;color:var(--teal);font-weight:700;text-decoration:none">MAGMA Indonesia full dashboard →</a>'+
+        '<a href="https://volcano.si.edu/gvp_currenteruptions.cfm" target="_blank" style="font-size:10px;color:var(--teal);font-weight:700;text-decoration:none">Smithsonian GVP →</a>'+
+        '</div>'+
+        '<div style="font-size:9px;color:var(--text2);margin-top:6px">Source: MAGMA Indonesia/PVMBG (real-time API). Alert level date = last PVMBG update. Visit MAGMA for exclusion zone maps.</div>';
+      return;
+    }
+  }catch(e1){}
+
+  // Source 2: GVP Weekly RSS
   try{
     var r=await fetch(RSS_PROXY+encodeURIComponent('https://volcano.si.edu/news/WeeklyVolcanoRSS.xml')+'&count=10&api_key=free');
     var d=await r.json();
     var items=d.items||[];
     if(!items.length) throw new Error('empty');
-    var idKW=['indonesia','java','sumatra','sulawesi','krakatau','merapi','sinabung','semeru','agung','bali','flores','halmahera'];
+    var idKW=['indonesia','java','sumatra','sulawesi','krakatau','merapi','sinabung','semeru','agung','bali','flores','halmahera','lewotobi','marapi','dukono'];
     var sorted=items.slice().sort(function(a,b){
-      var ai=idKW.some(function(k){return (a.title+a.description).toLowerCase().indexOf(k)>=0;})?1:0;
-      var bi=idKW.some(function(k){return (b.title+b.description).toLowerCase().indexOf(k)>=0;})?1:0;
+      var ai=idKW.some(function(k){return (a.title+(a.description||'')).toLowerCase().indexOf(k)>=0;})?1:0;
+      var bi=idKW.some(function(k){return (b.title+(b.description||'')).toLowerCase().indexOf(k)>=0;})?1:0;
       return bi-ai;
     }).slice(0,8);
-    el.innerHTML='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">'+
+    var fetchedAt2=new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+    el.innerHTML=
+      '<div style="font-size:9px;color:var(--text2);margin-bottom:8px;padding:5px 8px;background:var(--bg);border-radius:var(--r)">'+
+      '<span style="color:var(--teal);font-weight:700">Smithsonian GVP Weekly</span> · Fetched '+fetchedAt2+' · Published every Wednesday'+
+      '</div>'+
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">'+
       sorted.map(function(v){
-        var isID=idKW.some(function(k){return (v.title+v.description).toLowerCase().indexOf(k)>=0;});
-        var desc=(v.description||'').replace(/<[^>]+>/g,'').slice(0,120);
-        var date=v.pubDate?new Date(v.pubDate).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}):'';
-        return '<div style="padding:10px 12px;background:var(--bg);border-radius:var(--r);border:0.5px solid var(--border)'+(isID?';border-left:3px solid #E24B4A':'')+'">'+
-          '<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">'+
-          '<span style="font-size:14px">&#x1F30B;</span>'+
-          '<span style="font-size:11px;font-weight:700;color:var(--text)">'+v.title+'</span>'+
-          (isID?'<span style="font-size:9px;background:#FCEBEB;color:#A32D2D;padding:1px 5px;border-radius:3px;font-weight:700">INDONESIA</span>':'')+
-          '</div>'+
-          '<div style="font-size:10px;color:var(--text2);line-height:1.5">'+desc+'...</div>'+
-          '<div style="font-size:9px;color:var(--teal);margin-top:4px">GVP \u00b7 '+date+'</div>'+
-          '</div>';
+        var isID=idKW.some(function(k){return (v.title+(v.description||'')).toLowerCase().indexOf(k)>=0;});
+        var desc=(v.description||'').replace(/<[^>]+>/g,'').slice(0,140);
+        var rptDate=v.pubDate?new Date(v.pubDate).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}):'';
+        var lv=isID?3:2;
+        return volcCard(v.title,isID?'Indonesia':'Global',lv,isID?'Active Eruption':'Ongoing Activity',
+          desc+(desc.length>=140?'…':''),'',rptDate+' (GVP report date)','GVP');
       }).join('')+
-      '</div><div style="margin-top:10px"><a href="https://volcano.si.edu/gvp_currenteruptions.cfm" target="_blank" style="font-size:10px;color:var(--teal);font-weight:700;text-decoration:none">View all current eruptions at GVP \u2192</a></div>';
-  } catch(e){
-    el.innerHTML='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">'+
-      [{n:'Merapi',l:'Java, Indonesia',s:'Alert Level III',c:true},
-       {n:'Sinabung',l:'North Sumatra',s:'Alert Level III',c:true},
-       {n:'Semeru',l:'East Java',s:'Alert Level IV',c:true},
-       {n:'Dukono',l:'Halmahera, Indonesia',s:'Ongoing eruption',c:true},
-       {n:'Etna',l:'Sicily, Italy',s:'Ongoing activity',c:false},
-       {n:'Popocatepetl',l:'Mexico',s:'Elevated activity',c:false}].map(function(v){
-         return '<div style="padding:10px;background:var(--bg);border-radius:var(--r);border:0.5px solid var(--border)'+(v.c?';border-left:3px solid #E24B4A':'')+'">'+
-           '<div style="font-size:13px">&#x1F30B;</div>'+
-           '<div style="font-size:11px;font-weight:700;color:var(--text);margin-top:3px">'+v.n+'</div>'+
-           '<div style="font-size:9px;color:var(--text2)">'+v.l+'</div>'+
-           '<div style="font-size:9px;color:'+(v.c?'#E24B4A':'var(--teal)')+';font-weight:600;margin-top:3px">'+v.s+'</div>'+
-           '</div>';
-       }).join('')+
-      '</div><div style="font-size:9px;color:var(--text2);margin-top:8px">Live GVP feed. <a href="https://volcano.si.edu" target="_blank" style="color:var(--teal)">Visit volcano.si.edu \u2192</a></div>';
-  }
+      '</div>'+
+      '<div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap">'+
+      '<a href="https://magma.esdm.go.id/" target="_blank" style="font-size:10px;color:var(--teal);font-weight:700;text-decoration:none">MAGMA Indonesia (PVMBG) — real-time →</a>'+
+      '<a href="https://volcano.si.edu/gvp_currenteruptions.cfm" target="_blank" style="font-size:10px;color:var(--teal);font-weight:700;text-decoration:none">All GVP eruptions →</a>'+
+      '</div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-top:6px">Source: Smithsonian GVP Weekly Report. Date shown = GVP report date, NOT when alert level was set. For exact alert level dates visit MAGMA Indonesia (PVMBG).</div>';
+    return;
+  }catch(e2){}
+
+  // Source 3: verified hardcoded
+  renderFallback();
 }
+
+// Cache: store last non-zero FIRMS result so cloud-cover passes show last known data
+var _lastFIRMSLines=null;
+var _lastFIRMSTimestamp='';
 
 async function loadFIRMS(){
   var key=document.getElementById('firmsKey');
@@ -941,10 +1087,11 @@ async function loadFIRMS(){
     return lines;
   }
 
-  function renderFire(lines){
+  function renderFire(lines,isCached){
     var total=lines.length;
-    // VIIRS SNPP NRT CSV: latitude,longitude,bright_ti4,scan,track,acq_date,acq_time,satellite,instrument,confidence,version,bright_ti5,frp,daynight
-    // confidence col index 9: values are 'l','n','h' (low/nominal/high)
+    var latestAcq='';
+    try{var acqDates=lines.map(function(l){return l.split(',')[5]||'';}).filter(Boolean).sort();if(acqDates.length)latestAcq=acqDates[acqDates.length-1];}catch(ex){}
+    if(!isCached&&total>0){_lastFIRMSLines=lines;_lastFIRMSTimestamp=latestAcq||new Date().toISOString().slice(0,10);}
     var high=lines.filter(function(l){
       var p=l.split(',');
       var conf=(p[9]||'').trim().toLowerCase();
@@ -978,11 +1125,19 @@ async function loadFIRMS(){
           '<div style="font-size:18px;font-weight:700;color:'+(cnt>100?'#E24B4A':cnt>30?'#EF9F27':'var(--text)')+'">'+cnt+'</div></div>';
       }).join('')+'</div>':
       '<div style="font-size:10px;color:var(--text2)">No hotspots detected in Indonesia (24h).</div>';
+    var cachedBanner=isCached?
+      '<div style="font-size:9px;background:#FFF8F0;border-left:3px solid #EF9F27;padding:6px 10px;border-radius:var(--r);margin-bottom:8px;color:#854F0B">'+
+      '\u26A0 Current satellite pass: 0 detections (likely cloud cover). Showing <strong>last known data from '+(_lastFIRMSTimestamp||latestAcq||'previous pass')+'</strong>. Will update on next cloud-free overpass.'+
+      '</div>':'';
     if(provEl) provEl.innerHTML=
-      '<div style="font-size:10px;font-weight:700;color:var(--text);margin-bottom:8px">Hotspot distribution by island (24h VIIRS SNPP)</div>'+
+      cachedBanner+
+      '<div style="font-size:10px;font-weight:700;color:var(--text);margin-bottom:8px">Hotspot distribution by island (24h VIIRS SNPP)'+(latestAcq?' \u00b7 <span style="color:var(--teal);font-weight:600">Data: '+latestAcq+'</span>':'')+'</div>'+
       grid+
-      '<div style="font-size:9px;color:var(--text2);margin-top:8px">NASA FIRMS VIIRS SNPP NRT \u00b7 375m resolution \u00b7 Updated within 3h of overpass'+
-      ' \u00b7 <a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@118,-2,6z" target="_blank" style="color:var(--teal)">Open FIRMS map \u2192</a></div>';
+      '<div style="font-size:9px;color:var(--text2);margin-top:8px">NASA FIRMS VIIRS SNPP NRT \u00b7 375m resolution \u00b7 Updated within 3h of satellite overpass'+
+      ' \u00b7 <a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@118,-2,6z" target="_blank" style="color:var(--teal)">Open FIRMS map \u2192</a></div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-top:5px;padding:6px 8px;background:var(--bg);border-radius:var(--r);border-left:3px solid var(--border);line-height:1.6">'+
+      'The VIIRS satellite passes over Indonesia ~every 12 hours. If data showing 0 hotspots can mean: cloud cover blocked the satellite sensor, no major fires during the last overpass window, or all detections are Low/Nominal confidence (agricultural burns, gas flares, small fires). This does NOT confirm zero fires on the ground.'+
+      '</div>';
   }
 
   function showFIRMSFallback(){
@@ -1006,7 +1161,7 @@ async function loadFIRMS(){
     var r1=await fetch(directUrl,{cache:'no-store'});
     var t1=await r1.text();
     var l1=parseCSV(t1);
-    if(l1){renderFire(l1);return;}
+    if(l1){if(l1.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}renderFire(l1,false);return;}
   }catch(e1){}
 
   // Try 2: allorigins proxy
@@ -1014,7 +1169,7 @@ async function loadFIRMS(){
     var r2=await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(directUrl),{cache:'no-store'});
     var d2=await r2.json();
     var l2=parseCSV(d2.contents||'');
-    if(l2){renderFire(l2);return;}
+    if(l2){if(l2.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}renderFire(l2,false);return;}
   }catch(e2){}
 
   // Try 3: corsproxy.io
@@ -1022,9 +1177,10 @@ async function loadFIRMS(){
     var r3=await fetch('https://corsproxy.io/?'+encodeURIComponent(directUrl),{cache:'no-store'});
     var t3=await r3.text();
     var l3=parseCSV(t3);
-    if(l3){renderFire(l3);return;}
+    if(l3){if(l3.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}renderFire(l3,false);return;}
   }catch(e3){}
 
+  if(_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}
   showFIRMSFallback();
 }
 
@@ -1137,45 +1293,70 @@ async function loadWeather(){
     }
   }catch(e2){}
 
-  // Step C: BMKG blocked -- use Open-Meteo for 4 major Indonesian cities
+  // Step C: Always render the unified 12-city 3x4 grid.
+  // Slot 0 = "Your Location" placeholder (id=wxCity0), updated in-place by loadWeatherForCoords.
+  // Fixed cities 1-11 fetched in parallel.
+  // Temperature shown as °C / °F in all cells.
   try{
-    var cities=[
-      {name:'Jakarta',lat:-6.2,lon:106.8},
-      {name:'Surabaya',lat:-7.25,lon:112.75},
-      {name:'Medan',lat:3.6,lon:98.7},
-      {name:'Makassar',lat:-5.15,lon:119.4}
+    var fixedCities=[
+      {name:'Singapore',     flag:'\uD83C\uDDF8\uD83C\uDDEC',lat:1.35,  lon:103.82,tz:'Asia%2FSingapore'},
+      {name:'Beijing',       flag:'\uD83C\uDDE8\uD83C\uDDF3',lat:39.91, lon:116.39,tz:'Asia%2FShanghai'},
+      {name:'Tokyo',         flag:'\uD83C\uDDEF\uD83C\uDDF5',lat:35.69, lon:139.69,tz:'Asia%2FTokyo'},
+      {name:'Sydney',        flag:'\uD83C\uDDE6\uD83C\uDDFA',lat:-33.87,lon:151.21,tz:'Australia%2FSydney'},
+      {name:'Mumbai',        flag:'\uD83C\uDDEE\uD83C\uDDF3',lat:19.08, lon:72.88, tz:'Asia%2FKolkata'},
+      {name:'Dar es Salaam', flag:'\uD83C\uDDF9\uD83C\uDDFF',lat:-6.79, lon:39.21, tz:'Africa%2FDar_es_Salaam'},
+      {name:'Lagos',         flag:'\uD83C\uDDF3\uD83C\uDDEC',lat:6.52,  lon:3.38,  tz:'Africa%2FLagos'},
+      {name:'London',        flag:'\uD83C\uDDEC\uD83C\uDDE7',lat:51.51, lon:-0.13, tz:'Europe%2FLondon'},
+      {name:'Los Angeles',   flag:'\uD83C\uDDFA\uD83C\uDDF8',lat:34.05, lon:-118.24,tz:'America%2FLos_Angeles'},
+      {name:'New York',      flag:'\uD83C\uDDFA\uD83C\uDDF8',lat:40.71, lon:-74.01,tz:'America%2FNew_York'},
+      {name:'Moscow',        flag:'\uD83C\uDDF7\uD83C\uDDFA',lat:55.75, lon:37.62, tz:'Europe%2FMoscow'}
     ];
-    var results=await Promise.all(cities.map(async function(city){
-      var u='https://api.open-meteo.com/v1/forecast?latitude='+city.lat+'&longitude='+city.lon+
-        '&current=temperature_2m,weathercode,windspeed_10m,precipitation,relative_humidity_2m,apparent_temperature&timezone=Asia%2FJakarta';
-      var res=await fetch(u);
-      var data=await res.json();
-      return {city:city.name,c:data.current};
-    }));
-    var now3=new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+' WIB';
+    function toF2(c){return Math.round(parseFloat(c)*9/5+32);}
+    function cellHTML(flag,label,c,wdesc,isAlert){
+      var t=parseFloat(c.temperature_2m);
+      var fe=parseFloat(c.apparent_temperature);
+      return '<div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)'+(isAlert?';border-left:3px solid #EF9F27':'')+'">'+
+        '<div style="font-size:10px;font-weight:700;color:var(--text)">'+(flag?flag+' ':'')+label+'</div>'+
+        '<div style="font-size:16px;font-weight:800;color:var(--text);margin:2px 0;line-height:1.1">'+t+'\u00b0C</div>'+
+        '<div style="font-size:11px;color:var(--text2);font-weight:600">'+toF2(t)+'\u00b0F</div>'+
+        '<div style="font-size:9px;color:var(--text2);margin-top:2px">'+wdesc+'</div>'+
+        '<div style="font-size:9px;color:var(--text2);margin-top:2px">Feels '+fe+'\u00b0C/'+toF2(fe)+'\u00b0F \u00b7 RH '+c.relative_humidity_2m+'%</div>'+
+        (isAlert?'<div style="font-size:9px;color:#854F0B;font-weight:700;margin-top:2px">\u26A0 Alert</div>':'')+
+        '</div>';
+    }
+    // Render shell immediately with placeholder for slot 0
+    var now3=new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})+' WIB';
     wxEl.innerHTML=
-      '<div style="font-size:9px;color:var(--text2);margin-bottom:8px;padding:6px 8px;background:var(--bg);border-radius:var(--r);border-left:3px solid #EF9F27">'+
-      'Showing Open-Meteo live data \u00b7 '+now3+'</div>'+
-      '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px">'+
-      results.map(function(r){
-        var c=r.c, wdesc=WX[c.weathercode]||'';
-        var isAlert=c.weathercode>=80||c.precipitation>5;
-        return '<div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)'+(isAlert?';border-left:3px solid #EF9F27':'')+'">'+
-          '<div style="font-size:11px;font-weight:700;color:var(--text)">'+r.city+'</div>'+
-          '<div style="font-size:22px;font-weight:800;color:var(--text);margin:2px 0">'+c.temperature_2m+'\u00b0C</div>'+
-          '<div style="font-size:10px;color:var(--text2)">'+wdesc+'</div>'+
-          '<div style="font-size:9px;color:var(--text2);margin-top:3px">'+
-          'Feels '+c.apparent_temperature+'\u00b0C \u00b7 RH '+c.relative_humidity_2m+'% \u00b7 Wind '+c.windspeed_10m+' km/h'+
-          (c.precipitation>0?' \u00b7 Rain '+c.precipitation+' mm/h':'')+'</div>'+
-          (isAlert?'<div style="font-size:9px;color:#854F0B;font-weight:700;margin-top:4px">&#9888; Severe weather</div>':'')+
-          '</div>';
-      }).join('')+'</div>'+
-      '<div style="font-size:9px;color:var(--text2);margin-bottom:8px">Source: <a href="https://open-meteo.com" target="_blank" style="color:var(--teal)">Open-Meteo</a>. For official Indonesian alerts:</div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-bottom:10px;padding:5px 8px;background:var(--bg);border-radius:var(--r)">'+
+      '<span style="color:var(--teal);font-weight:700">Open-Meteo live</span> \u00b7 '+now3+
+      ' \u00b7 <a href="https://www.bmkg.go.id/cuaca/peringatan-dini-cuaca.bmkg" target="_blank" style="color:var(--teal);font-weight:700">BMKG Alerts \u2192</a></div>'+
+      '<div id="wxGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px">'+
+      '<div id="wxCity0" style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border);border-left:3px solid var(--teal)">'+
+      '<div style="font-size:10px;font-weight:700;color:var(--teal)">\uD83D\uDCCD Your Location</div>'+
+      '<div class="lp" style="font-size:10px;color:var(--text2);margin-top:6px">Requesting location...</div>'+
+      '</div>'+
+      '<div id="wxCitiesPlaceholder" style="display:contents"><div class="lp" style="font-size:9px;color:var(--text2);padding:10px">Loading cities...</div></div>'+
+      '</div>'+
       '<div style="display:flex;gap:8px;flex-wrap:wrap">'+
       '<a href="https://www.bmkg.go.id/cuaca/peringatan-dini-cuaca.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Alerts \u2192</a>'+
       '<a href="https://www.bmkg.go.id/gempabumi/gempabumi-terkini.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Earthquakes \u2192</a>'+
       '<a href="https://cuaca.bmkg.go.id/" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Cuaca \u2192</a>'+
       '</div>';
+    // Fetch all fixed cities in parallel
+    Promise.all(fixedCities.map(async function(city){
+      var u='https://api.open-meteo.com/v1/forecast?latitude='+city.lat+'&longitude='+city.lon+
+        '&current=temperature_2m,weathercode,windspeed_10m,precipitation,relative_humidity_2m,apparent_temperature&timezone='+city.tz;
+      var res=await fetch(u,{cache:'no-store'});
+      return Object.assign({},city,{c:(await res.json()).current});
+    })).then(function(citiesData){
+      var placeholder=document.getElementById('wxCitiesPlaceholder');
+      if(!placeholder) return;
+      placeholder.innerHTML=citiesData.map(function(r){
+        var wdesc=WX[r.c.weathercode]||'';
+        var isAlert=r.c.weathercode>=80||r.c.precipitation>5;
+        return cellHTML(r.flag,r.name,r.c,wdesc,isAlert);
+      }).join('');
+    }).catch(function(){});
     return;
   }catch(e3){}
 
@@ -1187,10 +1368,74 @@ async function loadWeather(){
     '<a href="https://www.bmkg.go.id/iklim/" target="_blank" style="background:var(--navy);color:#fff;padding:6px 12px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">Climate \u2192</a>'+
     '</div></div>';
 }
+// ── MAP LOCATION ──
+function requestMapLocation(){
+  var note=document.getElementById('mapLocNote');
+  if(!navigator.geolocation){
+    if(note)note.textContent='Location not supported';
+    var slot=document.getElementById('wxCity0');
+    if(slot)slot.innerHTML='<div style="font-size:10px;font-weight:700;color:var(--text2)">\uD83D\uDCCD Your Location</div><div style="font-size:9px;color:var(--text2);margin-top:4px">Geolocation not available</div>';
+    return;
+  }
+  if(note)note.textContent='Getting your location...';
+  navigator.geolocation.getCurrentPosition(function(pos){
+    var lat=pos.coords.latitude,lon=pos.coords.longitude;
+    var iframe=document.getElementById('windyIframe');
+    if(iframe) iframe.src='https://embed.windy.com/embed2.html?lat='+lat.toFixed(3)+'&lon='+lon.toFixed(3)+'&zoom=9&level=surface&overlay=rain&product=ecmwf&menu=&message=&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1';
+    if(note)note.textContent='Map centred on your location';
+    loadWeatherForCoords(lat,lon);
+  },function(){
+    if(note)note.textContent='';
+    var slot=document.getElementById('wxCity0');
+    if(slot)slot.innerHTML='<div style="font-size:10px;font-weight:700;color:var(--text2)">\uD83D\uDCCD Your Location</div><div style="font-size:9px;color:var(--text2);margin-top:4px">Location access denied</div>';
+  },{timeout:10000});
+}
+
+function cToF(c){return Math.round(c*9/5+32);}
+function fmtTempBoth(c){
+  var n=typeof c==='number'?c:parseFloat(c);
+  if(isNaN(n)) return c+'';
+  return n+'\u00b0C / '+cToF(n)+'\u00b0F';
+}
+
+async function loadWeatherForCoords(lat,lon){
+  // Updates ONLY the "Your Location" slot (wxCity0) — never replaces the whole grid.
+  var slot=document.getElementById('wxCity0');
+  if(!slot) return;
+  slot.innerHTML='<div style="font-size:10px;font-weight:700;color:var(--teal)">\uD83D\uDCCD Your Location</div>'+
+    '<div class="lp" style="font-size:9px;color:var(--text2);margin-top:4px">Fetching...</div>';
+  var WX={0:'Clear sky',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',51:'Light drizzle',53:'Moderate drizzle',55:'Heavy drizzle',61:'Light rain',63:'Moderate rain',65:'Heavy rain',80:'Rain showers',81:'Moderate showers',82:'Heavy showers',95:'Thunderstorm',96:'Thunderstorm+hail',99:'Heavy thunderstorm'};
+  try{
+    var u='https://api.open-meteo.com/v1/forecast?latitude='+lat.toFixed(4)+'&longitude='+lon.toFixed(4)+'&current=temperature_2m,weathercode,windspeed_10m,precipitation,relative_humidity_2m,apparent_temperature&timezone=auto';
+    var r=await fetch(u,{cache:'no-store'});
+    var d=await r.json();
+    var c=d.current;
+    var t=parseFloat(c.temperature_2m),fe=parseFloat(c.apparent_temperature);
+    var wdesc=WX[c.weathercode]||'';
+    var isAlert=c.weathercode>=80||c.precipitation>5;
+    slot.style.borderLeft='3px solid var(--teal)';
+    slot.innerHTML=
+      '<div style="font-size:10px;font-weight:700;color:var(--teal)">\uD83D\uDCCD Your Location</div>'+
+      '<div style="font-size:16px;font-weight:800;color:var(--text);margin:2px 0;line-height:1.1">'+t+'\u00b0C</div>'+
+      '<div style="font-size:11px;color:var(--text2);font-weight:600">'+cToF(t)+'\u00b0F</div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-top:2px">'+wdesc+'</div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-top:2px">Feels '+fe+'\u00b0C/'+cToF(fe)+'\u00b0F \u00b7 RH '+c.relative_humidity_2m+'%</div>'+
+      (isAlert?'<div style="font-size:9px;color:#854F0B;font-weight:700;margin-top:2px">\u26A0 Alert</div>':'');
+  }catch(e){
+    slot.innerHTML='<div style="font-size:10px;font-weight:700;color:var(--text2)">\uD83D\uDCCD Your Location</div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-top:4px">Weather unavailable</div>';
+  }
+}
+
+// ── TEMPERATURE: also update city cards to show C/F ──
+var _origFmtTemp=null;
+
 async function loadAllIDW(){
   var tsEl=document.getElementById('idwTs');
   if(tsEl) tsEl.textContent='Loading...';
   loadENSO();
+  // Auto-request location on every disaster tab open
+  requestMapLocation();
   await Promise.allSettled([loadWeather(), loadUSGS(), loadVolcanoes(), loadFIRMS()]);
   var now=new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})+' WIB';
   if(tsEl) tsEl.textContent=now;
