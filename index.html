@@ -162,35 +162,77 @@ body{display:flex;flex-direction:column;min-height:100vh}
   <div class="rb">
     <div>Live headlines matched from RSS feeds &nbsp;&middot;&nbsp; Refreshed: <strong id="confTs">&mdash;</strong></div>
   </div>
+
+  <!-- Z TOP: Conflict zone cards — full width left-to-right scan -->
   <div class="cgrid" id="confGrid"></div>
-  <div class="card gap">
-    <div class="ct">Conflict intensity &amp; Indonesia exposure matrix</div>
-    <table>
-      <thead><tr><th>Zone</th><th>Intensity</th><th>Proximity</th><th>Economic impact</th><th>Political pressure</th></tr></thead>
-      <tbody>
-        <tr style="background:#FEF0F0"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#A32D2D;letter-spacing:0.6px;border-left:4px solid #E24B4A">&#9679; ACTIVE CONFLICTS </td></tr>
-        <tr style="border-left:4px solid #E24B4A"><td><strong>Gaza &amp; Red Sea</strong></td><td><span class="badge br">Critical</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge br">High &mdash; freight, LNG</span></td><td><span class="badge br">High &mdash; OIC solidarity</span></td></tr>
-        <tr style="border-left:4px solid #E24B4A"><td><strong>Russia&ndash;Ukraine</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; food &amp; fertilizer</span></td><td><span class="badge ba">Medium &mdash; UNSC</span></td></tr>
-        <tr style="border-left:4px solid #E24B4A"><td><strong>Pakistan — Afghanistan</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; energy routes</span></td><td><span class="badge br">High &mdash; Islamic solidarity</span></td></tr>
-        <tr style="border-left:4px solid #E24B4A"><td><strong>Myanmar</strong></td><td><span class="badge ba">High</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low</span></td><td><span class="badge br">High &mdash; ASEAN credibility</span></td></tr>
-        <tr style="border-left:4px solid #E24B4A"><td><strong>Hormuz &amp; Iran</strong></td><td><span class="badge br">Critical</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge br">High &mdash; LNG &amp; oil transit</span></td><td><span class="badge ba">Medium</span></td></tr>
-        <tr style="border-left:4px solid #E24B4A"><td><strong>Thailand &mdash; Cambodia</strong></td><td><span class="badge ba">Elevated</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; ASEAN trade</span></td><td><span class="badge ba">Medium &mdash; ASEAN unity</span></td></tr>
-        <tr style="background:#FFF8F0"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#854F0B;letter-spacing:0.6px;border-left:4px solid #EF9F27">&#9654; ESCALATION WATCH </td></tr>
-        <tr style="border-left:4px solid #EF9F27"><td>South China Sea</td><td><span class="badge ba">Rising</span></td><td><span class="badge br">Direct</span></td><td><span class="badge br">High &mdash; Natuna, SLOCs</span></td><td><span class="badge ba">Medium</span></td></tr>
-        <tr style="border-left:4px solid #EF9F27"><td>China&ndash;Taiwan</td><td><span class="badge ba">Rising</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; semiconductors</span></td><td><span class="badge br">High &mdash; US-China choice</span></td></tr>
-        <tr style="background:#F0FAFA"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#0f6e66;letter-spacing:0.6px;border-left:4px solid #3DBFB0">&#9632; REGIONAL MONITORING</td></tr>
-        <tr style="border-left:4px solid #3DBFB0"><td>Southeast Asia</td><td><span class="badge bt">Monitor</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">High &mdash; trade &amp; SLOCs</span></td><td><span class="badge br">High &mdash; leadership</span></td></tr>
-        <tr style="border-left:4px solid #3DBFB0"><td>South Asia</td><td><span class="badge ba">Latent</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge bb">Low</span></td></tr>
-        <tr style="border-left:4px solid #3DBFB0"><td>Africa</td><td><span class="badge ba">Medium</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge bb">Low</span></td></tr>
-        <tr style="border-left:4px solid #3DBFB0"><td>Pacific &mdash; AU, NZ, Islands</td><td><span class="badge bt">Monitor</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low &mdash; indirect</span></td><td><span class="badge ba">Medium &mdash; alignment</span></td></tr>
-      </tbody>
-    </table>
-  </div>
+
+  <!-- Z MIDDLE: Two-column diagonal — matrix left, quick-ref right -->
+  <div style="display:grid;grid-template-columns:65% 35%;gap:12px;margin-bottom:14px">
+
+    <!-- Z left column: full conflict matrix -->
+    <div class="card">
+      <div class="ct">Conflict intensity &amp; Indonesia exposure matrix</div>
+      <table>
+        <thead><tr><th>Zone</th><th>Intensity</th><th>Proximity</th><th>Economic impact</th><th>Political pressure</th></tr></thead>
+        <tbody>
+          <tr style="background:#FEF0F0"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#A32D2D;letter-spacing:0.6px;border-left:4px solid #E24B4A">&#9679; ACTIVE CONFLICTS &mdash; Ongoing, High Urgency</td></tr>
+          <tr style="border-left:4px solid #E24B4A"><td><strong>Gaza &amp; Red Sea</strong></td><td><span class="badge br">Critical</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge br">High &mdash; freight, LNG</span></td><td><span class="badge br">High &mdash; OIC solidarity</span></td></tr>
+          <tr style="border-left:4px solid #E24B4A"><td><strong>Russia&ndash;Ukraine</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; food &amp; fertilizer</span></td><td><span class="badge ba">Medium &mdash; UNSC</span></td></tr>
+          <tr style="border-left:4px solid #E24B4A"><td><strong>Pakistan / Afghanistan</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; energy routes</span></td><td><span class="badge br">High &mdash; Islamic solidarity</span></td></tr>
+          <tr style="border-left:4px solid #E24B4A"><td><strong>Myanmar</strong></td><td><span class="badge ba">High</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low</span></td><td><span class="badge br">High &mdash; ASEAN credibility</span></td></tr>
+          <tr style="border-left:4px solid #E24B4A"><td><strong>Hormuz &amp; Iran</strong></td><td><span class="badge br">Critical</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge br">High &mdash; LNG &amp; oil transit</span></td><td><span class="badge ba">Medium</span></td></tr>
+          <tr style="border-left:4px solid #E24B4A"><td><strong>Thailand &mdash; Cambodia</strong></td><td><span class="badge ba">Elevated</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; ASEAN trade</span></td><td><span class="badge ba">Medium &mdash; ASEAN unity</span></td></tr>
+          <tr style="background:#FFF8F0"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#854F0B;letter-spacing:0.6px;border-left:4px solid #EF9F27">&#9654; ESCALATION WATCH</td></tr>
+          <tr style="border-left:4px solid #EF9F27"><td>South China Sea</td><td><span class="badge ba">Rising</span></td><td><span class="badge br">Direct</span></td><td><span class="badge br">High &mdash; Natuna, SLOCs</span></td><td><span class="badge ba">Medium</span></td></tr>
+          <tr style="border-left:4px solid #EF9F27"><td>China&ndash;Taiwan</td><td><span class="badge ba">Rising</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; semiconductors</span></td><td><span class="badge br">High &mdash; US-China choice</span></td></tr>
+          <tr style="background:#F0FAFA"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#0f6e66;letter-spacing:0.6px;border-left:4px solid #3DBFB0">&#9632; REGIONAL MONITORING</td></tr>
+          <tr style="border-left:4px solid #3DBFB0"><td>Southeast Asia</td><td><span class="badge bt">Monitor</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">High &mdash; trade &amp; SLOCs</span></td><td><span class="badge br">High &mdash; leadership</span></td></tr>
+          <tr style="border-left:4px solid #3DBFB0"><td>South Asia</td><td><span class="badge ba">Latent</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge bb">Low</span></td></tr>
+          <tr style="border-left:4px solid #3DBFB0"><td>Africa</td><td><span class="badge ba">Medium</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge bb">Low</span></td></tr>
+          <tr style="border-left:4px solid #3DBFB0"><td>Pacific &mdash; AU, NZ, Islands</td><td><span class="badge bt">Monitor</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low &mdash; indirect</span></td><td><span class="badge ba">Medium &mdash; alignment</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Z right column: Indonesia exposure quick-ref -->
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="card">
+        <div class="ct">&#127470;&#127465; Indonesia exposure — top risks</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
+          <div style="padding:8px;background:#FEF0F0;border-radius:var(--r);border-left:3px solid #E24B4A">
+            <div style="font-size:10px;font-weight:700;color:#A32D2D">Strait of Hormuz closure</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;line-height:1.4">20–25% of Indonesia's crude oil imports transits Hormuz. Iran war disruption threatens energy security and state budget assumptions.</div>
+          </div>
+          <div style="padding:8px;background:#FEF0F0;border-radius:var(--r);border-left:3px solid #E24B4A">
+            <div style="font-size:10px;font-weight:700;color:#A32D2D">South China Sea — Natuna</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;line-height:1.4">Overlapping Chinese claims in Natuna EEZ. Direct sovereignty issue — Indonesia does not recognise nine-dash line.</div>
+          </div>
+          <div style="padding:8px;background:#FAEEDA;border-radius:var(--r);border-left:3px solid #EF9F27">
+            <div style="font-size:10px;font-weight:700;color:#854F0B">Myanmar humanitarian</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;line-height:1.4">ASEAN credibility at stake. Indonesia as de facto ASEAN leader expected to lead response to ongoing civil war and refugee crisis.</div>
+          </div>
+          <div style="padding:8px;background:#FAEEDA;border-radius:var(--r);border-left:3px solid #EF9F27">
+            <div style="font-size:10px;font-weight:700;color:#854F0B">US–China decoupling</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;line-height:1.4">Indonesia's top two trade partners in rivalry. Supply chain diversification creates opportunity but forces difficult alignment choices.</div>
+          </div>
+          <div style="padding:8px;background:#f0f8f4;border-radius:var(--r);border-left:3px solid #3DBFB0">
+            <div style="font-size:10px;font-weight:700;color:#0f6e66">Gaza / OIC pressure</div>
+            <div style="font-size:9px;color:var(--text2);margin-top:2px;line-height:1.4">Domestic Muslim majority sentiment. Trade with Israel suspended 2024. BoP membership generating domestic backlash.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end Z middle -->
+
+  <!-- Z BOTTOM: full-width source note -->
   <p class="sn">Headlines sourced from Google News via RSS &mdash; refreshed automatically each time this tab is opened.</p>
 </div>
 
 <!-- GEOECONOMY -->
 <div class="sec" id="s-geoeconomy">
+
+  <!-- TOP BAR: 4 live rates — full width, Z top bar -->
   <div class="g4 gap">
     <div class="m"><div class="ml">IDR / USD</div><div class="mv" id="midr">&mdash;</div><div class="mc up">Live</div></div>
     <div class="m"><div class="ml">IDR / CNY</div><div class="mv" id="mcny">&mdash;</div><div class="mc up">Live</div></div>
@@ -198,256 +240,376 @@ body{display:flex;flex-direction:column;min-height:100vh}
     <div class="m"><div class="ml">IDR / SGD</div><div class="mv" id="msgd">&mdash;</div><div class="mc up">Live</div></div>
   </div>
 
-  <div class="tlb">Central Bank &amp; Macro</div>
-  <div class="g3 gap">
-    <div class="card">
-      <div class="ct">US Federal Reserve</div>
-      <div style="font-size:28px;font-weight:800;color:var(--navy)">4.25&ndash;4.5%</div>
-      <div style="font-size:10px;color:var(--text2);margin-top:4px">Federal Funds Rate &mdash; held Dec 2025</div>
-      <div style="font-size:10px;color:#EF9F27;margin-top:4px;font-weight:600">FOMC Dec 2025: Rate held 4.25&ndash;4.5%</div>
-      <div style="font-size:10px;color:var(--text2);margin-top:6px;line-height:1.5">Fed held rates at 4.25&ndash;4.50% throughout 2025 after cutting 100bps in late 2024. Market pricing 1&ndash;2 cuts in 2026. Higher-for-longer posture weighing on IDR and EM capital flows.</div>
-      <a href="https://www.federalreserve.gov/monetarypolicy/openmarket.htm" target="_blank" style="font-size:9px;color:var(--teal);font-weight:700;text-decoration:none;display:block;margin-top:6px">Fed Open Market Committee &rarr;</a>
-    </div>
-    <div class="card">
-      <div class="ct">Bank Indonesia</div>
-      <div style="font-size:28px;font-weight:800;color:var(--navy)">5.75%</div>
-      <div style="font-size:10px;color:var(--text2);margin-top:4px">BI Rate &mdash; Mar 2026 (monitor for cuts)</div>
-      <div style="font-size:10px;color:var(--teal);margin-top:4px;font-weight:600">Differential vs Fed: +125bps</div>
-      <div style="font-size:10px;color:var(--text2);margin-top:6px;line-height:1.5">BI cut to support economic growth. IDR under pressure from strong USD. BI intervening via spot market and DNDF to stabilize rupiah.</div>
-      <a href="https://www.bi.go.id/en/default.aspx" target="_blank" style="font-size:9px;color:var(--teal);font-weight:700;text-decoration:none;display:block;margin-top:6px">Bank Indonesia &rarr;</a>
-    </div>
-    <div class="card">
-      <div class="ct">PMI Manufacturing &mdash; Feb 2025 (S&amp;P Global / ISM)</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:4px">
-        <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:var(--teal)">53.6</div><div style="font-size:9px;color:var(--text2)">Indonesia</div><div style="font-size:8px;color:var(--teal)">Expanding</div></div>
-        <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:var(--teal)">50.8</div><div style="font-size:9px;color:var(--text2)">China</div><div style="font-size:8px;color:var(--teal)">Expanding</div></div>
-        <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:#E24B4A">49.8</div><div style="font-size:9px;color:var(--text2)">US ISM</div><div style="font-size:8px;color:#E24B4A">Below 50</div></div>
+  <!-- 60/40 SPLIT -->
+  <div style="display:grid;grid-template-columns:60% 40%;gap:14px;align-items:start">
+
+    <!-- LEFT 60%: Dynamic / live data -->
+    <div>
+      <div class="tlb">Stock Indices (Live)</div>
+      <div class="ig gap">
+        <div class="ic"><div class="in">IDX Composite</div><div class="iv" id="iidx">&mdash;</div><div class="ich" id="iidxc">&mdash;</div><div class="is">Jakarta</div></div>
+        <div class="ic"><div class="in">S&amp;P 500</div><div class="iv" id="isp">&mdash;</div><div class="ich" id="ispc">&mdash;</div><div class="is">New York</div></div>
+        <div class="ic"><div class="in">FTSE 100</div><div class="iv" id="iftse">&mdash;</div><div class="ich" id="iftsec">&mdash;</div><div class="is">London</div></div>
+        <div class="ic"><div class="in">Hang Seng</div><div class="iv" id="ihsi">&mdash;</div><div class="ich" id="ihsic">&mdash;</div><div class="is">Hong Kong</div></div>
+        <div class="ic"><div class="in">STI</div><div class="iv" id="isti">&mdash;</div><div class="ich" id="istic">&mdash;</div><div class="is">Singapore</div></div>
       </div>
-      <div style="font-size:9px;color:var(--text2);margin-top:6px">S&amp;P Global (ID Feb 2025: 53.6). Caixin China (Feb 2025: 50.8). US ISM (Feb 2025: 49.8). PMI above 50 = expansion.</div>
-    </div>
-  </div>
+      <p style="font-size:9px;color:var(--text2);margin-bottom:14px">Indices via stooq.com. May reflect previous close outside market hours. <a href="https://finance.yahoo.com" target="_blank" style="color:var(--teal)">Verify at Yahoo Finance &rarr;</a></p>
 
-  <div class="tlb">Stock Indices (Live)</div>
-  <div class="ig gap">
-    <div class="ic"><div class="in">IDX Composite</div><div class="iv" id="iidx">&mdash;</div><div class="ich" id="iidxc">&mdash;</div><div class="is">Jakarta</div></div>
-    <div class="ic"><div class="in">S&amp;P 500</div><div class="iv" id="isp">&mdash;</div><div class="ich" id="ispc">&mdash;</div><div class="is">New York</div></div>
-    <div class="ic"><div class="in">FTSE 100</div><div class="iv" id="iftse">&mdash;</div><div class="ich" id="iftsec">&mdash;</div><div class="is">London</div></div>
-    <div class="ic"><div class="in">Hang Seng</div><div class="iv" id="ihsi">&mdash;</div><div class="ich" id="ihsic">&mdash;</div><div class="is">Hong Kong</div></div>
-    <div class="ic"><div class="in">STI</div><div class="iv" id="isti">&mdash;</div><div class="ich" id="istic">&mdash;</div><div class="is">Singapore</div></div>
-  </div>
-  <p style="font-size:9px;color:var(--text2);margin-bottom:14px">Indices via stooq.com. May reflect previous close outside market hours. <a href="https://finance.yahoo.com" target="_blank" style="color:var(--teal)">Verify at Yahoo Finance &rarr;</a></p>
+      <div class="tlb">Historical Trend Tracker</div>
+      <div class="card gap">
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;align-items:center">
+          <span style="font-size:10px;color:var(--text2);font-weight:600;margin-right:4px">Asset:</span>
+          <button data-asset="idr_usd" class="rbtn" style="background:var(--teal)" id="aIDRUSD" onclick="setAsset('idr_usd',this)">IDR/USD</button>
+          <button data-asset="idr_eur" class="rbtn" id="aIDREUR" onclick="setAsset('idr_eur',this)">IDR/EUR</button>
+          <button data-asset="idr_sgd" class="rbtn" id="aIDRSGD" onclick="setAsset('idr_sgd',this)">IDR/SGD</button>
+          <button data-asset="idr_aud" class="rbtn" id="aIDRAUD" onclick="setAsset('idr_aud',this)">IDR/AUD</button>
+          <button data-asset="brent" class="rbtn" id="aBRENT" onclick="setAsset('brent',this)">Oil</button>
+          <button data-asset="gold" class="rbtn" id="aGOLD" onclick="setAsset('gold',this)">Gold</button>
+          <button data-asset="coal" class="rbtn" id="aCOAL" onclick="setAsset('coal',this)">Coal</button>
+          <button data-asset="palm" class="rbtn" id="aPALM" onclick="setAsset('palm',this)">Palm Oil</button>
+          <button data-asset="nickel" class="rbtn" id="aNICKEL" onclick="setAsset('nickel',this)">Nickel</button>
+          <button data-asset="btc" class="rbtn" id="aBTC" onclick="setAsset('btc',this)">Bitcoin</button>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
+          <span style="font-size:10px;color:var(--text2);font-weight:600;margin-right:4px">Period:</span>
+          <button data-range="30d" class="rbtn" style="background:var(--teal)" id="b30d" onclick="setRange('30d',this)">30 Days</button>
+          <button data-range="3m" class="rbtn" id="b3m" onclick="setRange('3m',this)">3 Months</button>
+          <button data-range="6m" class="rbtn" id="b6m" onclick="setRange('6m',this)">6 Months</button>
+          <button data-range="1y" class="rbtn" id="b1y" onclick="setRange('1y',this)">Year-on-Year</button>
+        </div>
+        <div class="cw" style="height:220px"><canvas id="tChart"></canvas></div>
+        <div id="chartNote" style="font-size:9px;color:var(--text2);margin-top:6px">Select asset and period above. Indicative historical approximation.</div>
+      </div>
 
-  <div class="tlb">Historical Trend Tracker</div>
-  <div class="card gap">
-    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;align-items:center">
-      <span style="font-size:10px;color:var(--text2);font-weight:600;margin-right:4px">Asset:</span>
-      <button data-asset="idr_usd" class="rbtn" style="background:var(--teal)" id="aIDRUSD" onclick="setAsset('idr_usd',this)">IDR/USD</button>
-      <button data-asset="idr_eur" class="rbtn" id="aIDREUR" onclick="setAsset('idr_eur',this)">IDR/EUR</button>
-      <button data-asset="idr_sgd" class="rbtn" id="aIDRSGD" onclick="setAsset('idr_sgd',this)">IDR/SGD</button>
-      <button data-asset="idr_aud" class="rbtn" id="aIDRAUD" onclick="setAsset('idr_aud',this)">IDR/AUD</button>
-      <button data-asset="brent" class="rbtn" id="aBRENT" onclick="setAsset('brent',this)">Oil</button>
-      <button data-asset="gold" class="rbtn" id="aGOLD" onclick="setAsset('gold',this)">Gold</button>
-      <button data-asset="coal" class="rbtn" id="aCOAL" onclick="setAsset('coal',this)">Coal</button>
-      <button data-asset="palm" class="rbtn" id="aPALM" onclick="setAsset('palm',this)">Palm Oil</button>
-      <button data-asset="nickel" class="rbtn" id="aNICKEL" onclick="setAsset('nickel',this)">Nickel</button>
-      <button data-asset="btc" class="rbtn" id="aBTC" onclick="setAsset('btc',this)">Bitcoin</button>
-    </div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
-      <span style="font-size:10px;color:var(--text2);font-weight:600;margin-right:4px">Period:</span>
-      <button data-range="30d" class="rbtn" style="background:var(--teal)" id="b30d" onclick="setRange('30d',this)">30 Days</button>
-      <button data-range="3m" class="rbtn" id="b3m" onclick="setRange('3m',this)">3 Months</button>
-      <button data-range="6m" class="rbtn" id="b6m" onclick="setRange('6m',this)">6 Months</button>
-      <button data-range="1y" class="rbtn" id="b1y" onclick="setRange('1y',this)">Year-on-Year</button>
-    </div>
-    <div class="cw" style="height:220px"><canvas id="tChart"></canvas></div>
-    <div id="chartNote" style="font-size:9px;color:var(--text2);margin-top:6px">Select asset and period above. Indicative historical approximation.</div>
-  </div>
+      <div class="tlb">Key Commodities &mdash; Live Prices</div>
+      <div class="card gap" style="padding:12px 14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px">
+          <div style="font-size:9px;color:var(--text2)">Stooq futures &middot; <span id="commTs" style="color:var(--teal)">Loading...</span></div>
+          <button onclick="loadCommodities()" class="rbtn" style="font-size:9px;padding:3px 8px">&#8635; Refresh</button>
+        </div>
 
-  <div class="tlb">Key Commodities &mdash; Asia Pacific &amp; ASEAN</div>
-  <div class="g2 gap">
-    <div class="card">
-      <div class="ct">Indonesia key exports (indicative)</div>
-      <div class="br-row"><div class="brl">Coal</div><div class="brt"><div class="brf" style="width:78%;background:#0D3D5F"></div></div><div class="brv">~$132/T</div></div>
-      <div class="br-row"><div class="brl">Palm Oil</div><div class="brt"><div class="brf" style="width:54%;background:#0D3D5F"></div></div><div class="brv">~MYR4,120</div></div>
-      <div class="br-row"><div class="brl">Nickel</div><div class="brt"><div class="brf" style="width:29%;background:#3DBFB0"></div></div><div class="brv">~$16,850/T</div></div>
-      <div class="br-row"><div class="brl">Nat. Gas</div><div class="brt"><div class="brf" style="width:22%;background:#3DBFB0"></div></div><div class="brv">~$3.42</div></div>
-      <div class="br-row"><div class="brl">Rubber</div><div class="brt"><div class="brf" style="width:18%;background:#888780"></div></div><div class="brv">~$1.55/kg</div></div>
-      <div class="br-row"><div class="brl">Tin</div><div class="brt"><div class="brf" style="width:32%;background:#888780"></div></div><div class="brv">~$26,800/T</div></div>
-    </div>
-    <div class="card">
-      <div class="ct">Global benchmarks</div>
-      <div class="br-row"><div class="brl">Oil Crude</div><div class="brt"><div class="brf" style="width:60%;background:#854F0B"></div></div><div class="brv">~$78/bbl</div></div>
-      <div class="br-row"><div class="brl">Gold</div><div class="brt"><div class="brf" style="width:85%;background:#EF9F27"></div></div><div class="brv">~$3,320/oz</div></div>
-      <div class="br-row"><div class="brl">Wheat</div><div class="brt"><div class="brf" style="width:35%;background:#888780"></div></div><div class="brv">~$210/T</div></div>
-      <div class="br-row"><div class="brl">Fertilizer</div><div class="brt"><div class="brf" style="width:40%;background:#888780"></div></div><div class="brv">~$380/T</div></div>
-      <div class="br-row"><div class="brl">Iron Ore</div><div class="brt"><div class="brf" style="width:45%;background:#7aaac5"></div></div><div class="brv">~$102/T</div></div>
-      <div class="br-row"><div class="brl">Copper</div><div class="brt"><div class="brf" style="width:55%;background:#7aaac5"></div></div><div class="brv">~$9,200/T</div></div>
-    </div>
-  </div>
+        <!-- Indonesia key exports -->
+        <div style="font-size:9px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">&#127470;&#127465; Indonesia Key Exports</div>
+        <div id="commExports" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
+          <div class="lp" style="font-size:9px;color:var(--text2);padding:8px 0;grid-column:1/-1;text-align:center">Loading commodity prices...</div>
+        </div>
 
-  <div class="tlb">Top Trade Partners 2025</div>
-  <div class="card gap">
-    <table>
-      <thead><tr><th>Country</th><th>Total Trade (est.)</th><th>Key exports</th><th>Key imports</th><th>Risk</th></tr></thead>
-      <tbody>
-        <tr><td>China</td><td>~$138.5B</td><td>Coal, nickel, palm oil</td><td>Electronics, machinery, chemicals</td><td><span class="badge ba">Tariff war risk</span></td></tr>
-        <tr><td>United States</td><td>~$40.2B</td><td>Textiles, rubber, palm oil</td><td>Machinery, aircraft, soybeans</td><td><span class="badge ba">Trade policy risk</span></td></tr>
-        <tr><td>Japan</td><td>~$37.8B</td><td>Coal, LNG, palm oil</td><td>Vehicles, machinery</td><td><span class="badge bg">Low</span></td></tr>
-        <tr><td>India</td><td>~$29.1B</td><td>Coal, palm oil, copper</td><td>Steel, chemicals, pharma</td><td><span class="badge bg">Low</span></td></tr>
-        <tr><td>South Korea</td><td>~$25.0B</td><td>Coal, LNG, nickel</td><td>Electronics, steel</td><td><span class="badge bg">Low</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="sn">Exchange rates: Open Exchange Rates API (live). Indices: stooq.com + Yahoo Finance fallback. PMI: S&amp;P Global / ISM Feb 2025. Commodities: indicative. Trade: BPS Indonesia provisional 2025 / WTO.</p>
+        <!-- Global benchmarks -->
+        <div style="font-size:9px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">&#127760; Global Benchmarks</div>
+        <div id="commBenchmarks" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <div class="lp" style="font-size:9px;color:var(--text2);padding:8px 0;grid-column:1/-1;text-align:center">Loading...</div>
+        </div>
 
-  <div class="tlb">Indonesia Strategic Indicators 2025</div>
-  <div class="g2 gap">
-    <div class="card">
-      <div class="ct">Macro indicators 2025 (BPS Indonesia)</div>
-      <div class="pl"><span>GDP Growth (Full Year 2025)</span><span style="font-weight:700">5.11%</span></div><div class="pt"><div class="pf" style="width:65%;background:#3DBFB0"></div></div>
-      <div class="pl"><span>Inflation (Dec 2025, YoY)</span><span style="font-weight:700">2.92%</span></div><div class="pt"><div class="pf" style="width:16%;background:#3DBFB0"></div></div>
-      <div class="pl"><span>Unemployment (Aug 2025)</span><span style="font-weight:700">4.85%</span></div><div class="pt"><div class="pf" style="width:20%;background:#0D3D5F"></div></div>
-      <div class="pl"><span>Current Account (% GDP, 2025)</span><span style="font-weight:700">-0.9%</span></div><div class="pt"><div class="pf" style="width:30%;background:#E24B4A"></div></div>
+        <div style="font-size:9px;color:var(--text2);margin-top:10px;line-height:1.5">
+          &#9432; Change shown vs previous close (open price). Futures prices — may differ from spot. Palm Oil: Bursa Malaysia FCPO. Gas: Henry Hub.
+          Palm Oil, Rubber, Tin may show N/A if Bursa Malaysia futures unavailable on stooq.
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <div class="ct">Fiscal &amp; financial resilience 2025</div>
-      <div class="pl"><span>Forex Reserves (Dec 2025, BI)</span><span style="font-weight:700">$151.2B</span></div><div class="pt"><div class="pf" style="width:68%;background:#3DBFB0"></div></div>
-      <div class="pl"><span>Debt-to-GDP (2025)</span><span style="font-weight:700">40.1%</span></div><div class="pt"><div class="pf" style="width:40%;background:#0D3D5F"></div></div>
-      <div class="pl"><span>FDI Inflow 2025 (BKPM)</span><span style="font-weight:700">$50.8B</span></div><div class="pt"><div class="pf" style="width:58%;background:#3DBFB0"></div></div>
-      <div class="pl"><span>Defense Budget FY2026 (% GDP)</span><span style="font-weight:700">0.88%</span></div><div class="pt"><div class="pf" style="width:15%;background:#E24B4A"></div></div>
+
+    <!-- RIGHT 40%: Policy context / reference -->
+    <div>
+      <div class="tlb">Central Bank &amp; Macro</div>
+      <div class="card gap">
+        <div class="ct">US Federal Reserve</div>
+        <div style="font-size:28px;font-weight:800;color:var(--navy)">4.25&ndash;4.5%</div>
+        <div style="font-size:10px;color:var(--text2);margin-top:4px">Federal Funds Rate &mdash; held Mar 2026</div>
+        <div style="font-size:10px;color:#EF9F27;margin-top:4px;font-weight:600">FOMC Mar 2026: Rate held 4.25&ndash;4.5%</div>
+        <div style="font-size:10px;color:var(--text2);margin-top:6px;line-height:1.5">Fed held rates throughout 2025–2026. Market pricing 1–2 cuts in H2 2026. Higher-for-longer posture weighing on IDR and EM capital flows. Iran war adding energy inflation risk.</div>
+        <a href="https://www.federalreserve.gov/monetarypolicy/openmarket.htm" target="_blank" style="font-size:9px;color:var(--teal);font-weight:700;text-decoration:none;display:block;margin-top:6px">Fed Open Market Committee &rarr;</a>
+      </div>
+      <div class="card gap" style="margin-top:10px">
+        <div class="ct">Bank Indonesia</div>
+        <div style="font-size:28px;font-weight:800;color:var(--navy)" id="biRateVal"><span class="lp">—</span></div>
+        <div style="font-size:10px;color:var(--text2);margin-top:4px" id="biRateLabel">BI Rate</div>
+        <div style="font-size:10px;color:#EF9F27;margin-top:4px;font-weight:600" id="biRateDiff">vs Fed: —</div>
+        <div style="font-size:10px;color:var(--text2);margin-top:6px;line-height:1.5" id="biRateNote">Loading...</div>
+        <a href="https://www.bi.go.id/en/default.aspx" target="_blank" style="font-size:9px;color:var(--teal);font-weight:700;text-decoration:none;display:block;margin-top:6px">Bank Indonesia &rarr;</a>
+      </div>
+
+      <div class="tlb" style="margin-top:10px">PMI Manufacturing</div>
+      <div class="card gap">
+        <div class="ct">Feb 2026 (S&amp;P Global) &mdash; <span style="color:var(--teal)">7th straight month expanding</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:4px">
+          <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:var(--teal)">53.8</div><div style="font-size:9px;color:var(--text2)">Indonesia</div><div style="font-size:8px;color:var(--teal)">Highest since Mar 2024</div></div>
+          <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:var(--teal)">50.8</div><div style="font-size:9px;color:var(--text2)">China (Caixin)</div><div style="font-size:8px;color:var(--teal)">Expanding</div></div>
+          <div style="text-align:center;padding:8px;background:var(--bg);border-radius:var(--r)"><div style="font-size:18px;font-weight:800;color:#E24B4A">49.8</div><div style="font-size:9px;color:var(--text2)">US ISM</div><div style="font-size:8px;color:#E24B4A">Contracting</div></div>
+        </div>
+        <div style="font-size:9px;color:var(--text2);margin-top:6px;line-height:1.4">Indonesia PMI rose to 53.8 in Feb 2026 from 52.6 in Jan. Sharper rise in new orders, strongest production growth in nearly two years, first rise in export orders in 6 months. Mar 2026 preliminary: 53.8 (unchanged). Source: S&amp;P Global, 2 Mar 2026.</div>
+      </div>
+
+      <div class="tlb" style="margin-top:10px">Indonesia Strategic Indicators</div>
+      <div class="card gap" id="macroCard">
+        <div class="ct" id="macroCt">Macro indicators &mdash; <span class="lp" style="color:var(--teal)">Fetching...</span></div>
+        <div id="macroBody" style="min-height:120px">
+          <div class="lp" style="font-size:10px;color:var(--text2);padding:20px 0;text-align:center">Loading live macro data...</div>
+        </div>
+      </div>
+
+      <div class="tlb" style="margin-top:10px">Top Trade Partners 2025</div>
+      <div class="card gap">
+        <table>
+          <thead><tr><th>Country</th><th>Trade</th><th>Risk</th></tr></thead>
+          <tbody>
+            <tr><td>China</td><td>~$138.5B</td><td><span class="badge ba">Tariff risk</span></td></tr>
+            <tr><td>United States</td><td>~$40.2B</td><td><span class="badge ba">Policy risk</span></td></tr>
+            <tr><td>Japan</td><td>~$37.8B</td><td><span class="badge bg">Low</span></td></tr>
+            <tr><td>India</td><td>~$29.1B</td><td><span class="badge bg">Low</span></td></tr>
+            <tr><td>South Korea</td><td>~$25.0B</td><td><span class="badge bg">Low</span></td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-  <p class="sn">Strategic indicators: BPS Indonesia, Bank Indonesia, BKPM, Kemenkeu 2025&ndash;2026.</p>
+
+  </div><!-- end 60/40 -->
+  <p class="sn">Exchange rates: Open Exchange Rates API (live). Indices: Yahoo Finance / stooq.com (last close if market closed). PMI: S&amp;P Global Feb 2026. Macro: BPS Indonesia, Bank Indonesia, IMF Article IV Jan 2026. Commodities: indicative. Trade: BPS Indonesia 2025.</p>
 </div>
 
 <!-- DIPLOMACY -->
 <div class="sec" id="s-diplomacy">
   <div class="rb">
-    <div>Curated global diplomatic intelligence &nbsp;&middot;&nbsp; Last updated: <strong>March 2026</strong></div>
+    <div>GDELT live feed &nbsp;&middot;&nbsp; Auto-refreshes every 3 hours &nbsp;&middot;&nbsp; <span id="diploLastRefresh" style="color:var(--teal);font-weight:700">—</span></div>
+    <button onclick="refreshDiploFeed()" class="rbtn" id="diploRefreshBtn">&#8635; Refresh Now</button>
+  </div>
+
+  <!-- CURATED CONTEXT — first -->
+  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:#E24B4A;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+    <span style="width:7px;height:7px;border-radius:50%;background:#E24B4A;display:inline-block;animation:pulse 1.2s ease-in-out infinite"></span>
+    Curated Context &mdash; Key Events Last 30 Days
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:14px">
+
+      <!-- Alert 1 -->
+      <div style="background:#fff8f8;border:1px solid #f5c6c6;border-left:4px solid #E24B4A;border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;font-weight:800;color:#E24B4A;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px">&#x1F6A8; Iran War &mdash; Mediation Push</div>
+        <div style="font-size:11px;font-weight:700;color:#0D3D5F;margin-bottom:4px">Pakistan offers to host US&ndash;Iran talks &mdash; Islamabad</div>
+        <div style="font-size:10px;color:#5a7a90;line-height:1.5">PM Shehbaz Sharif publicly offered Islamabad as venue for US&ndash;Iran peace negotiations on 24 Mar. Trump acknowledged the offer within the hour. Army chief Field Marshal Munir held prior call with Trump; FM Ishaq Dar separately engaged Iranian FM Abbas Araghchi. Iran denied talks but US cited "very good and productive conversations."</div>
+        <div style="font-size:9px;color:var(--teal);font-weight:700;margin-top:5px">24 Mar 2026 &mdash; Al Jazeera / Arab News</div>
+      </div>
+
+      <!-- Alert 2 -->
+      <div style="background:#fff8f8;border:1px solid #f5c6c6;border-left:4px solid #E24B4A;border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;font-weight:800;color:#E24B4A;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px">&#x1F6A8; Indonesia &mdash; Iran Humanitarian</div>
+        <div style="font-size:11px;font-weight:700;color:#0D3D5F;margin-bottom:4px">JK / PMI humanitarian aid mission &mdash; Iran channel</div>
+        <div style="font-size:10px;color:#5a7a90;line-height:1.5">PMI chairman Jusuf Kalla met Iranian Ambassador Boroujerdi at PMI HQ on 18 Mar to coordinate emergency medical supplies. Aid routed via Pakistan and Turkey through Red Crescent networks due to closed Iranian airspace. JK confirmed NOT travelling to Iran (26 Mar) — currently on ASEAN peace dialogue tour.</div>
+        <div style="font-size:9px;color:var(--teal);font-weight:700;margin-top:5px">18&ndash;26 Mar 2026 &mdash; Liputan6 / Antara / Tempo</div>
+      </div>
+
+      <!-- Alert 3 -->
+      <div style="background:#fffbf0;border:1px solid #f5dfa0;border-left:4px solid #EF9F27;border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;font-weight:800;color:#854F0B;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px">&#x26A0; Indonesia &mdash; Australia Defense</div>
+        <div style="font-size:11px;font-weight:700;color:#0D3D5F;margin-bottom:4px">ID&ndash;AU defense treaty &rarr; trilateral with Japan &amp; PNG</div>
+        <div style="font-size:10px;color:#5a7a90;line-height:1.5">Defense Minister Sjafrie Sjamsoeddin met Australian counterpart Richard Marles in Jakarta on 12 Mar, one month after signing a landmark security treaty. Announced two new trilateral frameworks: Indonesia&ndash;Australia&ndash;Japan and Indonesia&ndash;Australia&ndash;Papua New Guinea.</div>
+        <div style="font-size:9px;color:var(--teal);font-weight:700;margin-top:5px">13 Mar 2026 &mdash; The Diplomat / Jakarta Post</div>
+      </div>
+
+      <!-- Alert 4 -->
+      <div style="background:#fffbf0;border:1px solid #f5dfa0;border-left:4px solid #EF9F27;border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;font-weight:800;color:#854F0B;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px">&#x26A0; Malaysia &mdash; Indonesia Coordination</div>
+        <div style="font-size:11px;font-weight:700;color:#0D3D5F;margin-bottom:4px">Anwar calls Prabowo &mdash; Iran de-escalation &amp; bilateral meet</div>
+        <div style="font-size:10px;color:#5a7a90;line-height:1.5">PM Anwar Ibrahim telephoned President Prabowo on 23 Mar, expressing Malaysia's full support for Indonesia's Iran de-escalation diplomacy. Both agreed to meet soon; Anwar proposed visiting Jakarta. Malaysia as ASEAN Chair 2025 coordinating regional response to Gulf energy disruption.</div>
+        <div style="font-size:9px;color:var(--teal);font-weight:700;margin-top:5px">24 Mar 2026 &mdash; The Star / Bernama</div>
+      </div>
+
+      <!-- Alert 5 -->
+      <div style="background:#f0f8f4;border:1px solid #b8e0cc;border-left:4px solid #3DBFB0;border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;font-weight:800;color:#0f6e66;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px">&#x1F4CB; Indonesia &mdash; US Trade Deal</div>
+        <div style="font-size:11px;font-weight:700;color:#0D3D5F;margin-bottom:4px">Prabowo&ndash;Trump sign Reciprocal Trade Agreement &mdash; Washington</div>
+        <div style="font-size:10px;color:#5a7a90;line-height:1.5">Prabowo and Trump signed the US&ndash;Indonesia Reciprocal Trade Agreement on 19 Feb. Covers digital trade, supply chain alignment, data flows, regulatory harmonisation. Critics flag Article 5.1 requiring Indonesia to mirror US trade restrictions on third countries — testing "free and active" doctrine.</div>
+        <div style="font-size:9px;color:var(--teal);font-weight:700;margin-top:5px">19 Feb &mdash; 2 Mar 2026 &mdash; The Diplomat / Asialink</div>
+      </div>
+
+      <!-- Alert 6 -->
+      <div style="background:#f0f8f4;border:1px solid #b8e0cc;border-left:4px solid #3DBFB0;border-radius:8px;padding:10px 12px">
+        <div style="font-size:9px;font-weight:800;color:#0f6e66;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px">&#x1F4CB; Indonesia &mdash; Iran Mediation Offer</div>
+        <div style="font-size:11px;font-weight:700;color:#0D3D5F;margin-bottom:4px">Prabowo offers to fly to Tehran &mdash; offer still on table</div>
+        <div style="font-size:10px;color:#5a7a90;line-height:1.5">Following US&ndash;Israeli strikes on Iran (28 Feb) killing Supreme Leader Khamenei, Indonesia's MoFA stated Prabowo was willing to travel to Tehran for mediation. FM Sugiono reiterated offer to FM Araghchi (3 Mar). Iranian envoy welcomed gesture but questioned US reliability. Domestic backlash growing over BoP membership.</div>
+        <div style="font-size:9px;color:var(--teal);font-weight:700;margin-top:5px">1&ndash;5 Mar 2026 &mdash; Jakarta Post / Al Jazeera / Antara</div>
+      </div>
 
   </div>
 
+  <!-- LIVE FEED CHANNEL CARDS — parallel loading, 15 channels -->
+  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:var(--navy);margin-bottom:8px;margin-top:18px;display:flex;align-items:center;justify-content:space-between">
+    <span>&#127760; Live Diplomatic News Feed &mdash; All Channels</span>
+    <span id="diploLoadStatus" style="font-size:9px;font-weight:600;color:var(--teal);text-transform:none;letter-spacing:0">—</span>
+  </div>
+  <div id="diploChannelGrid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:18px">
+  </div>
+
+  <!-- BILATERAL + MULTILATERAL -->
   <div class="dg gap">
     <div class="dc">
       <div class="dtype" style="color:#0D3D5F">Indonesia Bilateral &amp; Multilateral Activity</div>
-      <div class="dev"><div class="dico" style="background:#e8f2f8;color:#0D3D5F;font-size:11px">ID&ndash;CN</div><div><div class="dtt">Prabowo&ndash;Xi Jinping bilateral &mdash; Beijing</div><div class="dtm">BRI investment, Natuna EEZ, critical minerals MoU. China reaffirmed "comprehensive strategic partnership." Indonesia secured $10B+ in investment pledges across EV and battery sectors.</div><div class="dtd">January 2025</div></div></div>
-      <div class="dev"><div class="dico" style="background:#EAF3DE;color:#3B6D11;font-size:11px">ID&ndash;US</div><div><div class="dtt">Sugiono &mdash; Rubio bilateral &mdash; Washington D.C.</div><div class="dtm">Reaffirmed US-Indonesia strategic partnership. Defense cooperation, Indo-Pacific maritime security, South China Sea briefing. Rubio signaled sustained US-ASEAN engagement.</div><div class="dtd">February 2025</div></div></div>
-      <div class="dev"><div class="dico" style="background:#FAEEDA;color:#854F0B;font-size:11px">ID&ndash;IN</div><div><div class="dtt">Prabowo&ndash;Modi bilateral &mdash; New Delhi</div><div class="dtm">Indonesia-India comprehensive strategic partnership elevated. ASEAN-India FTA, Quad spillover, defense procurement, digital infrastructure cooperation on agenda.</div><div class="dtd">January 2025</div></div></div>
-      <div class="dev"><div class="dico" style="background:#FCEBEB;color:#A32D2D;font-size:11px">ID&ndash;RU</div><div><div class="dtt">Prabowo state visit &mdash; Moscow</div><div class="dtm">Prabowo met Putin, drawing Western concern. Indonesia maintained free-active stance. Defense ties discussed including potential Sukhoi follow-up. Indonesia continues to abstain on Russia-related UNGA resolutions.</div><div class="dtd">February 2025</div></div></div>
-      <div class="dev"><div class="dico" style="background:#e0f7f5;color:#0f6e66;font-size:11px">ID&ndash;AU</div><div><div class="dtt">Indonesia&ndash;Australia 2+2 Ministerial &mdash; Canberra</div><div class="dtm">Foreign and defense ministers. Comprehensive Strategic Partnership reaffirmed. Joint maritime patrols, Timor Sea, AUKUS spillover, and Pacific engagement reviewed.</div><div class="dtd">March 2025</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#EAF3DE;color:#3B6D11;font-size:10px">ID&ndash;US</div><div><div class="dtt">Prabowo&ndash;Trump &mdash; Reciprocal Trade Agreement &mdash; Washington</div><div class="dtm">Signed 19 Feb 2026. Covers digital trade liberalisation, cross-border data flows, supply-chain integration, and regulatory alignment with US standards. Framed as a strategic &amp; economic framework. Critics flag Article 5.1 requiring Indonesia to mirror US trade restrictions on third countries &mdash; testing "free and active" doctrine. Domestic debate ongoing.</div><div class="dtd">19 Feb 2026 &mdash; The Diplomat</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#e0f7f5;color:#0f6e66;font-size:10px">ID&ndash;AU</div><div><div class="dtt">Sjafrie&ndash;Marles Defense Ministerial &mdash; Jakarta</div><div class="dtm">Def. Min. Sjafrie Sjamsoeddin and Australian counterpart Richard Marles met in Jakarta on 12 Mar, one month post-security treaty signing. Announced two new trilateral arrangements: Indonesia&ndash;Australia&ndash;Japan (defense professionalism) and Indonesia&ndash;Australia&ndash;Papua New Guinea (Pacific security). First trilateral ID&ndash;AU&ndash;JP framework established.</div><div class="dtd">12&ndash;13 Mar 2026 &mdash; The Diplomat</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#FCEBEB;color:#A32D2D;font-size:10px">ID&ndash;IR</div><div><div class="dtt">Indonesia mediation offer &mdash; Iran war response</div><div class="dtm">MoFA declared Prabowo ready to travel to Tehran following US&ndash;Israeli strikes (28 Feb) killing Supreme Leader Khamenei. FM Sugiono confirmed offer to Iranian FM Araghchi (3 Mar). Iranian Ambassador Boroujerdi welcomed the gesture but questioned US reliability as a negotiating partner. PMI/JK separately coordinating humanitarian medical aid to Iran via Red Crescent (Pakistan/Turkey route).</div><div class="dtd">28 Feb &ndash; 18 Mar 2026 &mdash; Antara / Jakarta Globe / Tempo</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#e8f2f8;color:#0D3D5F;font-size:10px">ID&ndash;MY</div><div><div class="dtt">Prabowo&ndash;Anwar phone call &mdash; Iran &amp; bilateral</div><div class="dtm">PM Anwar Ibrahim telephoned Prabowo on 23 Mar to express Malaysia's support for Indonesia's Iran de-escalation effort. Both agreed to meet soon; Anwar proposed a visit to Jakarta. Malaysia as ASEAN Chair coordinating a regional response to Gulf energy disruption caused by Strait of Hormuz tensions.</div><div class="dtd">23&ndash;24 Mar 2026 &mdash; Bernama / The Star</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#e8f2f8;color:#0D3D5F;font-size:10px">ID&ndash;CN</div><div><div class="dtt">Prabowo&ndash;Xi Jinping bilateral &mdash; Beijing</div><div class="dtm">BRI investment, Natuna EEZ, critical minerals MoU. China reaffirmed "comprehensive strategic partnership." Indonesia secured $10B+ in investment pledges across EV and battery sectors. China also condemned US&ndash;Israeli Iran strikes and called for immediate ceasefire.</div><div class="dtd">Jan 2025 / updated Mar 2026</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#FCEBEB;color:#A32D2D;font-size:10px">ID&ndash;RU</div><div><div class="dtt">Prabowo state visit &mdash; Moscow (2nd)</div><div class="dtm">Prabowo visited Putin a second time, skipping a G7 meeting. Defense ties discussed. Indonesia maintains neutrality, continuing to abstain on Russia-related UNGA resolutions. Prabowo's Russia visits draw renewed scrutiny amid the Iran war and BoP participation.</div><div class="dtd">2025 &mdash; updated context Mar 2026</div></div></div>
     </div>
+
     <div class="dc">
-      <div class="dtype" style="color:#854F0B">Major Global Summits &amp; Multilateral Processes</div>
-      <div class="dev"><div class="dico" style="background:#FAEEDA;color:#854F0B;font-size:10px">ASEAN</div><div><div class="dtt">ASEAN Summit 2025 &mdash; Kuala Lumpur</div><div class="dtm">Philippines as ASEAN Chair 2026 (rotating annually). Agenda: South China Sea COC progress, Myanmar continued crisis, ASEAN Indo-Pacific Framework, digital economy and supply chain resilience.</div><div class="dtd">Mid-2026 (upcoming)</div></div></div>
-      <div class="dev"><div class="dico" style="background:#e8f2f8;color:#0D3D5F;font-size:10px">G20</div><div><div class="dtt">G20 Summit 2026 &mdash; Canada</div><div class="dtm">Canada holds G20 presidency 2026. Agenda: global economic resilience, clean energy transition, digital economy governance, development finance. Indonesia as full member.</div><div class="dtd">2026 (upcoming)</div></div></div>
-      <div class="dev"><div class="dico" style="background:#EEEDFE;color:#5F5EA0;font-size:10px">D-8</div><div><div class="dtt">D8 Organisation Summit &mdash; Cairo</div><div class="dtm">8-nation Islamic economic bloc: Indonesia, Turkey, Egypt, Bangladesh, Iran, Malaysia, Nigeria, Pakistan. Intra-D8 trade finance, de-dollarization, Gaza reconstruction fund, food security.</div><div class="dtd">March 2025</div></div></div>
-      <div class="dev"><div class="dico" style="background:#FCEBEB;color:#A32D2D;font-size:10px">JCPOA</div><div><div class="dtt">US&ndash;Iran nuclear talks &mdash; Oman mediation</div><div class="dtm">Indirect negotiations via Omani channel. IAEA access to Fordow and Natanz disputed. No JCPOA revival expected near-term. Iran uranium enrichment at 60% continues. Escalation risk if talks collapse.</div><div class="dtd">Ongoing 2025</div></div></div>
-      <div class="dev"><div class="dico" style="background:#EAF3DE;color:#3B6D11;font-size:10px">UN</div><div><div class="dtt">Gaza ceasefire negotiations &mdash; Doha / Cairo</div><div class="dtm">Qatar and Egypt mediating between Israel and Hamas. Phase 1 hostage-ceasefire deal under stress. Indonesia active in OIC and UN as advocate for Palestinian statehood. Direct trade with Israel suspended since 2024.</div><div class="dtd">Ongoing 2025</div></div></div>
-      <div class="dev"><div class="dico" style="background:#e0f7f5;color:#0f6e66;font-size:10px">UKR</div><div><div class="dtt">Russia&ndash;Ukraine ceasefire talks &mdash; US-mediated</div><div class="dtm">Trump administration pushing for negotiated settlement. Ukraine resisting territorial concessions. NATO allies divided. Indonesia maintains neutrality, abstaining on key UNSC votes.</div><div class="dtd">Ongoing 2025</div></div></div>
+      <div class="dtype" style="color:#854F0B">Major Global Processes &amp; Active Crises</div>
+
+      <div class="dev"><div class="dico" style="background:#FCEBEB;color:#A32D2D;font-size:9px">IRAN WAR</div><div><div class="dtt">US&ndash;Israel strikes on Iran &mdash; War ongoing</div><div class="dtm">US and Israel launched coordinated strikes 28 Feb 2026, killing Supreme Leader Ali Khamenei and senior IRGC commanders. Iran retaliated with missiles and drones targeting Israel, Qatar, UAE, and Bahrain. Strait of Hormuz effectively closed &mdash; IEA warns energy disruption exceeds 1973 &amp; 1979 crises combined. Iran denies any peace talks; US cites "productive conversations." Pakistan offering to host negotiations (24 Mar).</div><div class="dtd">Active &mdash; 28 Feb 2026 onwards</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#FAEEDA;color:#854F0B;font-size:9px">PK MED</div><div><div class="dtt">Pakistan mediation &mdash; US&ndash;Iran back-channel</div><div class="dtm">Army chief Field Marshal Munir spoke with Trump (22 Mar); PM Sharif called Iranian Pres. Pezeshkian (23 Mar). Both sides urged de-escalation. Pakistan publicly offered Islamabad as venue for US&ndash;Iran talks (24 Mar); Trump acknowledged the offer. FM Ishaq Dar engaged Iranian &amp; Turkish FMs. Iran publicly denies negotiations but acknowledges messages from "friendly countries."</div><div class="dtd">22&ndash;25 Mar 2026 &mdash; Al Jazeera / Arab News</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#EAF3DE;color:#3B6D11;font-size:9px">ASEAN</div><div><div class="dtt">ASEAN Foreign Ministers &mdash; Iran War Statement</div><div class="dtm">ASEAN FMs issued a joint statement expressing concern over "escalation initiated by Israel and the United States," calling for self-restraint and return to diplomacy. Malaysia as 2025 ASEAN Chair leading regional response. Philippines as 2026 ASEAN Chair. Hormuz closure threatens ~60% of Asia's crude oil imports.</div><div class="dtd">Early Mar 2026 &mdash; The Diplomat</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#FCEBEB;color:#A32D2D;font-size:9px">BoP</div><div><div class="dtt">Board of Peace dilemma &mdash; Indonesia under pressure</div><div class="dtm">Indonesia joined Trump's Board of Peace (19 Feb, Washington). Plans to deploy 1,000 troops to Gaza by April, 8,000 by June as part of International Stabilization Force. Domestic backlash from Islamic scholars, academics, and public questioning Indonesia's sovereignty and "free and active" principle. Prabowo says he will exit BoP "if it does not benefit Palestinians."</div><div class="dtd">Feb&ndash;Mar 2026 &mdash; Al Jazeera / The Diplomat</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#EAF3DE;color:#3B6D11;font-size:9px">UKR</div><div><div class="dtt">Russia&ndash;Ukraine ceasefire &mdash; US-mediated</div><div class="dtm">Trump pushing negotiated settlement. Ukraine resisting territorial concessions. NATO allies divided. Indonesia maintains neutrality &amp; abstains on UNSC votes. Iran war has partially diverted global diplomatic bandwidth away from Ukraine process.</div><div class="dtd">Ongoing 2026</div></div></div>
+
+      <div class="dev"><div class="dico" style="background:#e8f2f8;color:#0D3D5F;font-size:9px">G20</div><div><div class="dtt">G20 Canada 2026 &mdash; Iran &amp; energy crisis overhang</div><div class="dtm">Canada holds G20 presidency. Agenda: global economic resilience, clean energy, digital economy. Strait of Hormuz closure and Gulf energy disruption now dominating pre-summit planning. US Secretary of State Rubio expected to convene G7 FMs to coordinate Iran diplomatic strategy. Indonesia as full G20 member.</div><div class="dtd">2026 (upcoming) &mdash; updated context</div></div></div>
     </div>
   </div>
 
+  <!-- ORG TABLE -->
   <div class="card gap">
     <div class="ct">International Organizations &mdash; Active Processes</div>
     <table>
       <thead><tr><th>Organization</th><th>Current focus (2025&ndash;2026)</th><th>Indonesia role</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>ASEAN</td><td>Myanmar humanitarian crisis, South China Sea COC, AEC digital framework</td><td>De facto leader, largest economy</td><td><span class="badge ba">Chair 2026: Philippines (rotating annually)</span></td></tr>
-        <tr><td>G20</td><td>African debt relief, climate finance, digital taxation</td><td>Full member &mdash; hosted Bali 2022</td><td><span class="badge bg">Active &mdash; Canada 2026</span></td></tr>
-        <tr><td>OIC</td><td>Gaza, Palestine statehood, Islamophobia, economic cooperation</td><td>Largest Muslim-majority member</td><td><span class="badge ba">Active &mdash; Gaza emergency sessions</span></td></tr>
-        <tr><td>BRICS+</td><td>De-dollarization, NDB, BRICS pay, trade settlement</td><td>Invited 2024, accession pending</td><td><span class="badge ba">Decision expected 2025</span></td></tr>
-        <tr><td>RCEP</td><td>Trade rules implementation, dispute resolution, services liberalization</td><td>Full member &mdash; largest ASEAN signatory</td><td><span class="badge bg">Implementing</span></td></tr>
-        <tr><td>UN Security Council</td><td>Gaza, Ukraine, Sudan, Haiti</td><td>Observer (non-permanent 2019&ndash;20)</td><td><span class="badge bb">Observer status</span></td></tr>
-        <tr><td>IPEF</td><td>Indo-Pacific Economic Framework &mdash; trade pillar</td><td>Participating member</td><td><span class="badge ba">Under negotiation</span></td></tr>
-        <tr><td>Quad (adjacent)</td><td>Maritime security, clean energy, tech supply chains</td><td>Not a member &mdash; strategic observer</td><td><span class="badge bb">Watching brief</span></td></tr>
+        <tr><td>ASEAN</td><td>Iran war regional response, Hormuz energy crisis, Myanmar, SCS COC</td><td>De facto leader; largest ASEAN economy</td><td><span class="badge br">Chair 2025: Malaysia &mdash; 2026: Philippines</span></td></tr>
+        <tr><td>G20</td><td>Global energy disruption (Iran war), climate finance, digital taxation</td><td>Full member &mdash; hosted Bali 2022</td><td><span class="badge bg">Active &mdash; Canada 2026</span></td></tr>
+        <tr><td>OIC</td><td>Iran war &amp; civilian casualties, Gaza, Palestine statehood</td><td>Largest Muslim-majority member; vocal advocate</td><td><span class="badge br">Emergency sessions ongoing</span></td></tr>
+        <tr><td>Board of Peace</td><td>Gaza stabilization, Indonesia deployment of ISF troops</td><td>Member since Feb 2026; 8,000 troops pledged</td><td><span class="badge br">Under domestic scrutiny &mdash; exit not ruled out</span></td></tr>
+        <tr><td>BRICS+</td><td>De-dollarization, NDB, BRICS pay, trade settlement</td><td>Accession pending &mdash; invited 2024</td><td><span class="badge ba">Decision deferred &mdash; Iran crisis complicates</span></td></tr>
+        <tr><td>RCEP</td><td>Trade implementation, supply-chain resilience post-Iran disruption</td><td>Full member &mdash; largest ASEAN signatory</td><td><span class="badge bg">Implementing</span></td></tr>
+        <tr><td>IPEF</td><td>Indo-Pacific Economic Framework &mdash; trade pillar</td><td>Participating member</td><td><span class="badge ba">Negotiations ongoing</span></td></tr>
+        <tr><td>D-8</td><td>Iran solidarity, Islamic trade finance, Gaza reconstruction</td><td>Founding member alongside Iran, Pakistan, Turkey</td><td><span class="badge ba">Active &mdash; Iran crisis reshaping agenda</span></td></tr>
+        <tr><td>OECD</td><td>Accession process, governance standards, economic reform alignment</td><td>Accession candidate since 2023</td><td><span class="badge ba">Accession ongoing</span></td></tr>
+        <tr><td>CPTPP</td><td>Trade liberalisation, Indo-Pacific supply chains</td><td>Interest expressed &mdash; not yet applied</td><td><span class="badge bb">Watching brief</span></td></tr>
+        <tr><td>MIKTA</td><td>Middle power coordination, G20 bridge-building</td><td>Active member (Mexico, Indonesia, Korea, Turkey, Australia)</td><td><span class="badge bg">Active</span></td></tr>
       </tbody>
     </table>
   </div>
-  <p class="sn">Curated from: Ministry of Foreign Affairs Indonesia, ASEAN Secretariat, Reuters, Al Jazeera, The Diplomat, Council on Foreign Relations. Last curated: March 2026.</p>
+
+  <p class="sn">Live feed: GDELT Project (auto-refresh 3h). Curated context: Jakarta Post, Antara, Tempo, Al Jazeera, The Diplomat, Asialink, Bloomberg, Arab News, East Asia Forum. Last curated: <strong>26 March 2026</strong>.</p>
 </div>
 
 <!-- DISASTER RISKS -->
 <div class="sec" id="s-disaster">
   <div class="rb">
-    <div>USGS &middot; NASA FIRMS &middot; NOAA &middot; Smithsonian GVP &nbsp;&middot;&nbsp; Refreshed: <strong id="idwTs">&mdash;</strong></div>
+    <div>inaRISK/BNPB &middot; USGS &middot; NASA FIRMS &middot; NOAA &middot; Smithsonian GVP &nbsp;&middot;&nbsp; Refreshed: <strong id="idwTs">&mdash;</strong></div>
   </div>
 
-  <!-- 1. SATELLITE MAP -->
-  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px">Live Satellite &amp; Weather Map</div>
-  <div class="card gap">
-    <div style="font-size:10px;color:var(--text2);margin-bottom:8px">Windy.com &middot; ECMWF &middot; Rain &amp; thunder layer by default &middot; <span id="mapLocNote" style="color:var(--teal);font-weight:600"></span></div>
-    <div style="position:relative;width:100%;padding-bottom:52%;border-radius:var(--r);overflow:hidden;background:#0a1929">
-      <iframe id="windyIframe" src="https://embed.windy.com/embed2.html?lat=-2&lon=118&zoom=5&level=surface&overlay=rain&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" title="Windy Live Weather" loading="lazy" allowfullscreen></iframe>
-    </div>
-    <div style="margin-top:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-      <div style="font-size:9px;color:var(--text2);display:flex;gap:12px;flex-wrap:wrap">
-        <a href="https://www.windy.com/-2/118?-2,118,6" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">Open fullscreen &rarr;</a>
-        <a href="https://worldview.earthdata.nasa.gov/?v=90,-15,145,15&l=VIIRS_NOAA20_CorrectedReflectance_TrueColor,Coastlines_15m" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">NASA Worldview VIIRS &rarr;</a>
-        <a href="https://zoom.earth/#view=-2,118,5z/layers=wind,radar" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">Zoom.Earth &rarr;</a>
-      </div>
-      <button onclick="requestMapLocation()" style="background:var(--teal);color:#fff;border:none;padding:5px 14px;border-radius:6px;font-size:9px;font-weight:700;cursor:pointer;font-family:inherit">&#128205; Refresh My Location</button>
-    </div>
-  </div>
+  <!-- 60/40 SPLIT: left = live monitoring, right = inaRISK context + ENSO -->
+  <div style="display:grid;grid-template-columns:60% 40%;gap:14px;align-items:start">
 
-  <!-- 2. WEATHER -->
-  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">Weather Alerts &mdash; Live Weather</div>
-  <div class="card gap"><div id="wxList"><div class="lp" style="font-size:10px;color:var(--text2);padding:10px 0">Loading weather data...</div></div></div>
+    <!-- LEFT 60%: All live monitoring -->
+    <div>
 
-  <!-- 3. ENSO -->
-  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">ENSO &mdash; El Ni&ntilde;o / La Ni&ntilde;a Status</div>
-  <div class="g2 gap">
-    <div class="card">
-      <div class="ct">Current ENSO Status (NOAA CPC &mdash; 12 Mar 2026)</div>
-      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:12px">
-        <div id="ensoStatus" style="flex-shrink:0">&mdash;</div>
-        <div style="flex:1">
-          <div style="font-size:13px;font-weight:700;color:var(--text)" id="ensoLabel">Loading...</div>
-          <div style="font-size:10px;color:var(--text2);margin-top:3px" id="ensoONI"></div>
-          <div style="font-size:10px;color:var(--text2);margin-top:2px" id="ensoUpdate"></div>
+      <!-- Satellite Map -->
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px">Live Satellite &amp; Weather Map</div>
+      <div class="card gap">
+        <div style="font-size:10px;color:var(--text2);margin-bottom:8px">Windy.com &middot; ECMWF &middot; Rain &amp; thunder layer by default &middot; <span id="mapLocNote" style="color:var(--teal);font-weight:600"></span></div>
+        <div style="position:relative;width:100%;padding-bottom:56%;border-radius:var(--r);overflow:hidden;background:#0a1929">
+          <iframe id="windyIframe" src="https://embed.windy.com/embed2.html?lat=-2&lon=118&zoom=5&level=surface&overlay=rain&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" title="Windy Live Weather" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <div style="margin-top:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+          <div style="font-size:9px;color:var(--text2);display:flex;gap:12px;flex-wrap:wrap">
+            <a href="https://www.windy.com/-2/118?-2,118,6" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">Open fullscreen &rarr;</a>
+            <a href="https://worldview.earthdata.nasa.gov/?v=90,-15,145,15&l=VIIRS_NOAA20_CorrectedReflectance_TrueColor,Coastlines_15m" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">NASA Worldview VIIRS &rarr;</a>
+            <a href="https://zoom.earth/#view=-2,118,5z/layers=wind,radar" target="_blank" style="color:var(--teal);font-weight:700;text-decoration:none">Zoom.Earth &rarr;</a>
+          </div>
+          <button onclick="requestMapLocation()" style="background:var(--teal);color:#fff;border:none;padding:5px 14px;border-radius:6px;font-size:9px;font-weight:700;cursor:pointer;font-family:inherit">&#128205; My Location</button>
         </div>
       </div>
-      <div style="font-size:11px;color:var(--text2);line-height:1.6" id="ensoImpact"></div>
-      <div style="margin-top:10px;padding:8px;background:var(--bg);border-radius:var(--r);font-size:10px;color:var(--text2);line-height:1.6"><strong style="color:var(--text)">What is ENSO?</strong> Measured in the <strong>equatorial Pacific Ocean</strong> (Ni&ntilde;o 3.4 region). Its effects reach Indonesia via the Walker Circulation &mdash; when the Pacific shifts, Indonesia&rsquo;s rainfall regime shifts too. ONI above +0.5&deg;C = El Ni&ntilde;o; below -0.5&deg;C = La Ni&ntilde;a.</div>
-    </div>
-    <div class="card"><div class="ct">Impact on Indonesia</div><div id="ensoIDImpact" style="font-size:11px;color:var(--text);line-height:1.7"></div></div>
-  </div>
 
-  <!-- 4. EARTHQUAKES -->
-  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">Earthquakes</div>
-  <div class="bg2 gap">
-    <div class="card"><div class="ct">Global M4.5+ (past 7 days)</div><div id="eqList"><div class="lp" style="font-size:10px;color:var(--text2);padding:16px 0;text-align:center">Loading USGS data...</div></div></div>
-    <div class="card"><div class="ct">Indonesia Region M3.5+ (past 7 days)</div><div id="eqIDList"><div class="lp" style="font-size:10px;color:var(--text2);padding:16px 0;text-align:center">Loading Indonesia earthquakes...</div></div></div>
-  </div>
+      <!-- Weather -->
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">Weather Alerts &mdash; Live Weather</div>
+      <div class="card gap"><div id="wxList"><div class="lp" style="font-size:10px;color:var(--text2);padding:10px 0">Loading weather data...</div></div></div>
 
-  <!-- 5. VOLCANO -->
-  <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">Volcano Activity</div>
-  <div style="background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--r);padding:8px 12px;font-size:9px;color:#854F0B;margin-bottom:10px;line-height:1.7">
-    <strong>Indonesia Volcano Alert Levels (PVMBG/MAGMA Indonesia):</strong><br>
-    Level I &mdash; <strong>Normal</strong> (green): No eruption threat, routine monitoring &nbsp;&middot;&nbsp;
-    Level II &mdash; <strong>Waspada</strong> (yellow): Elevated activity, restricted zone around crater &nbsp;&middot;&nbsp;
-    Level III &mdash; <strong>Siaga</strong> (orange): Significant activity, evacuation of designated zones advised &nbsp;&middot;&nbsp;
-    Level IV &mdash; <strong>Awas</strong> (red): <strong>MOST DANGEROUS &mdash; eruption imminent or occurring, mandatory evacuation within danger radius</strong>
-  </div>
-  <div class="card gap"><div id="volcList"><div class="lp" style="font-size:10px;color:var(--text2);padding:12px 0">Loading volcano data...</div></div></div>
+      <!-- Earthquakes -->
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">Earthquakes</div>
+      <div class="bg2 gap">
+        <div class="card"><div class="ct">Global M4.5+ (past 7 days)</div><div id="eqList"><div class="lp" style="font-size:10px;color:var(--text2);padding:16px 0;text-align:center">Loading USGS data...</div></div></div>
+        <div class="card"><div class="ct">Indonesia Region M3.5+ (past 7 days)</div><div id="eqIDList"><div class="lp" style="font-size:10px;color:var(--text2);padding:16px 0;text-align:center">Loading Indonesia earthquakes...</div></div></div>
+      </div>
 
-  <!-- 6. FIRE HOTSPOTS -->
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;margin-top:14px">
-    <div style="font-size:12px;font-weight:700;color:var(--text)">Active Fire Hotspots</div>
-    <div style="font-size:9px;color:var(--text2)">NASA FIRMS VIIRS SNPP &middot; 375m resolution &middot; Updated within 3h of satellite pass</div>
-  </div>
-  <div class="card gap">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
-      <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">Active Hotspots (24h)</div><div style="font-size:22px;font-weight:700;color:var(--text)" id="fireCnt">&mdash;</div><div style="font-size:9px;color:var(--text2)">Indonesia VIIRS</div></div>
-      <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)" title="High Confidence = strong thermal anomaly reliably indicating active fire. 0 means no confirmed fires in last satellite pass — can be due to cloud cover, satellite timing, or no major active fires.">High Confidence &#9432;</div><div style="font-size:22px;font-weight:700;color:#E24B4A" id="fireHigh">&mdash;</div><div style="font-size:9px;color:var(--text2)">hotspots</div></div>
-      <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">Alert Level</div><div style="font-size:15px;font-weight:700;margin-top:4px" id="fireAlert">&mdash;</div></div>
-    </div>
-    <div id="fireProvinces" style="font-size:10px;color:var(--text2)">Loading NASA FIRMS fire hotspot data...</div>
-    <input type="hidden" id="firmsKey" value="322f08c70ec8bb383d8b6f28c002a894"/>
-  </div>
+      <!-- Volcano -->
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px">Volcano Activity</div>
+      <div style="background:#FAEEDA;border:0.5px solid #EF9F27;border-radius:var(--r);padding:8px 12px;font-size:9px;color:#854F0B;margin-bottom:10px;line-height:1.7">
+        <strong>Indonesia Volcano Alert Levels (PVMBG/MAGMA Indonesia):</strong><br>
+        Level I &mdash; <strong>Normal</strong> (green) &nbsp;&middot;&nbsp;
+        Level II &mdash; <strong>Waspada</strong> (yellow): Elevated activity &nbsp;&middot;&nbsp;
+        Level III &mdash; <strong>Siaga</strong> (orange): Significant, evacuation advised &nbsp;&middot;&nbsp;
+        Level IV &mdash; <strong>Awas</strong> (red): <strong>Eruption imminent — mandatory evacuation</strong>
+      </div>
+      <div class="card gap"><div id="volcList"><div class="lp" style="font-size:10px;color:var(--text2);padding:12px 0">Loading volcano data...</div></div></div>
+
+    </div><!-- end left 60% -->
+
+    <!-- RIGHT 40%: ENSO top → inaRISK bottom -->
+    <div>
+
+      <!-- 1. ENSO — TOP -->
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px">ENSO &mdash; El Ni&ntilde;o / La Ni&ntilde;a</div>
+      <div class="card gap">
+        <div class="ct">Current ENSO Status (NOAA CPC)</div>
+        <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:12px">
+          <div id="ensoStatus" style="flex-shrink:0">&mdash;</div>
+          <div style="flex:1">
+            <div style="font-size:13px;font-weight:700;color:var(--text)" id="ensoLabel">Loading...</div>
+            <div style="font-size:10px;color:var(--text2);margin-top:3px" id="ensoONI"></div>
+            <div style="font-size:10px;color:var(--text2);margin-top:2px" id="ensoUpdate"></div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:var(--text2);line-height:1.6" id="ensoImpact"></div>
+        <div style="margin-top:10px;padding:8px;background:var(--bg);border-radius:var(--r);font-size:10px;color:var(--text2);line-height:1.6"><strong style="color:var(--text)">What is ENSO?</strong> Measured in the equatorial Pacific (Ni&ntilde;o 3.4 region). ONI above +0.5&deg;C = El Ni&ntilde;o; below -0.5&deg;C = La Ni&ntilde;a. Affects Indonesia's rainfall directly via the Walker Circulation.</div>
+      </div>
+      <div class="card gap" style="margin-top:10px"><div class="ct">ENSO Impact on Indonesia</div><div id="ensoIDImpact" style="font-size:11px;color:var(--text);line-height:1.7"></div></div>
+
+      <!-- 2. FIRE HOTSPOTS — MIDDLE -->
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;margin-top:14px">
+        <div style="font-size:12px;font-weight:700;color:var(--text)">Active Fire Hotspots</div>
+        <div style="font-size:9px;color:var(--text2)">NASA FIRMS VIIRS &middot; 375m</div>
+      </div>
+      <div class="card gap">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
+          <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">Active (24h)</div><div style="font-size:22px;font-weight:700;color:var(--text)" id="fireCnt">&mdash;</div><div style="font-size:9px;color:var(--text2)">Indonesia VIIRS</div></div>
+          <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)" title="High Confidence = strong thermal anomaly reliably indicating active fire.">High Confidence &#9432;</div><div style="font-size:22px;font-weight:700;color:#E24B4A" id="fireHigh">&mdash;</div><div style="font-size:9px;color:var(--text2)">hotspots</div></div>
+          <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">Alert Level</div><div style="font-size:15px;font-weight:700;margin-top:4px" id="fireAlert">&mdash;</div></div>
+        </div>
+        <div id="fireProvinces" style="font-size:10px;color:var(--text2)">Loading NASA FIRMS data...</div>
+        <input type="hidden" id="firmsKey" value="322f08c70ec8bb383d8b6f28c002a894"/>
+      </div>
+
+      <!-- 3. inaRISK BNPB — BOTTOM -->
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:8px;margin-top:14px;display:flex;align-items:center;gap:6px">
+        &#127987; inaRISK &mdash; Hazard Index
+        <span style="font-size:9px;font-weight:600;color:var(--text2)">BNPB 2024</span>
+      </div>
+      <div id="bnpbHazardGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+        <div class="m lp" style="text-align:center;font-size:10px;color:rgba(255,255,255,0.5)">Loading...</div>
+      </div>
+
+      <div style="font-size:10px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">Province Disaster Events 2015&ndash;2024</div>
+      <div class="card gap">
+        <div id="bnpbProvChart" style="min-height:80px">
+          <div class="lp" style="font-size:10px;color:var(--text2);padding:20px 0;text-align:center">Loading inaRISK data...</div>
+        </div>
+        <div style="font-size:9px;color:var(--text2);margin-top:8px;display:flex;gap:12px;flex-wrap:wrap">
+          <span><span style="display:inline-block;width:10px;height:10px;background:#3DBFB0;border-radius:2px;margin-right:4px"></span>Wet (flood, extreme weather)</span>
+          <span><span style="display:inline-block;width:10px;height:10px;background:#EF9F27;border-radius:2px;margin-right:4px"></span>Dry (drought, wildfire)</span>
+        </div>
+        <a href="https://inarisk.bnpb.go.id" target="_blank" style="font-size:9px;color:var(--teal);font-weight:700;text-decoration:none;display:block;margin-top:8px">Full inaRISK map &rarr;</a>
+      </div>
+
+    </div><!-- end right 40% -->
+
+  </div><!-- end 60/40 -->
 
 </div>
-
-</div><!-- end page-content -->
 
 <div class="footer-bar" id="main-footer">
   <div class="footer-inner">
@@ -457,13 +619,13 @@ body{display:flex;flex-direction:column;min-height:100vh}
       <div class="footer-sub" style="margin-top:4px">For research and policy analysis &mdash; verify with primary sources before formal publication</div>
     </div>
     <div class="footer-contact">
-      <div style="font-size:10px;margin-bottom:4px"><a href="mailto:iifa@uiii.ac.id" style="color:var(--teal);text-decoration:none;font-weight:600">iifa@uiii.ac.id</a></div>
+      <div style="font-size:10px;margin-bottom:4px"><a href="/cdn-cgi/l/email-protection#c0a9a9a6a180b5a9a9a9eea1a3eea9a4" style="color:var(--teal);text-decoration:none;font-weight:600"><span class="__cf_email__" data-cfemail="5a33333c3b1a2f333333743b3974333e">[email&#160;protected]</span></a></div>
       <div style="font-size:10px"><a href="https://iifa.uiii.ac.id/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;font-weight:600">iifa.uiii.ac.id &#8599;</a></div>
     </div>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 // ── CLOCK ──
 function updateClock(){
@@ -481,12 +643,300 @@ function showSec(id,el){
   var sec=document.getElementById('s-'+id);
   if(sec) sec.classList.add('active');
   if(id==='geopolitics') setTimeout(function(){ loadHeadlines(); },80);
-  if(id==='geoeconomy'){ setTimeout(function(){ if(!chartsReady) initCharts(); },100); setTimeout(function(){ loadRates(); loadAllIndices(); },200); }
-  if(id==='disaster') setTimeout(function(){ loadAllIDW(); },150);
+  if(id==='geoeconomy'){ setTimeout(function(){ if(!chartsReady) initCharts(); },100); setTimeout(function(){ loadRates(); loadAllIndices(); loadMacroData(); loadCommodities(); },200); }
+  if(id==='disaster') setTimeout(function(){ loadAllIDW(); loadBNPB(); },150);
+  if(id==='diplomacy') setTimeout(function(){ initDiploFeed(); },100);
+}
+
+// ── DIPLOMACY LIVE FEED ──
+var DIPLO_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev';
+var diploInitialized = false;
+var diploRefreshTimer = null;
+
+var DIPLO_CHANNELS = [
+  { key:'indonesia',   label:'&#127465;&#127466; Indonesia',    color:'#0D3D5F' },
+  { key:'crisis',      label:'&#128680; Active Crisis',         color:'#E24B4A' },
+  { key:'middleeast',  label:'&#129419; Middle East',           color:'#A32D2D' },
+  { key:'asean',       label:'&#127758; ASEAN',                 color:'#0f6e66' },
+  { key:'uschina',     label:'&#127482;&#127480; US&ndash;China', color:'#854F0B' },
+  { key:'un',          label:'&#127963; United Nations',        color:'#0D3D5F' },
+  { key:'bilaterals',  label:'&#129309; Bilaterals',            color:'#3B6D11' },
+  { key:'pacific',     label:'&#127754; Pacific',               color:'#0f6e66' },
+  { key:'bengalbay',   label:'&#9875; Bengal Bay',              color:'#5F5EA0' },
+  { key:'globalsouth', label:'&#127757; Global South',          color:'#854F0B' },
+  { key:'africa',      label:'&#127758; Africa',                color:'#3B6D11' },
+  { key:'eurasia',     label:'&#128506; Eurasia',               color:'#5F5EA0' },
+  { key:'russia',      label:'&#127479;&#127482; Russia',       color:'#A32D2D' },
+  { key:'orgs',        label:'&#127970; Int\'l Orgs',           color:'#0D3D5F' },
+  { key:'id_orgs',     label:'&#127465;&#127466; ID Org Watch', color:'#0f6e66' }
+];
+
+function initDiploFeed(){
+  if(diploInitialized) return;
+  diploInitialized = true;
+  loadAllDiploParallel();
+  diploRefreshTimer = setInterval(function(){ loadAllDiploParallel(); }, 3 * 60 * 60 * 1000);
+}
+
+function refreshDiploFeed(){
+  loadAllDiploParallel();
+}
+
+async function fetchDiploChannel(ch){
+  var timespans = ['3d','7d','14d'];
+  for(var i=0; i<timespans.length; i++){
+    try{
+      var r = await fetch(DIPLO_WORKER+'/?channel='+ch+'&timespan='+timespans[i]+'&max=3');
+      var d = await r.json();
+      if(d.articles && d.articles.length > 0) return { articles: d.articles, ts: timespans[i] };
+    } catch(e){}
+  }
+  return { articles: [], ts: '14d' };
+}
+
+function diploCardHTML(ch, result){
+  var articles = result.articles;
+  var timespan = result.ts;
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  var articlesHTML = '';
+  if(articles.length === 0){
+    articlesHTML = '<div style="font-size:10px;color:var(--text2);font-style:italic;padding:8px 0">No recent articles.</div>';
+  } else {
+    articles.forEach(function(a){
+      var raw = a.seendate||'';
+      var dateStr = '';
+      if(raw.length >= 8){
+        dateStr = raw.substr(6,2)+' '+months[parseInt(raw.substr(4,2),10)-1];
+      }
+      articlesHTML +=
+        '<a href="'+escHtml(a.url)+'" target="_blank" rel="noopener" style="text-decoration:none;display:block;padding:6px 0;border-bottom:0.5px solid var(--border)">'+
+          '<div style="font-size:10px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:3px">'+escHtml(a.title)+'</div>'+
+          '<div style="display:flex;align-items:center;gap:5px">'+
+            '<span style="font-size:8px;background:var(--navy);color:#fff;padding:1px 5px;border-radius:3px;font-weight:700">'+escHtml(a.domain)+'</span>'+
+            '<span style="font-size:8px;color:var(--teal);font-weight:600">'+dateStr+'</span>'+
+          '</div>'+
+        '</a>';
+    });
+  }
+
+  return '<div style="background:var(--card);border:0.5px solid var(--border);border-top:3px solid '+ch.color+';border-radius:var(--r2);padding:10px 12px">'+
+    '<div style="font-size:9px;font-weight:800;color:'+ch.color+';text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center">'+
+      '<span>'+ch.label+'</span>'+
+      '<span style="font-size:8px;font-weight:600;color:var(--text2);text-transform:none">'+timespan+'</span>'+
+    '</div>'+
+    '<div style="max-height:200px;overflow-y:auto">'+articlesHTML+'</div>'+
+  '</div>';
+}
+
+function diploLoadingCardHTML(ch){
+  return '<div style="background:var(--card);border:0.5px solid var(--border);border-top:3px solid '+ch.color+';border-radius:var(--r2);padding:10px 12px;min-height:100px">'+
+    '<div style="font-size:9px;font-weight:800;color:'+ch.color+';text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">'+ch.label+'</div>'+
+    '<div style="font-size:10px;color:var(--text2)" class="lp">Loading...</div>'+
+  '</div>';
+}
+
+function loadAllDiploParallel(){
+  var grid = document.getElementById('diploChannelGrid');
+  var statusEl = document.getElementById('diploLoadStatus');
+  var refreshBtn = document.getElementById('diploRefreshBtn');
+  var lastRefresh = document.getElementById('diploLastRefresh');
+  if(!grid) return;
+  if(refreshBtn) refreshBtn.disabled = true;
+
+  // Render all loading skeletons immediately
+  grid.innerHTML = DIPLO_CHANNELS.map(function(ch){
+    return '<div id="diplo-card-'+ch.key+'">'+diploLoadingCardHTML(ch)+'</div>';
+  }).join('');
+
+  var done = 0;
+  if(statusEl) statusEl.textContent = '0 / '+DIPLO_CHANNELS.length+' loaded';
+
+  // Fire all fetches in parallel — each updates its card as it resolves
+  DIPLO_CHANNELS.forEach(function(ch){
+    fetchDiploChannel(ch.key).then(function(result){
+      var cardEl = document.getElementById('diplo-card-'+ch.key);
+      if(cardEl) cardEl.innerHTML = diploCardHTML(ch, result);
+      done++;
+      if(statusEl) statusEl.textContent = done < DIPLO_CHANNELS.length
+        ? done+' / '+DIPLO_CHANNELS.length+' loaded'
+        : 'All channels loaded';
+      if(done === DIPLO_CHANNELS.length){
+        var now = new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+        if(lastRefresh) lastRefresh.textContent = 'Refreshed '+now+' WIB';
+        if(refreshBtn) refreshBtn.disabled = false;
+      }
+    });
+  });
+}
+
+function escHtml(s){
+  if(!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 // ── EXCHANGE RATES ──
 var cachedRates={};
+// ── MACRO DATA (World Bank API + Worker) ──
+var MACRO_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/macro';
+var macroLoaded = false;
+
+function wbVal(data) {
+  // World Bank returns [{wb:[meta, [datapoints]]}]
+  // Pick most recent non-null value
+  var points = data && data.wb && data.wb[1];
+  if (!points) return null;
+  for (var i = 0; i < points.length; i++) {
+    if (points[i].value !== null) return { value: points[i].value, year: points[i].date };
+  }
+  return null;
+}
+
+function macroBar(pct, color) {
+  return '<div class="pt"><div class="pf" style="width:' + Math.min(100, Math.max(0, pct)) + '%;background:' + color + '"></div></div>';
+}
+
+function macroRow(label, val, unit, color, barPct, note, source) {
+  var valColor = color ? 'color:' + color + ';' : '';
+  return '<div class="pl"><span>' + label + '</span>' +
+    '<span style="font-weight:700;' + valColor + '">' + (val !== null ? val + (unit || '') : '—') + '</span></div>' +
+    macroBar(barPct, color || '#3DBFB0') +
+    (note ? '<div style="font-size:9px;color:var(--text2);margin-bottom:6px">' + note +
+      (source ? ' <span style="color:var(--teal)">' + source + '</span>' : '') + '</div>' : '');
+}
+
+async function loadMacroData() {
+  if (macroLoaded) return;
+  macroLoaded = true;
+
+  var WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev';
+
+  // Fire all fetches in parallel
+  var fetches = {
+    gdp:          fetch(WORKER + '/macro?type=gdp',          {cache:'no-store'}).then(r=>r.json()).catch(()=>null),
+    inflation:    fetch(WORKER + '/macro?type=inflation',    {cache:'no-store'}).then(r=>r.json()).catch(()=>null),
+    unemployment: fetch(WORKER + '/macro?type=unemployment', {cache:'no-store'}).then(r=>r.json()).catch(()=>null),
+    reserves:     fetch(WORKER + '/macro?type=reserves',     {cache:'no-store'}).then(r=>r.json()).catch(()=>null),
+    current_acct: fetch(WORKER + '/macro?type=current_account', {cache:'no-store'}).then(r=>r.json()).catch(()=>null),
+    debt_gdp:     fetch(WORKER + '/macro?type=debt_gdp',    {cache:'no-store'}).then(r=>r.json()).catch(()=>null),
+    bi_rate:      fetch(WORKER + '/macro?type=bi_rate_scrape', {cache:'no-store'}).then(r=>r.json()).catch(()=>null),
+  };
+
+  // Also fetch IDR/USD from cachedRates (already loaded by loadRates)
+  var results = {};
+  var keys = Object.keys(fetches);
+  var resolved = await Promise.allSettled(keys.map(k => fetches[k]));
+  keys.forEach(function(k, i) {
+    results[k] = resolved[i].status === 'fulfilled' ? resolved[i].value : null;
+  });
+
+  // Parse World Bank values
+  var gdp     = wbVal(results.gdp);
+  var cpi     = wbVal(results.inflation);
+  var unem    = wbVal(results.unemployment);
+  var res     = wbVal(results.reserves);
+  var ca      = wbVal(results.current_acct);
+  var debt    = wbVal(results.debt_gdp);
+
+  // IDR from exchange rate cache
+  var idrRate = cachedRates && cachedRates.IDR ? Math.round(cachedRates.IDR) : null;
+
+  // BI rate from scrape
+  var biRate  = results.bi_rate && results.bi_rate.rate ? results.bi_rate.rate : 4.75;
+  var biDate  = results.bi_rate && results.bi_rate.date ? results.bi_rate.date : 'Mar 2026';
+
+  // Update BI Rate card
+  var biValEl = document.getElementById('biRateVal');
+  var biLblEl = document.getElementById('biRateLabel');
+  var biDiffEl= document.getElementById('biRateDiff');
+  var biNoteEl= document.getElementById('biRateNote');
+  if (biValEl) biValEl.textContent = biRate + '%';
+  if (biLblEl) biLblEl.textContent = 'BI Rate \u2014 ' + biDate;
+  var fedRate = 4.375; // midpoint of 4.25-4.5%
+  var diff = (biRate - fedRate).toFixed(2);
+  if (biDiffEl) biDiffEl.textContent = 'Differential vs Fed: ' + (diff >= 0 ? '+' : '') + diff + 'bps';
+  if (biNoteEl) biNoteEl.textContent = 'BI held rate amid Iran war pressure on rupiah. Cumulative 150bps cuts since Sep 2024. IDR at ' +
+    (idrRate ? 'Rp' + idrRate.toLocaleString() : 'Rp16,985') + '/USD.';
+
+  // Update macro body
+  var body = document.getElementById('macroBody');
+  var ct = document.getElementById('macroCt');
+  if (!body) return;
+
+  var now = new Date().toLocaleDateString('en-GB', {day:'2-digit', month:'short', year:'numeric'});
+  if (ct) ct.innerHTML = 'Macro indicators &mdash; fetched ' + now + ' &middot; <span style="color:var(--teal)">World Bank API</span>';
+
+  var html = '';
+
+  // GDP
+  if (gdp) {
+    var gdpPct = Math.min(100, (gdp.value / 8) * 100);
+    var gdpColor = gdp.value >= 5 ? '#3DBFB0' : gdp.value >= 3 ? '#EF9F27' : '#E24B4A';
+    html += macroRow('GDP Growth (' + gdp.year + ')',
+      gdp.value.toFixed(2), '%', gdpColor, gdpPct,
+      gdp.value >= 5 ? 'Solid growth above 5% threshold.' : 'Growth below trend.',
+      'BPS / World Bank');
+  }
+
+  // Inflation
+  if (cpi) {
+    var cpiPct = Math.min(100, (cpi.value / 10) * 100);
+    var cpiColor = cpi.value > 3.5 ? '#E24B4A' : cpi.value < 1.5 ? '#EF9F27' : '#3DBFB0';
+    html += macroRow('Inflation CPI (' + cpi.year + ')',
+      cpi.value.toFixed(1), '%', cpiColor, cpiPct,
+      cpi.value > 3.5 ? 'Above BI target band 1.5\u20133.5%.' : 'Within BI target band.',
+      'BPS / World Bank');
+  }
+
+  // Unemployment
+  if (unem) {
+    var unemPct = Math.min(100, (unem.value / 12) * 100);
+    html += macroRow('Unemployment (' + unem.year + ')',
+      unem.value.toFixed(2), '%', '#0D3D5F', unemPct,
+      'Formal/informal split remains structural concern.', 'BPS / World Bank');
+  }
+
+  // Forex Reserves
+  if (res) {
+    var resB = (res.value / 1e9).toFixed(1);
+    var resPct = Math.min(100, (res.value / 2e11) * 100);
+    html += macroRow('Forex Reserves (' + res.year + ')',
+      '$' + resB, 'B', '#3DBFB0', resPct,
+      'Covers ~6 months of imports. Above 3-month adequacy standard.', 'BI / World Bank');
+  }
+
+  // Current Account
+  if (ca) {
+    var caColor = ca.value < -3 ? '#E24B4A' : ca.value < 0 ? '#EF9F27' : '#3DBFB0';
+    var caPct = Math.min(100, Math.abs(ca.value / 5) * 100);
+    html += macroRow('Current Account (% GDP, ' + ca.year + ')',
+      ca.value.toFixed(1), '%', caColor, caPct,
+      'Deficit contained. Export resilience key.', 'World Bank');
+  }
+
+  // Debt to GDP
+  if (debt) {
+    var debtColor = debt.value > 60 ? '#E24B4A' : debt.value > 40 ? '#EF9F27' : '#3DBFB0';
+    html += macroRow('Government Debt (% GDP, ' + debt.year + ')',
+      debt.value.toFixed(1), '%', debtColor, Math.min(100, (debt.value / 80) * 100),
+      'Well below 60% Maastricht threshold.', 'World Bank');
+  }
+
+  // IDR/USD live
+  if (idrRate) {
+    var idrPct = Math.min(100, ((idrRate - 14000) / 4000) * 100);
+    html += macroRow('IDR / USD (live)',
+      'Rp' + idrRate.toLocaleString(), '', '#E24B4A', idrPct,
+      'BI intervening via spot & DNDF to stabilize rupiah.', 'Open Exchange Rates');
+  }
+
+  if (!html) {
+    html = '<div style="font-size:10px;color:var(--text2)">Data temporarily unavailable. <a href="https://data.worldbank.org/country/ID" target="_blank" style="color:var(--teal)">World Bank Indonesia →</a></div>';
+  }
+
+  body.innerHTML = html;
+}
+
 async function loadRates(){
   try{
     var r=await fetch('https://open.er-api.com/v6/latest/USD');
@@ -508,13 +958,15 @@ async function loadRates(){
 
 // ── TICKER ──
 function buildTicker(u,c,j,sgd,eur){
+  var biR = document.getElementById('biRateVal');
+  var biRateStr = biR && biR.textContent && biR.textContent !== '—' ? biR.textContent : '4.75%';
   var items=[
     {n:'IDR/USD',v:'Rp '+u},{n:'IDR/CNY',v:'Rp '+c},{n:'IDR/100JPY',v:'Rp '+j},
     {n:'IDR/SGD',v:'Rp '+sgd},{n:'IDR/EUR',v:'Rp '+eur},
-    {n:'Fed Rate',v:'4.25-4.5%'},{n:'BI Rate',v:'5.75%'},
+    {n:'Fed Rate',v:'4.25-4.5%'},{n:'BI Rate',v:biRateStr},
     {n:'Oil',v:'~$78/bbl'},{n:'Gold',v:'~$3,320/oz'},
     {n:'Palm Oil',v:'~MYR4,120'},{n:'Nickel',v:'~$16,850/T'},
-    {n:'Coal',v:'~$132/T'},{n:'IDX PMI',v:'51.2'},{n:'US PMI',v:'49.0'}
+    {n:'Coal',v:'~$132/T'},{n:'ID PMI Feb\'26',v:'53.8'},{n:'US ISM',v:'49.8'}
   ];
   var html=[...items,...items].map(function(i){
     return '<span class="ti"><span class="tn">'+i.n+'</span><span class="tv">'+i.v+'</span></span>';
@@ -524,72 +976,166 @@ function buildTicker(u,c,j,sgd,eur){
 }
 
 // ── STOCK INDICES ──
-// Strategy: Try Yahoo Finance (via allorigins proxy) first for richest data.
-// regularMarketState: "REGULAR"=live, "CLOSED"/"PRE"/"POST"=closed.
-// Change shown vs previousClose always (1-day basis). Clear "Live" or "Last close" label.
-async function loadIdx(sym,stooqSym,vid,cid){
-  var valEl=document.getElementById(vid),chgEl=document.getElementById(cid);
-  var stEl=valEl?valEl.parentElement.querySelector('.is'):null; // status sub-label
-  var fmt=function(n){
-    if(n>=100000)return(n/1000).toFixed(0)+'k';
-    if(n>=10000)return n.toLocaleString('en-US',{maximumFractionDigits:0});
-    if(n>=1000)return n.toLocaleString('en-US',{maximumFractionDigits:1});
+// ── STOCK INDICES ──────────────────────────────────
+// Worker = server-side stooq (no CORS). Browser fallback = direct stooq with correct tickers.
+var STOCK_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/stocks';
+
+// Correct stooq.com tickers (lowercase, verified)
+var STOOQ_DIRECT = {
+  jkse:  '^jkse',
+  sp500: '^spx',    // S&P 500 on stooq is ^spx, NOT sp500
+  ftse:  '^ftx',    // FTSE 100 on stooq
+  hsi:   '^hsi',
+  sti:   '^sti'
+};
+
+async function loadIdx(workerSym, vid, cid) {
+  var valEl = document.getElementById(vid);
+  var chgEl = document.getElementById(cid);
+  var stEl  = valEl ? valEl.parentElement.querySelector('.is') : null;
+  var yLink = { jkse:'%5EJKSE', sp500:'%5EGSPC', ftse:'%5EFTSE', hsi:'%5EHSI', sti:'%5ESTI' };
+
+  var fmt = function(n) {
+    if (n >= 100000) return (n/1000).toFixed(0) + 'k';
+    if (n >= 10000)  return n.toLocaleString('en-US', {maximumFractionDigits:0});
+    if (n >= 1000)   return n.toLocaleString('en-US', {maximumFractionDigits:1});
     return n.toFixed(2);
   };
-  function renderIdx(price,prev,isLive,lastDate){
-    var chg=price-prev, pct=(chg/prev*100).toFixed(2);
-    valEl.textContent=fmt(price);
-    var chgStr=(chg>=0?'+':'')+fmt(chg)+' ('+(chg>=0?'+':'')+pct+'% vs prev close)';
-    chgEl.textContent=chgStr;
-    chgEl.className='ich '+(chg>=0?'up':'dn');
-    if(stEl){
-      stEl.textContent=isLive?'Live':'Last close'+(lastDate?' · '+lastDate:'');
-      stEl.style.color=isLive?'var(--teal)':'var(--text2)';
+
+  function render(price, open, date) {
+    if (!valEl || !price || price <= 0) return false;
+    var chg = price - open;
+    var pct = (open > 0 ? chg / open * 100 : 0).toFixed(2);
+    valEl.textContent = fmt(price);
+    chgEl.textContent = (chg >= 0 ? '+' : '') + fmt(chg) + ' (' + (chg >= 0 ? '+' : '') + pct + '%)';
+    chgEl.className = 'ich ' + (chg >= 0 ? 'up' : 'dn');
+    if (stEl) {
+      stEl.textContent = 'Last close' + (date ? ' · ' + date : '');
+      stEl.style.color = 'var(--text2)';
     }
+    return true;
   }
-  // Try Yahoo Finance via CORS proxy
-  try{
-    var yUrl='https://query1.finance.yahoo.com/v8/finance/chart/'+encodeURIComponent(sym)+'?interval=1d&range=2d';
-    var r=await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(yUrl),{cache:'no-store'});
-    var outer=await r.json();
-    var result=JSON.parse(outer.contents).chart.result[0];
-    var meta=result.meta;
-    var price=meta.regularMarketPrice||meta.previousClose;
-    var prev=meta.previousClose||price;
-    var state=(meta.marketState||'').toUpperCase();
-    var isLive=(state==='REGULAR');
-    var lastDate='';
-    try{
-      var ts=meta.regularMarketTime;
-      if(ts) lastDate=new Date(ts*1000).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
-    }catch(e2){}
-    if(price&&price>0){ renderIdx(price,prev,isLive,lastDate); return; }
-  }catch(e){}
-  // Fallback: stooq
-  try{
-    var r2=await fetch('https://stooq.com/q/l/?s='+encodeURIComponent(stooqSym)+'&f=sd2t2ohlcv&h&e=json');
-    var d2=await r2.json();
-    var q=d2.symbols&&d2.symbols[0];
-    if(q&&q.close&&q.close!=='N/D'&&parseFloat(q.close)>0){
-      var p=parseFloat(q.close),o=parseFloat(q.open||q.close);
-      renderIdx(p,o,false,'');
-      return;
+
+  // 1. Try Worker (server-side, no CORS issues)
+  try {
+    var c1 = new AbortController();
+    var t1 = setTimeout(function(){ c1.abort(); }, 7000);
+    var r1 = await fetch(STOCK_WORKER + '?sym=' + workerSym, {cache:'no-store', signal:c1.signal});
+    clearTimeout(t1);
+    var d1 = await r1.json();
+    if (d1.price && d1.price > 0 && render(d1.price, d1.open || d1.price, d1.date)) return;
+  } catch(e) {}
+
+  // 2. Direct stooq fallback with correct ticker
+  try {
+    var stooqSym = STOOQ_DIRECT[workerSym] || '';
+    if (stooqSym) {
+      var c2 = new AbortController();
+      var t2 = setTimeout(function(){ c2.abort(); }, 5000);
+      var r2 = await fetch('https://stooq.com/q/l/?s=' + encodeURIComponent(stooqSym) + '&f=sd2t2ohlcv&h&e=json', {signal:c2.signal});
+      clearTimeout(t2);
+      var d2 = await r2.json();
+      var q = d2.symbols && d2.symbols[0];
+      if (q && q.close && q.close !== 'N/D' && parseFloat(q.close) > 0) {
+        var p = parseFloat(q.close), o = parseFloat(q.open || q.close);
+        var raw = (q.date || '').replace(/-/g,'');
+        var ds = '';
+        if (raw.length >= 8) {
+          var mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          ds = raw.substr(6,2).replace(/^0/,'') + ' ' + mo[parseInt(raw.substr(4,2),10)-1] + ' ' + raw.substr(0,4);
+        }
+        if (render(p, o, ds)) return;
+      }
     }
-  }catch(e){}
-  valEl.innerHTML='<a href="https://finance.yahoo.com/quote/'+sym+'" target="_blank" style="color:var(--teal);font-size:9px">View →</a>';
-  if(chgEl){chgEl.textContent='Unavailable';chgEl.style.color='var(--text2)';}
-  if(stEl){stEl.textContent='Market data unavailable';}
+  } catch(e) {}
+
+  // 3. Final: Yahoo link
+  var ySym = yLink[workerSym] || '';
+  if (valEl) valEl.innerHTML = '<a href="https://finance.yahoo.com/quote/' + ySym + '" target="_blank" style="color:var(--teal);font-size:9px;text-decoration:none">View →</a>';
+  if (chgEl) { chgEl.textContent = '—'; chgEl.style.color = 'var(--text2)'; }
+  if (stEl)  { stEl.textContent = 'Tap to view'; stEl.style.color = 'var(--text2)'; }
 }
 
-function loadAllIndices(){
-  loadIdx('^JKSE','^jkse','iidx','iidxc');
-  loadIdx('^GSPC','sp500','isp','ispc');
-  loadIdx('^FTSE','^ftse','iftse','iftsec');
-  loadIdx('^HSI','^hsi','ihsi','ihsic');
-  loadIdx('^STI','^sti','isti','istic');
+function loadAllIndices() {
+  loadIdx('jkse',  'iidx',  'iidxc');
+  loadIdx('sp500', 'isp',   'ispc');
+  loadIdx('ftse',  'iftse', 'iftsec');
+  loadIdx('hsi',   'ihsi',  'ihsic');
+  loadIdx('sti',   'isti',  'istic');
 }
 
-// ── CHART ──
+// ── COMMODITIES ─────────────────────────────────────
+var COMM_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/commodities';
+var commLoaded  = false;
+
+var COMM_EXPORTS = [
+  { key:'coal',    label:'Coal',      unit:'$/T',   icon:'⚫' },
+  { key:'palmoil', label:'Palm Oil',  unit:'MYR/T', icon:'🌴' },
+  { key:'nickel',  label:'Nickel',    unit:'$/T',   icon:'🔩' },
+  { key:'natgas',  label:'Nat. Gas',  unit:'$/MMBtu',icon:'🔥' },
+  { key:'copper',  label:'Copper',    unit:'$/T',   icon:'🟠' },
+];
+var COMM_BENCH = [
+  { key:'oil',   label:'Crude Oil',  unit:'$/bbl', icon:'🛢️' },
+  { key:'gold',  label:'Gold',       unit:'$/oz',  icon:'🥇' },
+  { key:'wheat', label:'Wheat',      unit:'$/bu',  icon:'🌾' },
+];
+
+function commCard(label, icon, data, unit) {
+  if (!data) {
+    return '<div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)">' +
+      '<div style="font-size:9px;color:var(--text2)">' + icon + ' ' + label + '</div>' +
+      '<div style="font-size:14px;font-weight:700;color:var(--text2);margin-top:4px">N/A</div></div>';
+  }
+  var price = data.price;
+  var chgPct = parseFloat(data.change_pct);
+  var chgColor = chgPct >= 0 ? '#3DBFB0' : '#f87171';
+  var fmtPrice = price >= 10000 ? price.toLocaleString('en-US',{maximumFractionDigits:0})
+               : price >= 100   ? price.toFixed(1)
+               : price.toFixed(2);
+  return '<div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)">' +
+    '<div style="font-size:9px;color:var(--text2);margin-bottom:4px">' + icon + ' ' + label + '</div>' +
+    '<div style="font-size:15px;font-weight:800;color:var(--text);line-height:1">' + fmtPrice + '</div>' +
+    '<div style="font-size:9px;color:var(--text2);margin-top:1px">' + unit + '</div>' +
+    '<div style="font-size:10px;font-weight:700;color:' + chgColor + ';margin-top:4px">' +
+      (chgPct >= 0 ? '+' : '') + chgPct + '% <span style="font-size:8px;color:var(--text2);font-weight:400">vs prev</span>' +
+    '</div>' +
+    '<div style="font-size:8px;color:var(--text2);margin-top:2px">' + (data.date || '') + '</div>' +
+  '</div>';
+}
+
+async function loadCommodities() {
+  var expEl  = document.getElementById('commExports');
+  var benEl  = document.getElementById('commBenchmarks');
+  var tsEl   = document.getElementById('commTs');
+  if (!expEl) return;
+
+  if (tsEl) tsEl.textContent = 'Fetching...';
+
+  try {
+    var ctrl = new AbortController();
+    var timer = setTimeout(function(){ ctrl.abort(); }, 10000);
+    var r = await fetch(COMM_WORKER, {cache:'no-store', signal:ctrl.signal});
+    clearTimeout(timer);
+    var d = await r.json();
+    var c = d.commodities || {};
+
+    expEl.innerHTML = COMM_EXPORTS.map(function(item){
+      return commCard(item.label, item.icon, c[item.key], item.unit);
+    }).join('');
+
+    benEl.innerHTML = COMM_BENCH.map(function(item){
+      return commCard(item.label, item.icon, c[item.key], item.unit);
+    }).join('');
+
+    var now = new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+    if (tsEl) tsEl.textContent = 'Refreshed ' + now + ' WIB';
+    commLoaded = true;
+  } catch(err) {
+    if (expEl) expEl.innerHTML = '<div style="font-size:10px;color:var(--text2);grid-column:1/-1">Could not load commodity prices. <a href="https://stooq.com" target="_blank" style="color:var(--teal)">stooq.com →</a></div>';
+    if (tsEl) tsEl.textContent = 'Unavailable';
+  }
+}
 var tChart=null, chartsReady=false, curAsset='idr_usd', curRange='30d';
 
 var ASSETS={
@@ -754,7 +1300,7 @@ var ZONES=[
    fb:['Myanmar resistance controls majority of Shan State as junta loses ground||Al Jazeera||Mar 2026',
        'Philippines ASEAN chair convenes talks on Myanmar humanitarian corridor||Reuters||Mar 2026',
        'UNHCR: Myanmar displacement crisis reaches record levels||UN OCHA||Mar 2026']},
-  {id:'pakaf',t:'Pakistan — Afghanistan',s:'high',sl:'HIGH',imp:'Islamic solidarity, regional stability',
+  {id:'pakaf',t:'Pakistan & Afghanistan',s:'high',sl:'HIGH',imp:'Islamic solidarity, regional stability',
    kw:['pakistan','afghanistan','taliban','islamabad','ttp'],
    fb:['Pakistan army offensive against TTP displaces thousands in Khyber||Reuters||Mar 2026',
        'Taliban enforces new NGO restrictions drawing international condemnation||BBC||Mar 2026',
@@ -779,14 +1325,13 @@ var ZONES=[
    fb:['Philippines opens ASEAN 2026 chairmanship with SCS COC as top priority||Reuters||Mar 2026',
        'ASEAN-China COC negotiations continue with key enforcement gaps||Nikkei Asia||Mar 2026',
        'Mekong water levels critical as upstream dam operations scrutinized||Al Jazeera||Mar 2026']},
-  {id:'pacific',t:'Pacific',s:'med',sl:'MONITOR',imp:'Strategic alignment, maritime',
+  {id:'pacific',t:'Pacific - AU, NZ & Islands',s:'med',sl:'MONITOR',imp:'Strategic alignment, maritime',
    kw:['australia china','new zealand','pacific islands','aukus','solomon'],
    fb:['AUKUS nuclear submarine technology transfer enters procurement phase||Reuters||Mar 2026',
        'Pacific Islands Forum debates competing Chinese and US infrastructure models||RNZ||Mar 2026',
        'Australia boosts Pacific aid significantly to counter Chinese influence||ABC Australia||Mar 2026']},
 ];
 
-var RSS_PROXY='https://api.rss2json.com/v1/api.json?rss_url=';
 var FEEDS=[
   'https://feeds.reuters.com/reuters/worldNews',
   'https://www.aljazeera.com/xml/rss/all.xml',
@@ -800,15 +1345,55 @@ function wib(){
   return new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+' WIB';
 }
 
-async function fetchFeed(url){
+function fetchWithTimeout(url, ms){
+  var ctrl = new AbortController();
+  var timer = setTimeout(function(){ ctrl.abort(); }, ms);
+  return fetch(url, {cache:'no-store', signal:ctrl.signal})
+    .then(function(r){ clearTimeout(timer); return r; })
+    .catch(function(e){ clearTimeout(timer); throw e; });
+}
+
+function parseRSS(xmlStr, sourceUrl){
   try{
-    var r=await fetch(RSS_PROXY+encodeURIComponent(url)+'&count=40&api_key=free');
-    var d=await r.json();
-    if(d.status!=='ok') return [];
-    return (d.items||[]).map(function(i){
-      return {title:i.title,link:i.link,src:(d.feed&&d.feed.title||'News').replace('RSS','').trim(),date:i.pubDate,ts:new Date(i.pubDate||0).getTime()};
-    });
+    var parser=new DOMParser();
+    var doc=parser.parseFromString(xmlStr,'text/xml');
+    var feedTitle=(doc.querySelector('channel > title')||doc.querySelector('feed > title')||{textContent:sourceUrl}).textContent.replace('RSS','').trim();
+    var items=Array.from(doc.querySelectorAll('item, entry'));
+    return items.slice(0,40).map(function(item){
+      var title=(item.querySelector('title')||{textContent:''}).textContent.trim();
+      var link='';
+      var linkEl=item.querySelector('link');
+      if(linkEl){ link=linkEl.getAttribute('href')||linkEl.textContent.trim(); }
+      var pubDate=(item.querySelector('pubDate,published,updated')||{textContent:''}).textContent.trim();
+      return {title:title,link:link,src:feedTitle,date:pubDate,ts:new Date(pubDate||0).getTime()};
+    }).filter(function(i){return i.title;});
   } catch(e){ return []; }
+}
+
+async function fetchFeed(url){
+  // Try 1: allorigins — 4s timeout
+  try{
+    var r=await fetchWithTimeout('https://api.allorigins.win/get?url='+encodeURIComponent(url), 4000);
+    var d=await r.json();
+    if(d && d.contents && d.contents.length > 100) return parseRSS(d.contents, url);
+  } catch(e){}
+  // Try 2: corsproxy.io — 4s timeout
+  try{
+    var r2=await fetchWithTimeout('https://corsproxy.io/?'+encodeURIComponent(url), 4000);
+    var xml=await r2.text();
+    if(xml && xml.length > 100) return parseRSS(xml, url);
+  } catch(e2){}
+  // Try 3: rss2json as last resort (cached but reliable)
+  try{
+    var r3=await fetchWithTimeout('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(url)+'&count=40&api_key=free', 5000);
+    var d3=await r3.json();
+    if(d3.status==='ok' && d3.items && d3.items.length){
+      return d3.items.map(function(i){
+        return {title:i.title,link:i.link,src:(d3.feed&&d3.feed.title||'News').replace('RSS','').trim(),date:i.pubDate,ts:new Date(i.pubDate||0).getTime()};
+      });
+    }
+  } catch(e3){}
+  return [];
 }
 
 function scoreHL(hl,zone){
@@ -877,9 +1462,9 @@ function renderCards(hls){
   var wZ=ZONES.filter(function(z){return WATCH_IDS.indexOf(z.id)>=0;});
   var rZ=ZONES.filter(function(z){return REGIONAL_IDS.indexOf(z.id)>=0;});
   grid.innerHTML=
-    sLabel('#FEF0F0','#E24B4A','#A32D2D','● Active Conflicts')+
+    sLabel('#FEF0F0','#E24B4A','#A32D2D','● Active Conflicts — Ongoing, High Urgency')+
     aZ.map(function(z){return makeZoneCard(z,hls);}).join('')+
-    sLabel('#FFF8F0','#EF9F27','#854F0B','▶ Escalation Watch')+
+    sLabel('#FFF8F0','#EF9F27','#854F0B','▶ Escalation Watch — Elevated tensions, no open daily conflict')+
     wZ.map(function(z){return makeZoneCard(z,hls);}).join('')+
     sLabel('#F0FAFA','#3DBFB0','#0f6e66','■ Regional Monitoring')+
     rZ.map(function(z){return makeZoneCard(z,hls);}).join('');
@@ -888,9 +1473,14 @@ function renderCards(hls){
 async function loadHeadlines(){
   renderCards([]);
   try{
-    var results=await Promise.allSettled(FEEDS.map(fetchFeed));
-    allHL=results.reduce(function(acc,r){return r.status==='fulfilled'?acc.concat(r.value):acc;},[]);
-    if(allHL.length>0) renderCards(allHL);
+    // Overall timeout: if all feeds take > 12s, render with whatever we have
+    var timeout = new Promise(function(res){ setTimeout(res, 12000); });
+    var fetches = Promise.allSettled(FEEDS.map(fetchFeed));
+    var results = await Promise.race([fetches, timeout.then(function(){ return []; })]);
+    if(Array.isArray(results)){
+      allHL=results.reduce(function(acc,r){return r.status==='fulfilled'?acc.concat(r.value):acc;},[]);
+      if(allHL.length>0) renderCards(allHL);
+    }
   } catch(e){}
   var tsEl=document.getElementById('confTs');
   if(tsEl) tsEl.textContent=wib();
@@ -1224,7 +1814,6 @@ function loadENSO(){
 async function loadWeather(){
   var wxEl=document.getElementById('wxList');
   if(!wxEl) return;
-  wxEl.innerHTML='<div class="lp" style="font-size:10px;color:var(--text2);padding:10px 0">Fetching weather data...</div>';
 
   var WX={0:'Clear sky',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',
     45:'Fog',48:'Icy fog',51:'Light drizzle',53:'Moderate drizzle',55:'Heavy drizzle',
@@ -1232,163 +1821,127 @@ async function loadWeather(){
     80:'Rain showers',81:'Moderate showers',82:'Heavy showers',
     95:'Thunderstorm',96:'Thunderstorm + hail',99:'Heavy thunderstorm'};
 
-  // Step A: try BMKG RSS via rss2json proxy
-  try{
-    var br=await fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://www.bmkg.go.id/rss/peringatan_dini_cuaca.xml')+'&count=8&api_key=free',{cache:'no-store'});
-    var bd=await br.json();
-    if(bd.items&&bd.items.length>0){
-      var now=new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+' WIB';
-      wxEl.innerHTML=
-        '<div style="font-size:9px;font-weight:700;color:var(--teal);letter-spacing:0.4px;margin-bottom:8px">BMKG Live Feed \u00b7 '+now+'</div>'+
-        bd.items.slice(0,6).map(function(it){
-          var ds='';
-          if(it.pubDate){try{ds=new Date(it.pubDate).toLocaleDateString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});}catch(e){}}
-          var t=(it.title||'BMKG Peringatan').replace(/<[^>]+>/g,'').trim();
-          var desc=(it.description||'').replace(/<[^>]+>/g,'').slice(0,180).trim();
-          var isW=t.toLowerCase().indexOf('waspada')>=0||t.toLowerCase().indexOf('awas')>=0||t.toLowerCase().indexOf('peringatan')>=0;
-          return '<div style="padding:8px 0;border-bottom:0.5px solid var(--border)">'+
-            '<div style="display:flex;align-items:flex-start;gap:6px">'+
-            '<span style="font-size:14px;flex-shrink:0">'+(isW?'\u26A0\uFE0F':'\uD83C\uDF24')+'</span>'+
-            '<div><div style="font-size:11px;font-weight:700;color:var(--text);line-height:1.3">'+t+'</div>'+
-            (desc?'<div style="font-size:10px;color:var(--text2);margin-top:3px;line-height:1.45">'+desc+'</div>':'')+
-            '<div style="font-size:9px;color:var(--teal);margin-top:3px;font-weight:600">BMKG'+(ds?' \u00b7 '+ds:'')+'</div>'+
-            '</div></div></div>';
-        }).join('')+
-        '<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">'+
-        '<a href="https://www.bmkg.go.id/cuaca/peringatan-dini-cuaca.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">All BMKG Alerts \u2192</a>'+
-        '<a href="https://www.bmkg.go.id/gempabumi/gempabumi-terkini.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">Earthquakes \u2192</a>'+
-        '<a href="https://cuaca.bmkg.go.id/" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Cuaca \u2192</a>'+
+  var fixedCities=[
+    {name:'Singapore',     flag:'\uD83C\uDDF8\uD83C\uDDEC',lat:1.35,  lon:103.82,tz:'Asia%2FSingapore'},
+    {name:'Beijing',       flag:'\uD83C\uDDE8\uD83C\uDDF3',lat:39.91, lon:116.39,tz:'Asia%2FShanghai'},
+    {name:'Tokyo',         flag:'\uD83C\uDDEF\uD83C\uDDF5',lat:35.69, lon:139.69,tz:'Asia%2FTokyo'},
+    {name:'Sydney',        flag:'\uD83C\uDDE6\uD83C\uDDFA',lat:-33.87,lon:151.21,tz:'Australia%2FSydney'},
+    {name:'Mumbai',        flag:'\uD83C\uDDEE\uD83C\uDDF3',lat:19.08, lon:72.88, tz:'Asia%2FKolkata'},
+    {name:'Dar es Salaam', flag:'\uD83C\uDDF9\uD83C\uDDFF',lat:-6.79, lon:39.21, tz:'Africa%2FDar_es_Salaam'},
+    {name:'Lagos',         flag:'\uD83C\uDDF3\uD83C\uDDEC',lat:6.52,  lon:3.38,  tz:'Africa%2FLagos'},
+    {name:'London',        flag:'\uD83C\uDDEC\uD83C\uDDE7',lat:51.51, lon:-0.13, tz:'Europe%2FLondon'},
+    {name:'Los Angeles',   flag:'\uD83C\uDDFA\uD83C\uDDF8',lat:34.05, lon:-118.24,tz:'America%2FLos_Angeles'},
+    {name:'New York',      flag:'\uD83C\uDDFA\uD83C\uDDF8',lat:40.71, lon:-74.01,tz:'America%2FNew_York'},
+    {name:'Moscow',        flag:'\uD83C\uDDF7\uD83C\uDDFA',lat:55.75, lon:37.62, tz:'Europe%2FMoscow'}
+  ];
+
+  function toF2(c){return Math.round(parseFloat(c)*9/5+32);}
+  function cellHTML(flag,label,c,wdesc,isAlert){
+    var t=parseFloat(c.temperature_2m);
+    var fe=parseFloat(c.apparent_temperature);
+    return '<div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)'+(isAlert?';border-left:3px solid #EF9F27':'')+'">'+
+      '<div style="font-size:10px;font-weight:700;color:var(--text)">'+(flag?flag+' ':'')+label+'</div>'+
+      '<div style="font-size:16px;font-weight:800;color:var(--text);margin:2px 0;line-height:1.1">'+t+'\u00b0C</div>'+
+      '<div style="font-size:11px;color:var(--text2);font-weight:600">'+toF2(t)+'\u00b0F</div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-top:2px">'+wdesc+'</div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-top:2px">Feels '+fe+'\u00b0C/'+toF2(fe)+'\u00b0F \u00b7 RH '+c.relative_humidity_2m+'%</div>'+
+      (isAlert?'<div style="font-size:9px;color:#854F0B;font-weight:700;margin-top:2px">\u26A0 Alert</div>':'')+
+    '</div>';
+  }
+
+  // ── STEP 1: Render full skeleton IMMEDIATELY — no waiting ──
+  var now3=new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})+' WIB';
+  wxEl.innerHTML=
+    '<div id="bmkgAlertStrip"></div>'+
+    '<div style="font-size:9px;color:var(--text2);margin-bottom:10px;padding:5px 8px;background:var(--bg);border-radius:var(--r)">'+
+    '<span style="color:var(--teal);font-weight:700">Open-Meteo live</span> \u00b7 '+now3+
+    ' \u00b7 <a href="https://www.bmkg.go.id/cuaca/peringatan-dini-cuaca.bmkg" target="_blank" style="color:var(--teal);font-weight:700">BMKG Alerts \u2192</a></div>'+
+    '<div id="wxGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px">'+
+    // Location card — skeleton
+    '<div id="wxCity0" style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border);border-left:3px solid var(--teal)">'+
+    '<div style="font-size:10px;font-weight:700;color:var(--teal)">\uD83D\uDCCD Your Location</div>'+
+    '<div style="font-size:9px;color:var(--text2);margin-top:6px" class="lp">Detecting location...</div>'+
+    '</div>'+
+    // Fixed city skeletons — render all 11 instantly
+    fixedCities.map(function(city,i){
+      return '<div id="wxCity'+(i+1)+'" style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)">'+
+        '<div style="font-size:10px;font-weight:700;color:var(--text)">'+city.flag+' '+city.name+'</div>'+
+        '<div style="font-size:9px;color:var(--text2);margin-top:6px" class="lp">Loading...</div>'+
         '</div>';
-      return;
-    }
-  }catch(e1){}
-
-  // Step B: try allorigins CORS proxy for BMKG
-  try{
-    var ar=await fetch('https://api.allorigins.win/get?url='+encodeURIComponent('https://www.bmkg.go.id/rss/peringatan_dini_cuaca.xml'),{cache:'no-store'});
-    var ad=await ar.json();
-    if(ad.contents&&ad.contents.length>100){
-      var xml=(new DOMParser()).parseFromString(ad.contents,'text/xml');
-      var nodes=Array.from(xml.querySelectorAll('item'));
-      if(nodes.length>0){
-        var items2=nodes.map(function(n){
-          return{title:(n.querySelector('title')||{textContent:''}).textContent,
-            description:(n.querySelector('description')||{textContent:''}).textContent,
-            pubDate:(n.querySelector('pubDate')||{textContent:''}).textContent};
-        });
-        var now2=new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+' WIB';
-        wxEl.innerHTML=
-          '<div style="font-size:9px;font-weight:700;color:var(--teal);letter-spacing:0.4px;margin-bottom:8px">BMKG Live Feed \u00b7 '+now2+'</div>'+
-          items2.slice(0,5).map(function(it){
-            var ds=it.pubDate?new Date(it.pubDate).toLocaleDateString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}):'';
-            var t=(it.title||'BMKG').replace(/<[^>]+>/g,'').trim();
-            var desc=(it.description||'').replace(/<[^>]+>/g,'').slice(0,160).trim();
-            return '<div style="padding:7px 0;border-bottom:0.5px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--text)">'+t+'</div>'+
-              (desc?'<div style="font-size:10px;color:var(--text2);margin-top:2px;line-height:1.4">'+desc+'</div>':'')+
-              '<div style="font-size:9px;color:var(--teal);margin-top:2px">BMKG'+(ds?' \u00b7 '+ds:'')+'</div></div>';
-          }).join('')+
-          '<a href="https://www.bmkg.go.id" target="_blank" style="display:block;margin-top:8px;font-size:10px;color:var(--teal);font-weight:700;text-decoration:none">All BMKG alerts \u2192</a>';
-        return;
-      }
-    }
-  }catch(e2){}
-
-  // Step C: Always render the unified 12-city 3x4 grid.
-  // Slot 0 = "Your Location" placeholder (id=wxCity0), updated in-place by loadWeatherForCoords.
-  // Fixed cities 1-11 fetched in parallel.
-  // Temperature shown as °C / °F in all cells.
-  try{
-    var fixedCities=[
-      {name:'Singapore',     flag:'\uD83C\uDDF8\uD83C\uDDEC',lat:1.35,  lon:103.82,tz:'Asia%2FSingapore'},
-      {name:'Beijing',       flag:'\uD83C\uDDE8\uD83C\uDDF3',lat:39.91, lon:116.39,tz:'Asia%2FShanghai'},
-      {name:'Tokyo',         flag:'\uD83C\uDDEF\uD83C\uDDF5',lat:35.69, lon:139.69,tz:'Asia%2FTokyo'},
-      {name:'Sydney',        flag:'\uD83C\uDDE6\uD83C\uDDFA',lat:-33.87,lon:151.21,tz:'Australia%2FSydney'},
-      {name:'Mumbai',        flag:'\uD83C\uDDEE\uD83C\uDDF3',lat:19.08, lon:72.88, tz:'Asia%2FKolkata'},
-      {name:'Dar es Salaam', flag:'\uD83C\uDDF9\uD83C\uDDFF',lat:-6.79, lon:39.21, tz:'Africa%2FDar_es_Salaam'},
-      {name:'Lagos',         flag:'\uD83C\uDDF3\uD83C\uDDEC',lat:6.52,  lon:3.38,  tz:'Africa%2FLagos'},
-      {name:'London',        flag:'\uD83C\uDDEC\uD83C\uDDE7',lat:51.51, lon:-0.13, tz:'Europe%2FLondon'},
-      {name:'Los Angeles',   flag:'\uD83C\uDDFA\uD83C\uDDF8',lat:34.05, lon:-118.24,tz:'America%2FLos_Angeles'},
-      {name:'New York',      flag:'\uD83C\uDDFA\uD83C\uDDF8',lat:40.71, lon:-74.01,tz:'America%2FNew_York'},
-      {name:'Moscow',        flag:'\uD83C\uDDF7\uD83C\uDDFA',lat:55.75, lon:37.62, tz:'Europe%2FMoscow'}
-    ];
-    function toF2(c){return Math.round(parseFloat(c)*9/5+32);}
-    function cellHTML(flag,label,c,wdesc,isAlert){
-      var t=parseFloat(c.temperature_2m);
-      var fe=parseFloat(c.apparent_temperature);
-      return '<div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)'+(isAlert?';border-left:3px solid #EF9F27':'')+'">'+
-        '<div style="font-size:10px;font-weight:700;color:var(--text)">'+(flag?flag+' ':'')+label+'</div>'+
-        '<div style="font-size:16px;font-weight:800;color:var(--text);margin:2px 0;line-height:1.1">'+t+'\u00b0C</div>'+
-        '<div style="font-size:11px;color:var(--text2);font-weight:600">'+toF2(t)+'\u00b0F</div>'+
-        '<div style="font-size:9px;color:var(--text2);margin-top:2px">'+wdesc+'</div>'+
-        '<div style="font-size:9px;color:var(--text2);margin-top:2px">Feels '+fe+'\u00b0C/'+toF2(fe)+'\u00b0F \u00b7 RH '+c.relative_humidity_2m+'%</div>'+
-        (isAlert?'<div style="font-size:9px;color:#854F0B;font-weight:700;margin-top:2px">\u26A0 Alert</div>':'')+
-        '</div>';
-    }
-    // Render shell immediately with placeholder for slot 0
-    var now3=new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})+' WIB';
-    wxEl.innerHTML=
-      '<div style="font-size:9px;color:var(--text2);margin-bottom:10px;padding:5px 8px;background:var(--bg);border-radius:var(--r)">'+
-      '<span style="color:var(--teal);font-weight:700">Open-Meteo live</span> \u00b7 '+now3+
-      ' \u00b7 <a href="https://www.bmkg.go.id/cuaca/peringatan-dini-cuaca.bmkg" target="_blank" style="color:var(--teal);font-weight:700">BMKG Alerts \u2192</a></div>'+
-      '<div id="wxGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px">'+
-      '<div id="wxCity0" style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border);border-left:3px solid var(--teal)">'+
-      '<div style="font-size:10px;font-weight:700;color:var(--teal)">\uD83D\uDCCD Your Location</div>'+
-      '<div class="lp" style="font-size:10px;color:var(--text2);margin-top:6px">Requesting location...</div>'+
-      '</div>'+
-      '<div id="wxCitiesPlaceholder" style="display:contents"><div class="lp" style="font-size:9px;color:var(--text2);padding:10px">Loading cities...</div></div>'+
-      '</div>'+
-      '<div style="display:flex;gap:8px;flex-wrap:wrap">'+
-      '<a href="https://www.bmkg.go.id/cuaca/peringatan-dini-cuaca.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Alerts \u2192</a>'+
-      '<a href="https://www.bmkg.go.id/gempabumi/gempabumi-terkini.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Earthquakes \u2192</a>'+
-      '<a href="https://cuaca.bmkg.go.id/" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Cuaca \u2192</a>'+
-      '</div>';
-    // Fetch all fixed cities in parallel
-    Promise.all(fixedCities.map(async function(city){
-      var u='https://api.open-meteo.com/v1/forecast?latitude='+city.lat+'&longitude='+city.lon+
-        '&current=temperature_2m,weathercode,windspeed_10m,precipitation,relative_humidity_2m,apparent_temperature&timezone='+city.tz;
-      var res=await fetch(u,{cache:'no-store'});
-      return Object.assign({},city,{c:(await res.json()).current});
-    })).then(function(citiesData){
-      var placeholder=document.getElementById('wxCitiesPlaceholder');
-      if(!placeholder) return;
-      placeholder.innerHTML=citiesData.map(function(r){
-        var wdesc=WX[r.c.weathercode]||'';
-        var isAlert=r.c.weathercode>=80||r.c.precipitation>5;
-        return cellHTML(r.flag,r.name,r.c,wdesc,isAlert);
-      }).join('');
-    }).catch(function(){});
-    return;
-  }catch(e3){}
-
-  // Final fallback
-  wxEl.innerHTML='<div style="padding:8px 0"><div style="font-size:10px;color:var(--text2);margin-bottom:8px">Weather data temporarily unavailable. Visit BMKG directly:</div>'+
+    }).join('')+
+    '</div>'+
     '<div style="display:flex;gap:8px;flex-wrap:wrap">'+
-    '<a href="https://www.bmkg.go.id/cuaca/peringatan-dini-cuaca.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:6px 12px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Alerts \u2192</a>'+
-    '<a href="https://www.bmkg.go.id/gempabumi/gempabumi-terkini.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:6px 12px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">Earthquakes \u2192</a>'+
-    '<a href="https://www.bmkg.go.id/iklim/" target="_blank" style="background:var(--navy);color:#fff;padding:6px 12px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">Climate \u2192</a>'+
-    '</div></div>';
+    '<a href="https://www.bmkg.go.id/cuaca/peringatan-dini-cuaca.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Alerts \u2192</a>'+
+    '<a href="https://www.bmkg.go.id/gempabumi/gempabumi-terkini.bmkg" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Earthquakes \u2192</a>'+
+    '<a href="https://cuaca.bmkg.go.id/" target="_blank" style="background:var(--navy);color:#fff;padding:5px 11px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">BMKG Cuaca \u2192</a>'+
+    '</div>';
+
+  // ── STEP 2: Fetch each city independently — updates its own card as it resolves ──
+  fixedCities.forEach(function(city, i){
+    var ctrl=new AbortController();
+    var timer=setTimeout(function(){ctrl.abort();},6000);
+    var u='https://api.open-meteo.com/v1/forecast?latitude='+city.lat+'&longitude='+city.lon+
+      '&current=temperature_2m,weathercode,windspeed_10m,precipitation,relative_humidity_2m,apparent_temperature&timezone='+city.tz;
+    fetch(u,{cache:'no-store',signal:ctrl.signal})
+      .then(function(r){clearTimeout(timer);return r.json();})
+      .then(function(d){
+        var slot=document.getElementById('wxCity'+(i+1));
+        if(!slot||!d.current) return;
+        var wdesc=WX[d.current.weathercode]||'';
+        var isAlert=d.current.weathercode>=80||d.current.precipitation>5;
+        slot.outerHTML='<div id="wxCity'+(i+1)+'">'+cellHTML(city.flag,city.name,d.current,wdesc,isAlert)+'</div>';
+      })
+      .catch(function(){
+        clearTimeout(timer);
+        var slot=document.getElementById('wxCity'+(i+1));
+        if(slot) slot.innerHTML='<div style="font-size:10px;font-weight:700;color:var(--text)">'+city.flag+' '+city.name+'</div>'+
+          '<div style="font-size:9px;color:var(--text2);margin-top:4px">Unavailable</div>';
+      });
+  });
+
+  // ── STEP 3: BMKG in background — only updates alert strip if it returns ──
+  setTimeout(function(){
+    fetchWithTimeout('https://api.allorigins.win/get?url='+encodeURIComponent('https://www.bmkg.go.id/rss/peringatan_dini_cuaca.xml'),4000)
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(!d||!d.contents) return;
+        var xml=(new DOMParser()).parseFromString(d.contents,'text/xml');
+        var items=Array.from(xml.querySelectorAll('item')).slice(0,2);
+        if(!items.length) return;
+        var strip=document.getElementById('bmkgAlertStrip');
+        if(!strip) return;
+        strip.innerHTML='<div style="background:#FFF8F0;border:0.5px solid #EF9F27;border-left:3px solid #EF9F27;border-radius:var(--r);padding:8px 12px;margin-bottom:8px;font-size:9px;color:#854F0B">'+
+          '<strong>BMKG:</strong> '+items.map(function(n){return (n.querySelector('title')||{textContent:''}).textContent.replace(/<[^>]+>/g,'').trim();}).join(' \u00b7 ')+'</div>';
+      })
+      .catch(function(){});
+  }, 500);
 }
 // ── MAP LOCATION ──
 function requestMapLocation(){
   var note=document.getElementById('mapLocNote');
   if(!navigator.geolocation){
-    if(note)note.textContent='Location not supported';
+    if(note) note.textContent='Location not supported';
     var slot=document.getElementById('wxCity0');
-    if(slot)slot.innerHTML='<div style="font-size:10px;font-weight:700;color:var(--text2)">\uD83D\uDCCD Your Location</div><div style="font-size:9px;color:var(--text2);margin-top:4px">Geolocation not available</div>';
+    if(slot) slot.innerHTML='<div style="font-size:10px;font-weight:700;color:var(--text2)">\uD83D\uDCCD Your Location</div><div style="font-size:9px;color:var(--text2);margin-top:4px">Geolocation not available</div>';
     return;
   }
-  if(note)note.textContent='Getting your location...';
+  if(note) note.textContent='Getting your location...';
   navigator.geolocation.getCurrentPosition(function(pos){
     var lat=pos.coords.latitude,lon=pos.coords.longitude;
     var iframe=document.getElementById('windyIframe');
     if(iframe) iframe.src='https://embed.windy.com/embed2.html?lat='+lat.toFixed(3)+'&lon='+lon.toFixed(3)+'&zoom=9&level=surface&overlay=rain&product=ecmwf&menu=&message=&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1';
-    if(note)note.textContent='Map centred on your location';
+    if(note) note.textContent='Map centred on your location';
     loadWeatherForCoords(lat,lon);
   },function(){
-    if(note)note.textContent='';
+    if(note) note.textContent='';
     var slot=document.getElementById('wxCity0');
-    if(slot)slot.innerHTML='<div style="font-size:10px;font-weight:700;color:var(--text2)">\uD83D\uDCCD Your Location</div><div style="font-size:9px;color:var(--text2);margin-top:4px">Location access denied</div>';
-  },{timeout:10000});
+    if(slot) slot.innerHTML='<div style="font-size:10px;font-weight:700;color:var(--text2)">\uD83D\uDCCD Your Location</div>'+
+      '<div style="font-size:9px;color:var(--text2);margin-top:4px">Location access denied</div>'+
+      '<button onclick="requestMapLocation()" style="margin-top:6px;font-size:9px;background:var(--navy);color:#fff;border:none;padding:3px 8px;border-radius:4px;cursor:pointer">Retry</button>';
+  },{
+    timeout: 5000,          // cut from 10s to 5s
+    maximumAge: 60000       // use cached GPS up to 1 min old — avoids re-requesting
+  });
 }
 
 function cToF(c){return Math.round(c*9/5+32);}
@@ -1425,6 +1978,125 @@ async function loadWeatherForCoords(lat,lon){
     slot.innerHTML='<div style="font-size:10px;font-weight:700;color:var(--text2)">\uD83D\uDCCD Your Location</div>'+
       '<div style="font-size:9px;color:var(--text2);margin-top:4px">Weather unavailable</div>';
   }
+}
+
+// ── inaRISK BNPB ──────────────────────────────────────────
+var BNPB_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/bnpb';
+var bnpbLoaded = false;
+
+var HAZARD_LAYERS = [
+  { key:'risk_flood',        label:'Banjir',       icon:'🌊', color:'#3B82F6' },
+  { key:'risk_landslide',    label:'Tanah Longsor', icon:'⛰️',  color:'#92400E' },
+  { key:'risk_eq',           label:'Gempa Bumi',   icon:'🌍', color:'#DC2626' },
+  { key:'risk_tsunami',      label:'Tsunami',      icon:'🌊', color:'#1D4ED8' },
+  { key:'risk_volcano',      label:'Gunung Api',   icon:'🌋', color:'#EA580C' },
+  { key:'risk_fire',         label:'Karhutla',     icon:'🔥', color:'#D97706' },
+  { key:'risk_drought',      label:'Kekeringan',   icon:'☀️',  color:'#B45309' },
+  { key:'risk_liquefaction', label:'Likuefaksi',   icon:'💧', color:'#7C3AED' }
+];
+
+function hazardLevel(v){
+  if(v >= 0.67) return { label:'TINGGI',   color:'#E24B4A', bg:'#FCEBEB' };
+  if(v >= 0.34) return { label:'SEDANG',   color:'#854F0B', bg:'#FAEEDA' };
+  return               { label:'RENDAH',   color:'#3B6D11', bg:'#EAF3DE' };
+}
+
+async function loadBNPB(){
+  if(bnpbLoaded) return;
+  bnpbLoaded = true;
+
+  // Fire all requests in parallel
+  var hazardPromises = HAZARD_LAYERS.map(function(h){
+    return fetch(BNPB_WORKER + '?endpoint=' + h.key)
+      .then(function(r){ return r.json(); })
+      .then(function(d){ return { key: h.key, mean: (d.meanValues && d.meanValues[0]) || null }; })
+      .catch(function(){ return { key: h.key, mean: null }; });
+  });
+
+  var provPromise = fetch(BNPB_WORKER + '?endpoint=dibi_prov')
+    .then(function(r){ return r.json(); })
+    .catch(function(){ return null; });
+
+  var hazardResults = await Promise.all(hazardPromises);
+  var provData = await provPromise;
+
+  renderHazardScorecard(hazardResults);
+  if(provData && provData.features) renderProvChart(provData.features);
+}
+
+function renderHazardScorecard(results){
+  var grid = document.getElementById('bnpbHazardGrid');
+  if(!grid) return;
+
+  var html = '';
+  HAZARD_LAYERS.forEach(function(h, i){
+    var mean = results[i] ? results[i].mean : null;
+    var pct = mean !== null ? Math.round(mean * 100) : null;
+    var lv = mean !== null ? hazardLevel(mean) : null;
+
+    html += '<div style="background:var(--navy);border-radius:var(--r);padding:12px 14px">';
+    html += '<div style="font-size:9px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.7px;margin-bottom:6px">' + h.icon + ' ' + h.label + '</div>';
+
+    if(pct !== null){
+      html += '<div style="font-size:20px;font-weight:800;color:#fff;line-height:1">' + pct + '<span style="font-size:11px;font-weight:400;color:rgba(255,255,255,0.5)">%</span></div>';
+      html += '<div style="margin-top:6px;background:rgba(255,255,255,0.1);border-radius:3px;height:4px">';
+      html += '<div style="width:' + pct + '%;height:4px;border-radius:3px;background:' + h.color + '"></div>';
+      html += '</div>';
+      html += '<div style="margin-top:5px"><span style="font-size:8px;font-weight:800;padding:2px 6px;border-radius:3px;background:' + lv.bg + ';color:' + lv.color + '">' + lv.label + '</span></div>';
+    } else {
+      html += '<div style="font-size:12px;color:rgba(255,255,255,0.3);font-style:italic">N/A</div>';
+    }
+    html += '</div>';
+  });
+
+  grid.innerHTML = html;
+}
+
+function renderProvChart(features){
+  var el = document.getElementById('bnpbProvChart');
+  if(!el) return;
+
+  // Sort by Total_basa descending, take top 15
+  var sorted = features
+    .map(function(f){ return f.attributes; })
+    .filter(function(a){ return a.Total_basa > 0; })
+    .sort(function(a,b){ return b.Total_basa - a.Total_basa; })
+    .slice(0, 15);
+
+  var maxVal = sorted[0] ? sorted[0].Total_basa : 1;
+
+  var html = '';
+  sorted.forEach(function(a){
+    var wetPct  = Math.round((a.Total_basa / maxVal) * 100);
+    var dryPct  = Math.round(((a.Total_keri || 0) / maxVal) * 100);
+    var name = a.provinsi || a.NAMA_PROP;
+    // Shorten long names
+    name = name.replace('Daerah Istimewa ','DI ').replace('Kepulauan ','Kep. ');
+
+    html += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">';
+    html += '<div style="font-size:9px;color:var(--text2);width:120px;flex-shrink:0;text-align:right;line-height:1.3">' + name + '</div>';
+    html += '<div style="flex:1;display:flex;flex-direction:column;gap:2px">';
+    // Wet bar
+    html += '<div style="display:flex;align-items:center;gap:5px">';
+    html += '<div style="background:var(--bg);border-radius:3px;height:8px;flex:1">';
+    html += '<div style="width:' + wetPct + '%;height:8px;border-radius:3px;background:#3DBFB0"></div>';
+    html += '</div>';
+    html += '<div style="font-size:9px;color:var(--text2);width:40px;flex-shrink:0">' + a.Total_basa.toLocaleString() + '</div>';
+    html += '</div>';
+    // Dry bar
+    if(a.Total_keri > 0){
+      html += '<div style="display:flex;align-items:center;gap:5px">';
+      html += '<div style="background:var(--bg);border-radius:3px;height:5px;flex:1">';
+      html += '<div style="width:' + dryPct + '%;height:5px;border-radius:3px;background:#EF9F27"></div>';
+      html += '</div>';
+      html += '<div style="font-size:9px;color:var(--text2);width:40px;flex-shrink:0">' + (a.Total_keri).toLocaleString() + '</div>';
+      html += '</div>';
+    }
+    html += '</div>';
+    html += '</div>';
+  });
+
+  el.innerHTML = html;
 }
 
 // ── TEMPERATURE: also update city cards to show C/F ──
@@ -1537,6 +2209,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 loadRates();
 loadHeadlines();
+setTimeout(function(){ loadMacroData(); }, 1000);
 </script>
 </body>
 </html>
