@@ -133,7 +133,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
     <div>
       <div class="hdr-t">Geopolitics and Geoeconomic Monitor</div>
       <div class="hdr-s">Indonesian Institute for Foreign Affairs (IIFA) &mdash; UIII</div>
-      <div class="hdr-s" style="font-size:9px;opacity:0.55;margin-top:1px;letter-spacing:0.2px">(Beta ver 11.8)</div>
+      <div class="hdr-s" style="font-size:9px;opacity:0.55;margin-top:1px;letter-spacing:0.2px">(Beta ver 12.2)</div>
     </div>
   </div>
   <div class="hdr-r">
@@ -581,7 +581,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
           <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">Alert Level</div><div style="font-size:15px;font-weight:700;margin-top:4px" id="fireAlert">&mdash;</div></div>
         </div>
         <div id="fireProvinces" style="font-size:10px;color:var(--text2)">Loading NASA FIRMS data...</div>
-        <input type="hidden" id="firmsKey" value="322f08c70ec8bb383d8b6f28c002a894"/>
+
       </div>
 
       <!-- 3. inaRISK BNPB — BOTTOM -->
@@ -649,7 +649,7 @@ function showSec(id,el){
 }
 
 // ── DIPLOMACY LIVE FEED ──
-var DIPLO_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev';
+var DIPLO_WORKER = 'https://iif-monitor.iifa.workers.dev';
 var diploInitialized = false;
 var diploRefreshTimer = null;
 
@@ -778,7 +778,7 @@ function escHtml(s){
 // ── EXCHANGE RATES ──
 var cachedRates={};
 // ── MACRO DATA (World Bank API + Worker) ──
-var MACRO_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/macro';
+var MACRO_WORKER = 'https://iif-monitor.iifa.workers.dev/macro';
 var macroLoaded = false;
 
 function wbVal(data) {
@@ -809,7 +809,7 @@ async function loadMacroData() {
   if (macroLoaded) return;
   macroLoaded = true;
 
-  var WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev';
+  var WORKER = 'https://iif-monitor.iifa.workers.dev';
 
   // Fire all fetches in parallel
   var fetches = {
@@ -978,7 +978,7 @@ function buildTicker(u,c,j,sgd,eur){
 // ── STOCK INDICES ──
 // ── STOCK INDICES ──────────────────────────────────
 // Worker = server-side stooq (no CORS). Browser fallback = direct stooq with correct tickers.
-var STOCK_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/stocks';
+var STOCK_WORKER = 'https://iif-monitor.iifa.workers.dev/stocks';
 
 // Correct stooq.com tickers (lowercase, verified)
 var STOOQ_DIRECT = {
@@ -1065,7 +1065,7 @@ function loadAllIndices() {
 }
 
 // ── COMMODITIES ─────────────────────────────────────
-var COMM_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/commodities';
+var COMM_WORKER = 'https://iif-monitor.iifa.workers.dev/commodities';
 var commLoaded  = false;
 
 var COMM_EXPORTS = [
@@ -1332,68 +1332,12 @@ var ZONES=[
        'Australia boosts Pacific aid significantly to counter Chinese influence||ABC Australia||Mar 2026']},
 ];
 
-var FEEDS=[
-  'https://feeds.reuters.com/reuters/worldNews',
-  'https://www.aljazeera.com/xml/rss/all.xml',
-  'https://feeds.bbci.co.uk/news/world/rss.xml',
-  'https://www.theguardian.com/world/rss',
-  'https://feeds.skynews.com/feeds/rss/world.xml'
-];
+var RSS_WORKER = 'https://iif-monitor.iifa.workers.dev/rss';
 var allHL=[];
+var _headlinesRefreshTimer=null;
 
 function wib(){
   return new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+' WIB';
-}
-
-function fetchWithTimeout(url, ms){
-  var ctrl = new AbortController();
-  var timer = setTimeout(function(){ ctrl.abort(); }, ms);
-  return fetch(url, {cache:'no-store', signal:ctrl.signal})
-    .then(function(r){ clearTimeout(timer); return r; })
-    .catch(function(e){ clearTimeout(timer); throw e; });
-}
-
-function parseRSS(xmlStr, sourceUrl){
-  try{
-    var parser=new DOMParser();
-    var doc=parser.parseFromString(xmlStr,'text/xml');
-    var feedTitle=(doc.querySelector('channel > title')||doc.querySelector('feed > title')||{textContent:sourceUrl}).textContent.replace('RSS','').trim();
-    var items=Array.from(doc.querySelectorAll('item, entry'));
-    return items.slice(0,40).map(function(item){
-      var title=(item.querySelector('title')||{textContent:''}).textContent.trim();
-      var link='';
-      var linkEl=item.querySelector('link');
-      if(linkEl){ link=linkEl.getAttribute('href')||linkEl.textContent.trim(); }
-      var pubDate=(item.querySelector('pubDate,published,updated')||{textContent:''}).textContent.trim();
-      return {title:title,link:link,src:feedTitle,date:pubDate,ts:new Date(pubDate||0).getTime()};
-    }).filter(function(i){return i.title;});
-  } catch(e){ return []; }
-}
-
-async function fetchFeed(url){
-  // Try 1: allorigins — 4s timeout
-  try{
-    var r=await fetchWithTimeout('https://api.allorigins.win/get?url='+encodeURIComponent(url), 4000);
-    var d=await r.json();
-    if(d && d.contents && d.contents.length > 100) return parseRSS(d.contents, url);
-  } catch(e){}
-  // Try 2: corsproxy.io — 4s timeout
-  try{
-    var r2=await fetchWithTimeout('https://corsproxy.io/?'+encodeURIComponent(url), 4000);
-    var xml=await r2.text();
-    if(xml && xml.length > 100) return parseRSS(xml, url);
-  } catch(e2){}
-  // Try 3: rss2json as last resort (cached but reliable)
-  try{
-    var r3=await fetchWithTimeout('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(url)+'&count=40&api_key=free', 5000);
-    var d3=await r3.json();
-    if(d3.status==='ok' && d3.items && d3.items.length){
-      return d3.items.map(function(i){
-        return {title:i.title,link:i.link,src:(d3.feed&&d3.feed.title||'News').replace('RSS','').trim(),date:i.pubDate,ts:new Date(i.pubDate||0).getTime()};
-      });
-    }
-  } catch(e3){}
-  return [];
 }
 
 function scoreHL(hl,zone){
@@ -1418,7 +1362,7 @@ function fmtAge(dateStr){
     var d=new Date(dateStr);
     var datePart=d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
     var timePart=d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
-    return datePart+' · '+timePart;
+    return datePart+' \u00b7 '+timePart;
   } catch(e){return '';}
 }
 
@@ -1431,16 +1375,15 @@ function makeZoneCard(z,hls){
   var hlHtml;
   if(tops.length>0){
     hlHtml=tops.map(function(h){
-      var age=fmtAge(h.date);
-      var inner='<div class="chd"></div><div class="cht">'+h.title+'<br><span class="chs">'+h.src+(age?' · '+age:'')+'</span></div>';
-      return '<div class="chl">'+(h.link?'<a href="'+h.link+'" target="_blank" style="color:inherit;text-decoration:none;display:flex;gap:6px;width:100%">'+inner+'</a>':'<div style="display:flex;gap:6px">'+inner+'</div>')+'</div>';
+      var age=fmtAge(h.date||h.pubDate);
+      var inner='<div class="chd"></div><div class="cht">'+h.title+'<br><span class="chs">'+(h.src||h.source||'')+(age?' \u00b7 '+age:'')+'</span></div>';
+      return '<div class="chl">'+(h.link||h.url?'<a href="'+(h.link||h.url)+'" target="_blank" style="color:inherit;text-decoration:none;display:flex;gap:6px;width:100%">'+inner+'</a>':'<div style="display:flex;gap:6px">'+inner+'</div>')+'</div>';
     }).join('');
   } else {
     hlHtml=z.fb.map(function(f){
       var pts=f.split('||');var ttl=pts[0];var src=pts[1]||'IIFA';var rawDt=pts[2]||'Mar 2026';
-      // Parse "Mon yyyy" into a display date — show as-is since it's a curated string
       var searchUrl='https://www.google.com/search?q='+encodeURIComponent(ttl.slice(0,70))+'&tbm=nws';
-      var inner='<div class="chd"></div><div class="cht">'+ttl+'<br><span class="chs">'+src+' · '+rawDt+'</span></div>';
+      var inner='<div class="chd"></div><div class="cht">'+ttl+'<br><span class="chs">'+src+' \u00b7 '+rawDt+'</span></div>';
       return '<div class="chl"><a href="'+searchUrl+'" target="_blank" style="color:inherit;text-decoration:none;display:flex;gap:6px;width:100%">'+inner+'</a></div>';
     }).join('');
   }
@@ -1462,28 +1405,39 @@ function renderCards(hls){
   var wZ=ZONES.filter(function(z){return WATCH_IDS.indexOf(z.id)>=0;});
   var rZ=ZONES.filter(function(z){return REGIONAL_IDS.indexOf(z.id)>=0;});
   grid.innerHTML=
-    sLabel('#FEF0F0','#E24B4A','#A32D2D','● Active Conflicts — Ongoing, High Urgency')+
+    sLabel('#FEF0F0','#E24B4A','#A32D2D','\u25cf Active Conflicts \u2014 Ongoing, High Urgency')+
     aZ.map(function(z){return makeZoneCard(z,hls);}).join('')+
-    sLabel('#FFF8F0','#EF9F27','#854F0B','▶ Escalation Watch — Elevated tensions, no open daily conflict')+
+    sLabel('#FFF8F0','#EF9F27','#854F0B','\u25b6 Escalation Watch \u2014 Elevated tensions, no open daily conflict')+
     wZ.map(function(z){return makeZoneCard(z,hls);}).join('')+
-    sLabel('#F0FAFA','#3DBFB0','#0f6e66','■ Regional Monitoring')+
+    sLabel('#F0FAFA','#3DBFB0','#0f6e66','\u25a0 Regional Monitoring')+
     rZ.map(function(z){return makeZoneCard(z,hls);}).join('');
 }
 
 async function loadHeadlines(){
+  // Show cards immediately with fallback text while fetching
   renderCards([]);
+
   try{
-    // Overall timeout: if all feeds take > 12s, render with whatever we have
-    var timeout = new Promise(function(res){ setTimeout(res, 12000); });
-    var fetches = Promise.allSettled(FEEDS.map(fetchFeed));
-    var results = await Promise.race([fetches, timeout.then(function(){ return []; })]);
-    if(Array.isArray(results)){
-      allHL=results.reduce(function(acc,r){return r.status==='fulfilled'?acc.concat(r.value):acc;},[]);
-      if(allHL.length>0) renderCards(allHL);
+    var ctrl=new AbortController();
+    var timer=setTimeout(function(){ctrl.abort();},15000);
+    var r=await fetch(RSS_WORKER,{cache:'no-store',signal:ctrl.signal});
+    clearTimeout(timer);
+    var d=await r.json();
+    if(d.items&&d.items.length>0){
+      allHL=d.items;
+      renderCards(allHL);
     }
-  } catch(e){}
+  }catch(e){}
+
   var tsEl=document.getElementById('confTs');
   if(tsEl) tsEl.textContent=wib();
+
+  // Schedule next auto-refresh in 30 minutes
+  if(_headlinesRefreshTimer) clearTimeout(_headlinesRefreshTimer);
+  _headlinesRefreshTimer=setTimeout(function(){
+    var geoSec=document.getElementById('s-geopolitics');
+    if(geoSec&&geoSec.classList.contains('active')) loadHeadlines();
+  }, 30*60*1000);
 }
 
 // ── DISASTER RISKS ──
@@ -1658,9 +1612,9 @@ async function loadVolcanoes(){
 var _lastFIRMSLines=null;
 var _lastFIRMSTimestamp='';
 
+var FIRMS_WORKER = 'https://iif-monitor.iifa.workers.dev/firms';
+
 async function loadFIRMS(){
-  var key=document.getElementById('firmsKey');
-  var k=key?key.value:'322f08c70ec8bb383d8b6f28c002a894';
   var cntEl=document.getElementById('fireCnt');
   var hiEl=document.getElementById('fireHigh');
   var altEl=document.getElementById('fireAlert');
@@ -1736,39 +1690,28 @@ async function loadFIRMS(){
     if(altEl){altEl.textContent='See FIRMS';altEl.style.color='var(--teal)';}
     if(provEl) provEl.innerHTML=
       '<div style="padding:6px 0">'+
-      '<div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:5px">NASA FIRMS API blocked by CORS</div>'+
-      '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;line-height:1.5">Browser security prevents direct API access. View fire data at NASA FIRMS directly:</div>'+
+      '<div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:5px">Fire data temporarily unavailable</div>'+
+      '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;line-height:1.5">View live fire hotspot data at NASA FIRMS directly:</div>'+
       '<div style="display:flex;gap:8px;flex-wrap:wrap">'+
       '<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@118,-2,6z" target="_blank" style="background:var(--navy);color:#fff;padding:6px 12px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">FIRMS Live Map \u2192</a>'+
       '<a href="https://firms.modaps.eosdis.nasa.gov/country/IDN" target="_blank" style="background:var(--navy);color:#fff;padding:6px 12px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">Indonesia Dashboard \u2192</a>'+
       '</div></div>';
   }
 
-  var directUrl='https://firms.modaps.eosdis.nasa.gov/api/area/csv/'+k+'/VIIRS_SNPP_NRT/95,-11,141,6/1';
-
-  // Try 1: direct
+  // Route through Worker — API key is hidden server-side
   try{
-    var r1=await fetch(directUrl,{cache:'no-store'});
-    var t1=await r1.text();
-    var l1=parseCSV(t1);
-    if(l1){if(l1.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}renderFire(l1,false);return;}
-  }catch(e1){}
-
-  // Try 2: allorigins proxy
-  try{
-    var r2=await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(directUrl),{cache:'no-store'});
-    var d2=await r2.json();
-    var l2=parseCSV(d2.contents||'');
-    if(l2){if(l2.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}renderFire(l2,false);return;}
-  }catch(e2){}
-
-  // Try 3: corsproxy.io
-  try{
-    var r3=await fetch('https://corsproxy.io/?'+encodeURIComponent(directUrl),{cache:'no-store'});
-    var t3=await r3.text();
-    var l3=parseCSV(t3);
-    if(l3){if(l3.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}renderFire(l3,false);return;}
-  }catch(e3){}
+    var ctrl=new AbortController();
+    var timer=setTimeout(function(){ctrl.abort();},12000);
+    var r=await fetch(FIRMS_WORKER+'?days=1',{cache:'no-store',signal:ctrl.signal});
+    clearTimeout(timer);
+    var csv=await r.text();
+    var lines=parseCSV(csv);
+    if(lines){
+      if(lines.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}
+      renderFire(lines,false);
+      return;
+    }
+  }catch(e){}
 
   if(_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}
   showFIRMSFallback();
@@ -1981,7 +1924,7 @@ async function loadWeatherForCoords(lat,lon){
 }
 
 // ── inaRISK BNPB ──────────────────────────────────────────
-var BNPB_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/bnpb';
+var BNPB_WORKER = 'https://iif-monitor.iifa.workers.dev/bnpb';
 var bnpbLoaded = false;
 
 var HAZARD_LAYERS = [
