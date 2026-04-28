@@ -133,7 +133,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
     <div>
       <div class="hdr-t">Geopolitics and Geoeconomic Monitor</div>
       <div class="hdr-s">Indonesian Institute for Foreign Affairs (IIFA) &mdash; UIII</div>
-      <div class="hdr-s" style="font-size:9px;opacity:0.55;margin-top:1px;letter-spacing:0.2px">(Beta ver 12.2)</div>
+      <div class="hdr-s" style="font-size:9px;opacity:0.55;margin-top:1px;letter-spacing:0.2px">(Beta ver 12.3.0)</div>
     </div>
   </div>
   <div class="hdr-r">
@@ -160,73 +160,27 @@ body{display:flex;flex-direction:column;min-height:100vh}
 <!-- GEOPOLITICS -->
 <div class="sec active" id="s-geopolitics">
   <div class="rb">
-    <div>Live headlines matched from RSS feeds &nbsp;&middot;&nbsp; Refreshed: <strong id="confTs">&mdash;</strong></div>
+    <div>AI-synthesized analysis grounded in tier-1 news outlets &nbsp;&middot;&nbsp; <span id="aiGeoBadge" style="font-weight:700;color:var(--teal)">loading…</span></div>
+    <div style="font-size:9px;color:var(--text2)">Refresh 5 WIB &amp; 17 WIB · Source: AI worker</div>
   </div>
 
-  <!-- Z TOP: Conflict zone cards — full width left-to-right scan -->
-  <div class="cgrid" id="confGrid"></div>
+  <!-- AI zone cards: grouped by intensity (Active / Watch / Stable). Dormant hidden. -->
+  <div id="aiZonesContainer" style="display:flex;flex-direction:column;gap:14px;margin-bottom:14px">
+    <div style="text-align:center;padding:40px;color:var(--text2);font-size:11px">Loading AI synthesis from worker...</div>
+  </div>
 
-  <!-- Z MIDDLE: Two-column diagonal — matrix left, quick-ref right -->
-  <div style="display:grid;grid-template-columns:65% 35%;gap:12px;margin-bottom:14px">
-
-    <!-- Z left column: full conflict matrix -->
-    <div class="card">
-      <div class="ct">Conflict intensity &amp; Indonesia exposure matrix</div>
-      <table>
-        <thead><tr><th>Zone</th><th>Intensity</th><th>Proximity</th><th>Economic impact</th><th>Political pressure</th></tr></thead>
-        <tbody>
-          <tr style="background:#FEF0F0"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#A32D2D;letter-spacing:0.6px;border-left:4px solid #E24B4A">&#9679; ACTIVE CONFLICTS &mdash; Ongoing, High Urgency</td></tr>
-          <tr style="border-left:4px solid #E24B4A"><td><strong>Gaza &amp; Red Sea</strong></td><td><span class="badge br">Critical</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge br">High &mdash; freight, LNG</span></td><td><span class="badge br">High &mdash; OIC solidarity</span></td></tr>
-          <tr style="border-left:4px solid #E24B4A"><td><strong>Russia&ndash;Ukraine</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; food &amp; fertilizer</span></td><td><span class="badge ba">Medium &mdash; UNSC</span></td></tr>
-          <tr style="border-left:4px solid #E24B4A"><td><strong>Pakistan / Afghanistan</strong></td><td><span class="badge br">High</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge ba">Medium &mdash; energy routes</span></td><td><span class="badge br">High &mdash; Islamic solidarity</span></td></tr>
-          <tr style="border-left:4px solid #E24B4A"><td><strong>Myanmar</strong></td><td><span class="badge ba">High</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low</span></td><td><span class="badge br">High &mdash; ASEAN credibility</span></td></tr>
-          <tr style="border-left:4px solid #E24B4A"><td><strong>Hormuz &amp; Iran</strong></td><td><span class="badge br">Critical</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge br">High &mdash; LNG &amp; oil transit</span></td><td><span class="badge ba">Medium</span></td></tr>
-          <tr style="border-left:4px solid #E24B4A"><td><strong>Thailand &mdash; Cambodia</strong></td><td><span class="badge ba">Elevated</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; ASEAN trade</span></td><td><span class="badge ba">Medium &mdash; ASEAN unity</span></td></tr>
-          <tr style="background:#FFF8F0"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#854F0B;letter-spacing:0.6px;border-left:4px solid #EF9F27">&#9654; ESCALATION WATCH</td></tr>
-          <tr style="border-left:4px solid #EF9F27"><td>South China Sea</td><td><span class="badge ba">Rising</span></td><td><span class="badge br">Direct</span></td><td><span class="badge br">High &mdash; Natuna, SLOCs</span></td><td><span class="badge ba">Medium</span></td></tr>
-          <tr style="border-left:4px solid #EF9F27"><td>China&ndash;Taiwan</td><td><span class="badge ba">Rising</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">Medium &mdash; semiconductors</span></td><td><span class="badge br">High &mdash; US-China choice</span></td></tr>
-          <tr style="background:#F0FAFA"><td colspan="5" style="padding:5px 8px;font-size:9px;font-weight:800;color:#0f6e66;letter-spacing:0.6px;border-left:4px solid #3DBFB0">&#9632; REGIONAL MONITORING</td></tr>
-          <tr style="border-left:4px solid #3DBFB0"><td>Southeast Asia</td><td><span class="badge bt">Monitor</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge ba">High &mdash; trade &amp; SLOCs</span></td><td><span class="badge br">High &mdash; leadership</span></td></tr>
-          <tr style="border-left:4px solid #3DBFB0"><td>South Asia</td><td><span class="badge ba">Latent</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge bb">Low</span></td></tr>
-          <tr style="border-left:4px solid #3DBFB0"><td>Africa</td><td><span class="badge ba">Medium</span></td><td><span class="badge bgr">Remote</span></td><td><span class="badge bb">Low</span></td><td><span class="badge bb">Low</span></td></tr>
-          <tr style="border-left:4px solid #3DBFB0"><td>Pacific &mdash; AU, NZ, Islands</td><td><span class="badge bt">Monitor</span></td><td><span class="badge ba">Regional</span></td><td><span class="badge bb">Low &mdash; indirect</span></td><td><span class="badge ba">Medium &mdash; alignment</span></td></tr>
-        </tbody>
-      </table>
+  <!-- Indonesia exposure cards (full width below zones) -->
+  <div class="card" style="margin-bottom:14px">
+    <div class="ct">&#127470;&#127465; Indonesia exposure — AI-synthesized risks this cycle</div>
+    <div id="aiExposureBody" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:6px">
+      <div style="grid-column:1/-1;text-align:center;padding:18px;color:var(--text2);font-size:11px">Loading exposure cards...</div>
     </div>
+  </div>
 
-    <!-- Z right column: Indonesia exposure quick-ref -->
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div class="card">
-        <div class="ct">&#127470;&#127465; Indonesia exposure — top risks</div>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px">
-          <div style="padding:8px;background:#FEF0F0;border-radius:var(--r);border-left:3px solid #E24B4A">
-            <div style="font-size:10px;font-weight:700;color:#A32D2D">Strait of Hormuz closure</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;line-height:1.4">20–25% of Indonesia's crude oil imports transits Hormuz. Iran war disruption threatens energy security and state budget assumptions.</div>
-          </div>
-          <div style="padding:8px;background:#FEF0F0;border-radius:var(--r);border-left:3px solid #E24B4A">
-            <div style="font-size:10px;font-weight:700;color:#A32D2D">South China Sea — Natuna</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;line-height:1.4">Overlapping Chinese claims in Natuna EEZ. Direct sovereignty issue — Indonesia does not recognise nine-dash line.</div>
-          </div>
-          <div style="padding:8px;background:#FAEEDA;border-radius:var(--r);border-left:3px solid #EF9F27">
-            <div style="font-size:10px;font-weight:700;color:#854F0B">Myanmar humanitarian</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;line-height:1.4">ASEAN credibility at stake. Indonesia as de facto ASEAN leader expected to lead response to ongoing civil war and refugee crisis.</div>
-          </div>
-          <div style="padding:8px;background:#FAEEDA;border-radius:var(--r);border-left:3px solid #EF9F27">
-            <div style="font-size:10px;font-weight:700;color:#854F0B">US–China decoupling</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;line-height:1.4">Indonesia's top two trade partners in rivalry. Supply chain diversification creates opportunity but forces difficult alignment choices.</div>
-          </div>
-          <div style="padding:8px;background:#f0f8f4;border-radius:var(--r);border-left:3px solid #3DBFB0">
-            <div style="font-size:10px;font-weight:700;color:#0f6e66">Gaza / OIC pressure</div>
-            <div style="font-size:9px;color:var(--text2);margin-top:2px;line-height:1.4">Domestic Muslim majority sentiment. Trade with Israel suspended 2024. BoP membership generating domestic backlash.</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Dormant zones footer note -->
+  <div id="aiDormantNote" style="display:none;font-size:10px;color:var(--text2);padding:8px 12px;background:rgba(0,0,0,0.04);border-radius:var(--r);margin-bottom:8px"></div>
 
-  </div><!-- end Z middle -->
-
-  <!-- Z BOTTOM: full-width source note -->
-  <p class="sn">Headlines sourced from Google News via RSS &mdash; refreshed automatically each time this tab is opened.</p>
+  <p class="sn">All zone analyses generated by Claude Haiku from articles in the last 24h-1month. Articles filtered through ~75 tier-1 outlet whitelist. State-affiliated sources flagged. Zero-hallucination prompt rule: claims grounded in cited articles only.</p>
 </div>
 
 <!-- GEOECONOMY -->
@@ -373,11 +327,11 @@ body{display:flex;flex-direction:column;min-height:100vh}
   </div>
 
   <!-- CURATED CONTEXT — first -->
-  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:#E24B4A;margin-bottom:8px;display:flex;align-items:center;gap:6px">
-    <span style="width:7px;height:7px;border-radius:50%;background:#E24B4A;display:inline-block;animation:pulse 1.2s ease-in-out infinite"></span>
-    Curated Context &mdash; Key Events Last 30 Days
+  <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:#E24B4A;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:6px">
+    <span style="display:flex;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:50%;background:#E24B4A;display:inline-block;animation:pulse 1.2s ease-in-out infinite"></span>AI-Curated Context &mdash; Key Events</span>
+    <span id="aiAlertsMeta" style="font-size:9px;font-weight:600;color:var(--text2);text-transform:none;letter-spacing:0">AI synthesis: <span id="aiAlertsBadge" style="font-weight:700">loading…</span></span>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:14px">
+  <div id="aiAlertsGrid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:14px">
 
       <!-- Alert 1 -->
       <div style="background:#fff8f8;border:1px solid #f5c6c6;border-left:4px solid #E24B4A;border-radius:8px;padding:10px 12px">
@@ -581,7 +535,7 @@ body{display:flex;flex-direction:column;min-height:100vh}
           <div style="background:var(--bg);border-radius:var(--r);padding:10px 12px;border:0.5px solid var(--border)"><div style="font-size:9px;color:var(--text2)">Alert Level</div><div style="font-size:15px;font-weight:700;margin-top:4px" id="fireAlert">&mdash;</div></div>
         </div>
         <div id="fireProvinces" style="font-size:10px;color:var(--text2)">Loading NASA FIRMS data...</div>
-
+        <input type="hidden" id="firmsKey" value="322f08c70ec8bb383d8b6f28c002a894"/>
       </div>
 
       <!-- 3. inaRISK BNPB — BOTTOM -->
@@ -642,14 +596,14 @@ function showSec(id,el){
   el.classList.add('active');
   var sec=document.getElementById('s-'+id);
   if(sec) sec.classList.add('active');
-  if(id==='geopolitics') setTimeout(function(){ loadHeadlines(); },80);
+  if(id==='geopolitics') setTimeout(function(){ loadAIGeopolitics(); },80);
   if(id==='geoeconomy'){ setTimeout(function(){ if(!chartsReady) initCharts(); },100); setTimeout(function(){ loadRates(); loadAllIndices(); loadMacroData(); loadCommodities(); },200); }
   if(id==='disaster') setTimeout(function(){ loadAllIDW(); loadBNPB(); },150);
   if(id==='diplomacy') setTimeout(function(){ initDiploFeed(); },100);
 }
 
 // ── DIPLOMACY LIVE FEED ──
-var DIPLO_WORKER = 'https://iif-monitor.iifa.workers.dev';
+var DIPLO_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev';
 var diploInitialized = false;
 var diploRefreshTimer = null;
 
@@ -778,7 +732,7 @@ function escHtml(s){
 // ── EXCHANGE RATES ──
 var cachedRates={};
 // ── MACRO DATA (World Bank API + Worker) ──
-var MACRO_WORKER = 'https://iif-monitor.iifa.workers.dev/macro';
+var MACRO_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/macro';
 var macroLoaded = false;
 
 function wbVal(data) {
@@ -809,7 +763,7 @@ async function loadMacroData() {
   if (macroLoaded) return;
   macroLoaded = true;
 
-  var WORKER = 'https://iif-monitor.iifa.workers.dev';
+  var WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev';
 
   // Fire all fetches in parallel
   var fetches = {
@@ -978,7 +932,7 @@ function buildTicker(u,c,j,sgd,eur){
 // ── STOCK INDICES ──
 // ── STOCK INDICES ──────────────────────────────────
 // Worker = server-side stooq (no CORS). Browser fallback = direct stooq with correct tickers.
-var STOCK_WORKER = 'https://iif-monitor.iifa.workers.dev/stocks';
+var STOCK_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/stocks';
 
 // Correct stooq.com tickers (lowercase, verified)
 var STOOQ_DIRECT = {
@@ -1065,7 +1019,7 @@ function loadAllIndices() {
 }
 
 // ── COMMODITIES ─────────────────────────────────────
-var COMM_WORKER = 'https://iif-monitor.iifa.workers.dev/commodities';
+var COMM_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/commodities';
 var commLoaded  = false;
 
 var COMM_EXPORTS = [
@@ -1332,12 +1286,68 @@ var ZONES=[
        'Australia boosts Pacific aid significantly to counter Chinese influence||ABC Australia||Mar 2026']},
 ];
 
-var RSS_WORKER = 'https://iif-monitor.iifa.workers.dev/rss';
+var FEEDS=[
+  'https://feeds.reuters.com/reuters/worldNews',
+  'https://www.aljazeera.com/xml/rss/all.xml',
+  'https://feeds.bbci.co.uk/news/world/rss.xml',
+  'https://www.theguardian.com/world/rss',
+  'https://feeds.skynews.com/feeds/rss/world.xml'
+];
 var allHL=[];
-var _headlinesRefreshTimer=null;
 
 function wib(){
   return new Date().toLocaleString('en-GB',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+' WIB';
+}
+
+function fetchWithTimeout(url, ms){
+  var ctrl = new AbortController();
+  var timer = setTimeout(function(){ ctrl.abort(); }, ms);
+  return fetch(url, {cache:'no-store', signal:ctrl.signal})
+    .then(function(r){ clearTimeout(timer); return r; })
+    .catch(function(e){ clearTimeout(timer); throw e; });
+}
+
+function parseRSS(xmlStr, sourceUrl){
+  try{
+    var parser=new DOMParser();
+    var doc=parser.parseFromString(xmlStr,'text/xml');
+    var feedTitle=(doc.querySelector('channel > title')||doc.querySelector('feed > title')||{textContent:sourceUrl}).textContent.replace('RSS','').trim();
+    var items=Array.from(doc.querySelectorAll('item, entry'));
+    return items.slice(0,40).map(function(item){
+      var title=(item.querySelector('title')||{textContent:''}).textContent.trim();
+      var link='';
+      var linkEl=item.querySelector('link');
+      if(linkEl){ link=linkEl.getAttribute('href')||linkEl.textContent.trim(); }
+      var pubDate=(item.querySelector('pubDate,published,updated')||{textContent:''}).textContent.trim();
+      return {title:title,link:link,src:feedTitle,date:pubDate,ts:new Date(pubDate||0).getTime()};
+    }).filter(function(i){return i.title;});
+  } catch(e){ return []; }
+}
+
+async function fetchFeed(url){
+  // Try 1: allorigins — 4s timeout
+  try{
+    var r=await fetchWithTimeout('https://api.allorigins.win/get?url='+encodeURIComponent(url), 4000);
+    var d=await r.json();
+    if(d && d.contents && d.contents.length > 100) return parseRSS(d.contents, url);
+  } catch(e){}
+  // Try 2: corsproxy.io — 4s timeout
+  try{
+    var r2=await fetchWithTimeout('https://corsproxy.io/?'+encodeURIComponent(url), 4000);
+    var xml=await r2.text();
+    if(xml && xml.length > 100) return parseRSS(xml, url);
+  } catch(e2){}
+  // Try 3: rss2json as last resort (cached but reliable)
+  try{
+    var r3=await fetchWithTimeout('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(url)+'&count=40&api_key=free', 5000);
+    var d3=await r3.json();
+    if(d3.status==='ok' && d3.items && d3.items.length){
+      return d3.items.map(function(i){
+        return {title:i.title,link:i.link,src:(d3.feed&&d3.feed.title||'News').replace('RSS','').trim(),date:i.pubDate,ts:new Date(i.pubDate||0).getTime()};
+      });
+    }
+  } catch(e3){}
+  return [];
 }
 
 function scoreHL(hl,zone){
@@ -1362,7 +1372,7 @@ function fmtAge(dateStr){
     var d=new Date(dateStr);
     var datePart=d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
     var timePart=d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
-    return datePart+' \u00b7 '+timePart;
+    return datePart+' · '+timePart;
   } catch(e){return '';}
 }
 
@@ -1375,15 +1385,16 @@ function makeZoneCard(z,hls){
   var hlHtml;
   if(tops.length>0){
     hlHtml=tops.map(function(h){
-      var age=fmtAge(h.date||h.pubDate);
-      var inner='<div class="chd"></div><div class="cht">'+h.title+'<br><span class="chs">'+(h.src||h.source||'')+(age?' \u00b7 '+age:'')+'</span></div>';
-      return '<div class="chl">'+(h.link||h.url?'<a href="'+(h.link||h.url)+'" target="_blank" style="color:inherit;text-decoration:none;display:flex;gap:6px;width:100%">'+inner+'</a>':'<div style="display:flex;gap:6px">'+inner+'</div>')+'</div>';
+      var age=fmtAge(h.date);
+      var inner='<div class="chd"></div><div class="cht">'+h.title+'<br><span class="chs">'+h.src+(age?' · '+age:'')+'</span></div>';
+      return '<div class="chl">'+(h.link?'<a href="'+h.link+'" target="_blank" style="color:inherit;text-decoration:none;display:flex;gap:6px;width:100%">'+inner+'</a>':'<div style="display:flex;gap:6px">'+inner+'</div>')+'</div>';
     }).join('');
   } else {
     hlHtml=z.fb.map(function(f){
       var pts=f.split('||');var ttl=pts[0];var src=pts[1]||'IIFA';var rawDt=pts[2]||'Mar 2026';
+      // Parse "Mon yyyy" into a display date — show as-is since it's a curated string
       var searchUrl='https://www.google.com/search?q='+encodeURIComponent(ttl.slice(0,70))+'&tbm=nws';
-      var inner='<div class="chd"></div><div class="cht">'+ttl+'<br><span class="chs">'+src+' \u00b7 '+rawDt+'</span></div>';
+      var inner='<div class="chd"></div><div class="cht">'+ttl+'<br><span class="chs">'+src+' · '+rawDt+'</span></div>';
       return '<div class="chl"><a href="'+searchUrl+'" target="_blank" style="color:inherit;text-decoration:none;display:flex;gap:6px;width:100%">'+inner+'</a></div>';
     }).join('');
   }
@@ -1405,39 +1416,28 @@ function renderCards(hls){
   var wZ=ZONES.filter(function(z){return WATCH_IDS.indexOf(z.id)>=0;});
   var rZ=ZONES.filter(function(z){return REGIONAL_IDS.indexOf(z.id)>=0;});
   grid.innerHTML=
-    sLabel('#FEF0F0','#E24B4A','#A32D2D','\u25cf Active Conflicts \u2014 Ongoing, High Urgency')+
+    sLabel('#FEF0F0','#E24B4A','#A32D2D','● Active Conflicts — Ongoing, High Urgency')+
     aZ.map(function(z){return makeZoneCard(z,hls);}).join('')+
-    sLabel('#FFF8F0','#EF9F27','#854F0B','\u25b6 Escalation Watch \u2014 Elevated tensions, no open daily conflict')+
+    sLabel('#FFF8F0','#EF9F27','#854F0B','▶ Escalation Watch — Elevated tensions, no open daily conflict')+
     wZ.map(function(z){return makeZoneCard(z,hls);}).join('')+
-    sLabel('#F0FAFA','#3DBFB0','#0f6e66','\u25a0 Regional Monitoring')+
+    sLabel('#F0FAFA','#3DBFB0','#0f6e66','■ Regional Monitoring')+
     rZ.map(function(z){return makeZoneCard(z,hls);}).join('');
 }
 
 async function loadHeadlines(){
-  // Show cards immediately with fallback text while fetching
   renderCards([]);
-
   try{
-    var ctrl=new AbortController();
-    var timer=setTimeout(function(){ctrl.abort();},15000);
-    var r=await fetch(RSS_WORKER,{cache:'no-store',signal:ctrl.signal});
-    clearTimeout(timer);
-    var d=await r.json();
-    if(d.items&&d.items.length>0){
-      allHL=d.items;
-      renderCards(allHL);
+    // Overall timeout: if all feeds take > 12s, render with whatever we have
+    var timeout = new Promise(function(res){ setTimeout(res, 12000); });
+    var fetches = Promise.allSettled(FEEDS.map(fetchFeed));
+    var results = await Promise.race([fetches, timeout.then(function(){ return []; })]);
+    if(Array.isArray(results)){
+      allHL=results.reduce(function(acc,r){return r.status==='fulfilled'?acc.concat(r.value):acc;},[]);
+      if(allHL.length>0) renderCards(allHL);
     }
-  }catch(e){}
-
+  } catch(e){}
   var tsEl=document.getElementById('confTs');
   if(tsEl) tsEl.textContent=wib();
-
-  // Schedule next auto-refresh in 30 minutes
-  if(_headlinesRefreshTimer) clearTimeout(_headlinesRefreshTimer);
-  _headlinesRefreshTimer=setTimeout(function(){
-    var geoSec=document.getElementById('s-geopolitics');
-    if(geoSec&&geoSec.classList.contains('active')) loadHeadlines();
-  }, 30*60*1000);
 }
 
 // ── DISASTER RISKS ──
@@ -1612,9 +1612,9 @@ async function loadVolcanoes(){
 var _lastFIRMSLines=null;
 var _lastFIRMSTimestamp='';
 
-var FIRMS_WORKER = 'https://iif-monitor.iifa.workers.dev/firms';
-
 async function loadFIRMS(){
+  var key=document.getElementById('firmsKey');
+  var k=key?key.value:'322f08c70ec8bb383d8b6f28c002a894';
   var cntEl=document.getElementById('fireCnt');
   var hiEl=document.getElementById('fireHigh');
   var altEl=document.getElementById('fireAlert');
@@ -1690,28 +1690,39 @@ async function loadFIRMS(){
     if(altEl){altEl.textContent='See FIRMS';altEl.style.color='var(--teal)';}
     if(provEl) provEl.innerHTML=
       '<div style="padding:6px 0">'+
-      '<div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:5px">Fire data temporarily unavailable</div>'+
-      '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;line-height:1.5">View live fire hotspot data at NASA FIRMS directly:</div>'+
+      '<div style="font-size:11px;font-weight:600;color:var(--text);margin-bottom:5px">NASA FIRMS API blocked by CORS</div>'+
+      '<div style="font-size:10px;color:var(--text2);margin-bottom:10px;line-height:1.5">Browser security prevents direct API access. View fire data at NASA FIRMS directly:</div>'+
       '<div style="display:flex;gap:8px;flex-wrap:wrap">'+
       '<a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@118,-2,6z" target="_blank" style="background:var(--navy);color:#fff;padding:6px 12px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">FIRMS Live Map \u2192</a>'+
       '<a href="https://firms.modaps.eosdis.nasa.gov/country/IDN" target="_blank" style="background:var(--navy);color:#fff;padding:6px 12px;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none">Indonesia Dashboard \u2192</a>'+
       '</div></div>';
   }
 
-  // Route through Worker — API key is hidden server-side
+  var directUrl='https://firms.modaps.eosdis.nasa.gov/api/area/csv/'+k+'/VIIRS_SNPP_NRT/95,-11,141,6/1';
+
+  // Try 1: direct
   try{
-    var ctrl=new AbortController();
-    var timer=setTimeout(function(){ctrl.abort();},12000);
-    var r=await fetch(FIRMS_WORKER+'?days=1',{cache:'no-store',signal:ctrl.signal});
-    clearTimeout(timer);
-    var csv=await r.text();
-    var lines=parseCSV(csv);
-    if(lines){
-      if(lines.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}
-      renderFire(lines,false);
-      return;
-    }
-  }catch(e){}
+    var r1=await fetch(directUrl,{cache:'no-store'});
+    var t1=await r1.text();
+    var l1=parseCSV(t1);
+    if(l1){if(l1.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}renderFire(l1,false);return;}
+  }catch(e1){}
+
+  // Try 2: allorigins proxy
+  try{
+    var r2=await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(directUrl),{cache:'no-store'});
+    var d2=await r2.json();
+    var l2=parseCSV(d2.contents||'');
+    if(l2){if(l2.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}renderFire(l2,false);return;}
+  }catch(e2){}
+
+  // Try 3: corsproxy.io
+  try{
+    var r3=await fetch('https://corsproxy.io/?'+encodeURIComponent(directUrl),{cache:'no-store'});
+    var t3=await r3.text();
+    var l3=parseCSV(t3);
+    if(l3){if(l3.length===0&&_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}renderFire(l3,false);return;}
+  }catch(e3){}
 
   if(_lastFIRMSLines&&_lastFIRMSLines.length>0){renderFire(_lastFIRMSLines,true);return;}
   showFIRMSFallback();
@@ -1924,7 +1935,7 @@ async function loadWeatherForCoords(lat,lon){
 }
 
 // ── inaRISK BNPB ──────────────────────────────────────────
-var BNPB_WORKER = 'https://iif-monitor.iifa.workers.dev/bnpb';
+var BNPB_WORKER = 'https://iifa-gdelt-proxy.yusya-fitrachman.workers.dev/bnpb';
 var bnpbLoaded = false;
 
 var HAZARD_LAYERS = [
@@ -2137,6 +2148,287 @@ function renderRiskTable(){
 }
 
 // ── INIT ──
+// =========================================================
+// AI WORKER WIRING v2 (schema v2, dashboard v12.3.0)
+// Source: https://iifa-ai.iifa.workers.dev (Claude Haiku, KV cache)
+// Geopolitics tab fully AI-driven. Diplomacy alerts uses old-style.
+// =========================================================
+var AI_WORKER_BASE = 'https://iifa-ai.iifa.workers.dev';
+
+function aiEscape(s){
+  if(s==null) return '';
+  return String(s).replace(/[&<>"']/g, function(c){
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+  });
+}
+
+function aiAge(iso){
+  if(!iso) return '';
+  var t = new Date(iso);
+  var ageH = (Date.now() - t.getTime()) / 3600000;
+  if(ageH < 1) return Math.round(ageH*60)+'m ago';
+  if(ageH < 24) return Math.round(ageH)+'h ago';
+  return Math.round(ageH/24)+'d ago';
+}
+
+function aiAgeColor(iso){
+  if(!iso) return '#A32D2D';
+  var ageH = (Date.now() - new Date(iso).getTime()) / 3600000;
+  return ageH < 16 ? '#0f6e66' : (ageH < 40 ? '#854F0B' : '#A32D2D');
+}
+
+// ----- Intensity / exposure visual mapping -----
+var INTENSITY_THEME = {
+  active:  {bg:'#FEF0F0', color:'#A32D2D', border:'#E24B4A', label:'Active conflict', badge:'br'},
+  watch:   {bg:'#FFF8F0', color:'#854F0B', border:'#EF9F27', label:'Escalation watch', badge:'ba'},
+  stable:  {bg:'#F0FAFA', color:'#0f6e66', border:'#3DBFB0', label:'Stable monitoring', badge:'bt'},
+  dormant: {bg:'#f5f5f5', color:'#888',    border:'#bbb',    label:'Dormant', badge:'bb'}
+};
+
+var EXPOSURE_LABEL = {
+  'direct':              'Direct exposure',
+  'regional':            'Regional / ASEAN',
+  'indirect-economic':   'Indirect economic',
+  'indirect-political':  'Indirect political',
+  'wide-context':        'Wide context'
+};
+
+// ----- Outlet flag → small italic suffix -----
+function aiOutletLabel(article){
+  var label = aiEscape(article.outlet || article.domain || 'source');
+  var flag = article.flag;
+  if(!flag) return label;
+  var flagText;
+  if(flag === 'state') flagText = 'state';
+  else if(flag === 'state-aff') flagText = 'state-aff.';
+  else if(flag === 'opposition') flagText = 'opposition';
+  else if(flag === 'exile') flagText = 'exile';
+  else flagText = flag;
+  var country = article.country ? ', '+aiEscape(article.country) : '';
+  return label + ' <em style="font-style:italic;color:#888;font-size:9px">('+flagText+country+')</em>';
+}
+
+// ----- Coverage meter rendering -----
+function aiCoverageMeter(cb){
+  if(!cb || !cb.total) return '';
+  var indep = cb.independent || 0;
+  var state = cb.state || 0;
+  var opp = cb.opposition || 0;
+  var exile = cb.exile || 0;
+  var bar =
+    '<span style="display:inline-block;width:100%;height:5px;background:#eee;border-radius:3px;overflow:hidden;vertical-align:middle">' +
+      (indep ? '<span style="display:inline-block;width:'+indep+'%;height:100%;background:#3DBFB0"></span>' : '') +
+      (state ? '<span style="display:inline-block;width:'+state+'%;height:100%;background:#E24B4A"></span>' : '') +
+      (opp   ? '<span style="display:inline-block;width:'+opp+'%;height:100%;background:#854F0B"></span>' : '') +
+      (exile ? '<span style="display:inline-block;width:'+exile+'%;height:100%;background:#666"></span>' : '') +
+    '</span>';
+  var parts = [];
+  if(indep) parts.push(indep+'% independent');
+  if(state) parts.push(state+'% state');
+  if(opp)   parts.push(opp+'% opposition');
+  if(exile) parts.push(exile+'% exile');
+  return '<div style="font-size:9px;color:var(--text2);margin-top:4px">Source balance ('+cb.total+' articles): '+parts.join(' / ')+
+         '</div><div style="margin-top:2px">'+bar+'</div>';
+}
+
+// ----- Articles list (clickable links) -----
+function aiArticlesList(articles){
+  if(!articles || !articles.length) return '';
+  var items = articles.map(function(a){
+    var titleEsc = aiEscape(a.title);
+    var url = a.url || '#';
+    return '<li style="margin-bottom:3px"><a href="'+aiEscape(url)+'" target="_blank" rel="noopener" style="color:#0D3D5F;text-decoration:none">'+
+           '<span style="font-size:10px">'+titleEsc+'</span></a> '+
+           '<span style="font-size:9px;color:var(--text2)">— '+aiOutletLabel(a)+'</span></li>';
+  }).join('');
+  return '<ul style="margin:6px 0 0 0;padding:0 0 0 14px;list-style:disc">'+items+'</ul>';
+}
+
+// ----- Single zone card -----
+function aiZoneCard(z){
+  var theme = INTENSITY_THEME[z.intensity] || INTENSITY_THEME.stable;
+  var exposureLabel = EXPOSURE_LABEL[z.exposure] || z.exposure || '';
+  return '<div style="background:#fff;border:0.5px solid var(--border);border-left:4px solid '+theme.border+';border-radius:var(--r);padding:11px 13px">' +
+    // Header: title + intensity badge + exposure tag
+    '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px">' +
+      '<div>' +
+        '<div style="font-size:13px;font-weight:700;color:#0D3D5F">'+aiEscape(z.zone_name)+'</div>' +
+        '<div style="font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:0.4px;margin-top:1px">'+aiEscape(exposureLabel)+'</div>' +
+      '</div>' +
+      '<span class="badge '+theme.badge+'" style="white-space:nowrap">'+aiEscape(theme.label)+'</span>' +
+    '</div>' +
+    // Intensity reason
+    (z.intensity_reason ? '<div style="font-size:10px;font-style:italic;color:'+theme.color+';margin-bottom:5px">'+aiEscape(z.intensity_reason)+'</div>' : '') +
+    // Summary (main body)
+    (z.summary ? '<div style="font-size:11px;color:var(--text);line-height:1.5;margin-bottom:6px">'+aiEscape(z.summary)+'</div>' : '') +
+    // Indonesia angle
+    (z.indonesia_angle ? '<div style="font-size:10px;color:#0D3D5F;background:#f0f7fa;border-radius:4px;padding:5px 7px;margin-bottom:6px"><strong>&#127470;&#127465; Indonesia angle:</strong> '+aiEscape(z.indonesia_angle)+'</div>' : '') +
+    // Articles list
+    aiArticlesList(z.articles) +
+    // Coverage meter
+    aiCoverageMeter(z.coverage_balance) +
+    // Footer: key event date
+    (z.key_event_date ? '<div style="font-size:9px;color:var(--text2);margin-top:5px;text-align:right">Most recent event: '+aiEscape(z.key_event_date)+'</div>' : '') +
+  '</div>';
+}
+
+// ----- Group cards by intensity -----
+function aiGroupHeader(intensity, count){
+  var theme = INTENSITY_THEME[intensity];
+  return '<div style="padding:7px 12px;background:'+theme.bg+';border-radius:var(--r);border-left:4px solid '+theme.border+';margin-bottom:8px">' +
+    '<span style="font-size:10px;font-weight:800;color:'+theme.color+';letter-spacing:0.6px;text-transform:uppercase">'+
+    aiEscape(theme.label.toUpperCase())+' &mdash; '+count+' zone'+(count!==1?'s':'')+
+    '</span></div>';
+}
+
+function renderAIZones(matrix){
+  var container = document.getElementById('aiZonesContainer');
+  if(!container || !matrix) return false;
+
+  // Filter dormant out of grid; collect dormant for footer note
+  var nonDormant = matrix.filter(function(z){ return !z.dormant && z.intensity !== 'dormant'; });
+  var dormantZones = matrix.filter(function(z){ return z.dormant || z.intensity === 'dormant'; });
+
+  // Group by intensity
+  var groups = {active:[], watch:[], stable:[]};
+  nonDormant.forEach(function(z){
+    var key = z.intensity;
+    if(!groups[key]) groups[key] = [];
+    groups[key].push(z);
+  });
+
+  var html = '';
+  ['active','watch','stable'].forEach(function(level){
+    var zones = groups[level] || [];
+    if(!zones.length) return;
+    html += aiGroupHeader(level, zones.length);
+    html += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:6px">' +
+            zones.map(aiZoneCard).join('') +
+            '</div>';
+  });
+
+  if(!html){
+    container.innerHTML = '<div style="text-align:center;padding:30px;color:var(--text2);font-size:11px">No active zones in current cycle.</div>';
+  } else {
+    container.innerHTML = html;
+  }
+
+  // Dormant footer
+  var dormantBox = document.getElementById('aiDormantNote');
+  if(dormantBox){
+    if(dormantZones.length){
+      dormantBox.style.display = 'block';
+      dormantBox.innerHTML = '<strong>Currently dormant zones</strong> (no articles in current cycle, hidden from grid): '+
+        dormantZones.map(function(z){ return aiEscape(z.zone_name); }).join(' &middot; ') +
+        '. Will re-emerge automatically when articles are detected.';
+    } else {
+      dormantBox.style.display = 'none';
+    }
+  }
+  return true;
+}
+
+function renderAIExposureV2(exposure){
+  var box = document.getElementById('aiExposureBody');
+  if(!box) return false;
+  if(!exposure || !exposure.length){
+    box.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:18px;color:var(--text2);font-size:11px">No exposure cards in current cycle.</div>';
+    return false;
+  }
+  var styleFor = function(sev){
+    var s = (sev||'').toLowerCase();
+    if(s==='critical' || s==='high') return {bg:'#FEF0F0', color:'#A32D2D', border:'#E24B4A'};
+    if(s==='medium')                 return {bg:'#FAEEDA', color:'#854F0B', border:'#EF9F27'};
+    return                                  {bg:'#f0f8f4', color:'#0f6e66', border:'#3DBFB0'};
+  };
+  box.innerHTML = exposure.map(function(e){
+    var st = styleFor(e.severity);
+    var related = (e.related_zones && e.related_zones.length)
+      ? '<div style="font-size:9px;color:var(--text2);margin-top:4px">Related: '+e.related_zones.map(aiEscape).join(', ')+'</div>'
+      : '';
+    return '<div style="padding:9px 11px;background:'+st.bg+';border-radius:var(--r);border-left:3px solid '+st.border+'">' +
+      '<div style="font-size:10px;font-weight:700;color:'+st.color+';text-transform:uppercase;letter-spacing:0.4px">'+aiEscape(e.severity||'')+'</div>' +
+      '<div style="font-size:11px;font-weight:700;color:#0D3D5F;margin-top:2px">'+aiEscape(e.title)+'</div>' +
+      '<div style="font-size:10px;color:var(--text2);margin-top:3px;line-height:1.45">'+aiEscape(e.description)+'</div>' +
+      related +
+      '</div>';
+  }).join('');
+  return true;
+}
+
+function loadAIGeopolitics(){
+  var badge = document.getElementById('aiGeoBadge');
+  if(badge) badge.innerHTML = 'fetching from worker…';
+  fetch(AI_WORKER_BASE + '/ai/geopolitics', {cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+    .then(function(d){
+      renderAIZones(d.matrix || []);
+      renderAIExposureV2(d.exposure || []);
+      if(badge){
+        var fh = (d._fetch_health) || null;
+        var sourceCounts = fh ? (fh.ok+'/'+fh.total+' zones with articles') : '';
+        badge.innerHTML = '<span style="color:'+aiAgeColor(d.generated_at_iso)+'">'+aiAge(d.generated_at_iso)+
+                          (sourceCounts ? ' &middot; '+sourceCounts : '')+'</span>';
+      }
+    })
+    .catch(function(err){
+      console.warn('[AI Geo v2] failed:', err);
+      var container = document.getElementById('aiZonesContainer');
+      if(container) container.innerHTML = '<div style="text-align:center;padding:40px;color:#A32D2D;font-size:11px">AI worker offline. Try refreshing the page.<br><span style="color:var(--text2)">'+aiEscape(err.message)+'</span></div>';
+      if(badge) badge.innerHTML = '<span style="color:#A32D2D">offline</span>';
+    });
+}
+
+// ----- Diplomacy alerts (legacy schema, kept for v12.3.0; will refactor in v12.4) -----
+function aiAlertStyle(severity){
+  var s = (severity||'').toLowerCase();
+  if(s==='critical' || s==='high')        return {bg:'#fff8f8', border:'#f5c6c6', accent:'#E24B4A', color:'#E24B4A', emoji:'&#x1F6A8;'};
+  if(s==='warning' || s==='medium' || s==='elevated') return {bg:'#fffbf0', border:'#f5dfa0', accent:'#EF9F27', color:'#854F0B', emoji:'&#x26A0;'};
+  return                                          {bg:'#f0f8f4', border:'#b8e0cc', accent:'#3DBFB0', color:'#0f6e66', emoji:'&#x1F4CB;'};
+}
+
+function renderAIAlertsV2(alerts){
+  var grid = document.getElementById('aiAlertsGrid');
+  if(!grid || !alerts || !alerts.length) return false;
+  grid.innerHTML = alerts.map(function(a){
+    var st = aiAlertStyle(a.severity);
+    var emoji = a.emoji || st.emoji;
+    var sourceLine = '';
+    if(a.articles && a.articles.length){
+      sourceLine = a.articles.map(function(art){
+        return '<a href="'+aiEscape(art.url||'#')+'" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none">'+aiOutletLabel(art)+'</a>';
+      }).join(' &middot; ');
+    }
+    return '<div style="background:'+st.bg+';border:1px solid '+st.border+';border-left:4px solid '+st.accent+';border-radius:8px;padding:10px 12px">'
+      + '<div style="font-size:9px;font-weight:800;color:'+st.color+';text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px">'+emoji+' '+aiEscape(a.category_label||'Event')+'</div>'
+      + '<div style="font-size:11px;font-weight:700;color:#0D3D5F;margin-bottom:4px">'+aiEscape(a.title)+'</div>'
+      + '<div style="font-size:10px;color:#5a7a90;line-height:1.5">'+aiEscape(a.summary || a.description || '')+'</div>'
+      + (sourceLine ? '<div style="font-size:9px;color:var(--text2);margin-top:6px">'+aiEscape(a.date_display||'')+(sourceLine?' &mdash; '+sourceLine:'')+'</div>' : '')
+      + '</div>';
+  }).join('');
+  return true;
+}
+
+function loadAIDiplomacyAlerts(){
+  var badge = document.getElementById('aiAlertsBadge');
+  fetch(AI_WORKER_BASE + '/ai/diplomacy', {cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+    .then(function(d){
+      var rendered = renderAIAlertsV2(d.alerts);
+      if(badge){
+        if(rendered){
+          badge.innerHTML = '<span style="color:'+aiAgeColor(d.alerts_generated_at)+'">'+aiAge(d.alerts_generated_at)+'</span>';
+        } else {
+          badge.innerHTML = '<span style="color:#A32D2D">no alerts</span>';
+        }
+      }
+    })
+    .catch(function(err){
+      console.warn('[AI Diplo] failed:', err);
+      if(badge) badge.innerHTML = '<span style="color:#A32D2D">offline</span>';
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('.nb[data-sec]').forEach(function(btn){
     btn.addEventListener('click', function(){ showSec(this.dataset.sec, this); });
@@ -2148,10 +2440,11 @@ document.addEventListener('DOMContentLoaded', function(){
     btn.addEventListener('click', function(){ setAsset(this.dataset.asset, this); });
   });
   renderRiskTable();
+  loadAIGeopolitics();
+  loadAIDiplomacyAlerts();
 });
 
 loadRates();
-loadHeadlines();
 setTimeout(function(){ loadMacroData(); }, 1000);
 </script>
 </body>
